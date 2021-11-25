@@ -50,7 +50,7 @@ module.exports = {
   module: {
     rules: [
       // JavaScript, React
-      
+
       {
         test: /\.m?jsx?$/i,
         exclude: /node_modules/,
@@ -73,7 +73,10 @@ module.exports = {
           'style-loader',
           {
             loader: 'css-loader',
-            options: { importLoaders: 1 }
+            options: {
+              importLoaders: 1,
+              url: true
+            }
           },
           'sass-loader'
         ]
