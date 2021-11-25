@@ -1,25 +1,32 @@
-import React, { StrictMode } from 'react'
+import React from 'react'
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from 'react-redux'
+
+import store from './modules/redux/redux-store';
+
 import { render } from 'react-dom'
 // components
-import { App } from './App'
-// styles
-import 'bootstrap/dist/css/bootstrap.min.css'
+import App from './App'
 
-console.log(process.env.SECRET)
+export const startApp = (state, store) => {
+  
+  ReactDOM.render(
 
-import logo from './assets/logo.png'
-
-const imgStyles = {
-  width: '100px',
-  display: 'block',
-  margin: '0.5rem auto 0'
+    <React.StrictMode>
+      <BrowserRouter>
+        <Provider store={store}>
+          <App store={store} state={state} dispatch={store.dispatch.bind(store)} />
+        </Provider>
+      </BrowserRouter>
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
 }
-
-const rootEl = document.getElementById('root')
-render(
-  <StrictMode>
-    <img src={logo} alt='#' style={imgStyles} />
-    <App />
-  </StrictMode>,
-  rootEl
-)
+let state = store.getState()
+startApp(state, store);
+store.subscribe(() => {
+  
+  
+  startApp(state, store);
+})
