@@ -1,7 +1,7 @@
 import DeleteWhite from "./img/DeleteWhite.svg";
 import deleteBlack from "./img/delete_black.svg";
 import "./buttons.css";
-import ResetButton from './reset';
+import ResetButton from './reset.styled';
 import { connect } from "react-redux";
 
 

@@ -1,4 +1,4 @@
-import style from "./main.module.css"
+import  "./main.css"
 import Complect from "../complect/complect"
 // import ResultContainer from "../result/resultContainer"
 // import BlocksOfInfoblocksContainer from "../infoblocks/blocksOfInfoblocks-Container"
@@ -29,15 +29,15 @@ const Main = (props) => {
     return (
         <div className={props.className}>
 
-            <div className={style.main}>
+            <div className={'main'}>
 
-                <div className={style.form__complect}>
+                <div className={'form__complect'}>
 
                     <Complect />
 
                 </div>
 
-                <div className={style.infoblocks}>
+                <div className={'infoblocks'}>
                 {/* <BlocksOfInfoblocksContainer /> */}
 
                 </div>

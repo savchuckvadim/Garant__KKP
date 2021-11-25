@@ -2,12 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux'
+import { ThemeProvider } from 'styled-components'
+
 
 import store from './modules/redux/redux-store';
 
 import { render } from 'react-dom'
 // components
 import App from './App'
+import { theme } from './styles/theme';
 
 export const startApp = (state, store) => {
   
@@ -16,7 +19,9 @@ export const startApp = (state, store) => {
     <React.StrictMode>
       <BrowserRouter>
         <Provider store={store}>
+        <ThemeProvider theme={theme}>
           <App store={store} state={state} dispatch={store.dispatch.bind(store)} />
+          </ThemeProvider>
         </Provider>
       </BrowserRouter>
     </React.StrictMode>,

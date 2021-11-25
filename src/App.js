@@ -2,7 +2,6 @@
 import Header from './modules/components/header/header'
 import Main from './modules/components/main/main'
 import './App.css'
-
 const App = (props) => {
   
     let currentTheme = props.state.theme.style[props.state.theme.indexOfTheme]

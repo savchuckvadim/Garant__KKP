@@ -1,6 +1,6 @@
 import { Input } from "@material-ui/core"
 import React from "react"
-import styleClass from './phoneNumber.module.css'
+import './phoneNumber.css'
 
 
 
@@ -14,7 +14,7 @@ const PhoneNumber = (props) => {
         key={'phoneNumberInputText'}
         name={'phoneNumberInputText'}
 
-            className={styleClass.phoneInput}
+            className="phoneInput"
             style={props.style}
             placeholder="+7 800 700 03 94"
             ref={phoneRef}
