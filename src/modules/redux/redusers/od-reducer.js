@@ -23,13 +23,13 @@ let initialState = {
 
 
 
-export const odChangeActionCreator = (state, name, currentComplect) => {
+export const odChangeActionCreator = (name, currentComplect) => {
 debugger
     return {
         type: CHANGE_CURRENT_OD,
         name: name,
         currentComplect: currentComplect,
-        ods: state.od.names
+        
     }
 }
 

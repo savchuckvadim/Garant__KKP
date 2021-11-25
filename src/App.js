@@ -1,9 +1,6 @@
-import { TodoProvider } from '@/context'
-// styles
-import { Container } from 'react-bootstrap'
-// components
-import { TodoForm, TodoList, TodoFilters, TodoControls } from '@/components'
+
 import Header from './modules/components/header/header'
+import Main from './modules/components/main/main'
 import './App.css'
 
 const App = (props) => {
@@ -24,7 +21,8 @@ const App = (props) => {
 
       <div ref={mainClassRef} className={currentTheme.currentMainClass}>
       
-        <Header store={props.store} style={style} state={props.state} dispatch={props.dispatch} mainClass={mainClassRef} />
+        <Header style={style} mainClass={mainClassRef} />
+        <Main className={currentTheme.currentMainClass}  style={style} />
       </div>
 
     )
