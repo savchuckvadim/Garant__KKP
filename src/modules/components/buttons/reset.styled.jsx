@@ -1,12 +1,12 @@
 import Button from '@material-ui/core/Button';
-// import  "./buttons.css";
+import  "./buttons.css";
 import styled from 'styled-components';
 
 
 const ResetButton = (props) => {
  
    const Button = styled.button`
-   background-color: black,
+   background-color: ${props => props.theme.backgroundColor},
    border-radius: 2px !important,
    height: 54px;
 

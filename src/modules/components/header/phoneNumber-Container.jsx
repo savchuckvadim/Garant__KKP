@@ -12,10 +12,10 @@ let mapStateToProps = (state) => {
         value: state.phoneNumber.value,
         width: state.phoneNumber.value.length,
 
-        style: {
-            color: state.theme.style[state.theme.indexOfTheme].color,
-            textColor: state.theme.style[state.theme.indexOfTheme].textColor
-        }
+        // style: {
+        //     color: state.theme.style[state.theme.indexOfTheme].color,
+        //     textColor: state.theme.style[state.theme.indexOfTheme].textColor
+        // }
     }
 }
 let mapDispatchToProps = (dispatch) => {

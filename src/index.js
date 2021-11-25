@@ -20,7 +20,7 @@ export const startApp = (state, store) => {
       <BrowserRouter>
         <Provider store={store}>
         <ThemeProvider theme={theme}>
-          <App store={store} state={state} dispatch={store.dispatch.bind(store)} />
+          <App state={state} />
           </ThemeProvider>
         </Provider>
       </BrowserRouter>

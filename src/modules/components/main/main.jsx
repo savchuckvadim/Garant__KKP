@@ -9,22 +9,7 @@ import Complect from "../complect/complect"
 
 const Main = (props) => {
     
-//    let state = props.store.getState()
 
-    // const result = () => {
-    //     if(state.currentComplect){
-    //         return (
-    //             <div style={styleResult} className={style.result__container}>
-    //                 <ResultContainer />
-    //             </div>
-    //         )
-    //     }
-    // }
-
-
-    let styleResult = {
-        color: props.style.color
-    }
 
     return (
         <div className={props.className}>

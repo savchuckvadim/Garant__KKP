@@ -19,9 +19,8 @@ const App = (props) => {
     return (
 
       <div ref={mainClassRef} className={currentTheme.currentMainClass}>
-      
-        <Header style={style} mainClass={mainClassRef} />
-        <Main className={currentTheme.currentMainClass}  style={style} />
+        <Header mainClass={mainClassRef} />
+        <Main className={currentTheme.currentMainClass} />
       </div>
 
     )
