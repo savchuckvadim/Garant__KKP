@@ -50,10 +50,15 @@ module.exports = {
   module: {
     rules: [
       // JavaScript, React
+      
       {
         test: /\.m?jsx?$/i,
         exclude: /node_modules/,
         use: babelLoader
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack', 'url-loader'],
       },
       // TypeScript
       {
@@ -80,9 +85,22 @@ module.exports = {
       },
       // static files
       {
-        test: /\.(jpe?g|png|gif|svg|eot|ttf|woff2?)$/i,
-        type: 'asset'
-      }
+        test: /\.(jpe?g|png|gif|eot|ttf|woff2?)$/i,
+        type: 'asset/inline'
+      },
+      // {
+      //   test: /\.svg$/,
+      //   use: [
+      //     {
+      //       loader: 'svg-url-loader',
+      //       options: {
+      //         limit: 10000,
+      //       },
+      //     },
+      //   ],
+      // },
+
+
     ]
   },
   plugins: [
