@@ -29,6 +29,5 @@ export const modal = (state = initialState, action) => {
         return changeShow(state, action.show)
         
     }
-    return state
-   
+    return state 
 }
