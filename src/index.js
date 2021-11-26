@@ -16,15 +16,15 @@ export const startApp = (state, store) => {
   
   ReactDOM.render(
 
-    <React.StrictMode>
+    // <React.StrictMode>
       <BrowserRouter>
         <Provider store={store}>
         <ThemeProvider theme={theme}>
           <App state={state} />
           </ThemeProvider>
         </Provider>
-      </BrowserRouter>
-    </React.StrictMode>,
+      </BrowserRouter>,
+    // </React.StrictMode>,
     document.getElementById('root')
   );
 }

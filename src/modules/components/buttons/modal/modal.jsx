@@ -22,21 +22,21 @@ import ResetButtonContainer from '../reset-Container'
 const ModalButton = (props) => {
 
 
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-// let title = props.title
+  // const [show, setShow] = useState(false);
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
+
 
   return (
     <>
-      <Button style={props.styleBtnModal} variant="otline" onClick={handleShow} className={'btn__modal'}>
-        {props.currentComplect ? props.currentComplect.name : 'Выберите комплект'}
-        {/* {title} */}
+      <Button style={props.styleBtnModal} variant="otline" onClick={props.handleShow} className={'btn__modal'}>
+        {props.title}
+
       </Button>
 
       <Modal
-        show={show}
-        onHide={handleClose}
+        show={props.show}
+        onHide={props.handleClose}
         size="lg"
 
 
@@ -63,7 +63,7 @@ const ModalButton = (props) => {
 
         </Modal.Body>
         <Modal.Footer style={props.styleTheme}>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={props.handleClose}>
             Закрыть
           </Button>
           {/* <Button variant="primary" onClick={handleClose}>

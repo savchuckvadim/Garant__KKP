@@ -2,7 +2,7 @@ import "./complect.css"
 import ComplectButtonsContainer from "../buttons/buttons-Container";
 import ODButtonsContainer from "../buttons/od-Container";
 import ResetButtonContainer from "../buttons/reset-Container";
-import ModalButton from "../buttons/modal/modal";
+import ModalContainer from "../buttons/modal/modal-Container";
 
 
 
@@ -27,7 +27,7 @@ const Complect = () => {
             </div>
 
             <div className={'container__modal'}>
-                <ModalButton />
+                <ModalContainer />
             </div>
         </form>
     )

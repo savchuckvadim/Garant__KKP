@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { modalActionCreator } from "../../../redux/redusers/modal-reducer";
 import ModalButton from "./modal";
 
 
@@ -8,8 +9,11 @@ const mapStateToProps = (state) => {
     //currentColor
     //currentComplect
     //currentTheme
+    let show = state.modal.show
+   
     let currentComplect = state.currentComplect
     let currentTheme = state.theme.style[state.theme.indexOfTheme]
+
     let styleTheme = {
         color: currentTheme.color,
         backgrondColor: currentTheme.backgrondColor
@@ -35,16 +39,36 @@ const mapStateToProps = (state) => {
     let title = currentComplect ? currentComplect.name : 'Выберите комплект'
     return {
         currentComplect,
+        currentTheme,
         styleTheme,
-        styleBtnModal,
+        // styleBtnModal,
         title,
+        allComplects: state.allComplects,
+        styleBtnModal,
+        show
 
 
     }
 }
 const mapDispatchToProps = (dispatch) => {
-    //onclick handleShow
-    //onHide={handleClose}
+let actionClose = modalActionCreator(false)
+let actionShow = modalActionCreator(true)
+
+    return {
+        handleClose : () => {
+            console.log('close')
+            
+           return dispatch(actionClose)
+        },
+        handleShow : () => {
+            console.log('show')
+           
+
+            return dispatch(actionShow)
+        }
+    }
 }
 
 const ModalContainer = connect(mapStateToProps, mapDispatchToProps)(ModalButton)
+
+export default ModalContainer

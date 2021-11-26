@@ -12,6 +12,7 @@ import { priceReducer } from './redusers/price-reducer';
 // import { reset } from './redusers/reset-reducer';
 import { theme } from './redusers/theme-reducer';
 import { result } from './redusers/result-reducer';
+import { modal } from './redusers/modal-reducer';
 // import weightReducer from './redusers/weight-reduser';
 
 
@@ -42,7 +43,9 @@ let reducers = combineReducers({
     // weight: weightReducer,
     // reset,
     theme: theme,
-    result: result
+    result: result,
+    modal: modal,
+
 
 });
 let store = createStore(reducers)
