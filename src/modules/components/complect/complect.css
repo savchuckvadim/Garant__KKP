@@ -69,7 +69,8 @@
        
     }
     .container__modal {
-        padding: 0;
+        padding: 0 !important;
+        margin: 0 auto !important;
         width: 99% !important;
         padding-right: 1vh;
         margin: 0;

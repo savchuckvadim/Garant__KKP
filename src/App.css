@@ -108,6 +108,8 @@ p {
 
 body {
     font-family: 'Source Sans Pro' !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 .complect__title {

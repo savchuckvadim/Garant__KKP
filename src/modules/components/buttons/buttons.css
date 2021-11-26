@@ -169,9 +169,11 @@ background-color: none !important;
 
     .btn__modal{
         display: flex !important;
-        width: 90%;
+        width: 98%;
         justify-content: center;
         align-items: center;
+        padding: 0 !important;
+        margin: 0 auto !important;
       
     }
 

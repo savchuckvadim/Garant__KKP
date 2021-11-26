@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import "../buttons.css"
-import styleModal from "./modal.module.css"
-import headerStyle from "../../header/header.module.css"
+import  "./modal.css"
+// import "../../header/header.css"
 import logo from '../../header/img/logo-icon-solid-horizontal.svg'
 
 import "../../complect/complect.css"
@@ -47,7 +47,7 @@ const ModalButton = (props) => {
 
           </div>
         </Modal.Header> */}
-        <Modal.Body className={styleModal.body} style={props.styleTheme}>
+        <Modal.Body className="body" style={props.styleTheme}>
 
           {/* < ComplectModalButtons state={props.state} dispatch={props.dispatch}/>
 
