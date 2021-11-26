@@ -35,7 +35,7 @@ let mapStateToProps = (state, ownProps) => {
     }
 
     
-    debugger
+    
     return {
         nameOfproduct,
         value,

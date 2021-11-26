@@ -10,7 +10,7 @@ const InputText = (props) => {
 
     let refInput = React.createRef()
 
-    debugger
+    
     return (
         <Input
         name={`${props.act}-inputText`}

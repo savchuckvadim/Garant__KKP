@@ -30,15 +30,8 @@
 .btn__od,
 .btn__reset,
 
-.btn__modal,
+.btn__modal
 
-.btn__accountantModal,
-.btn__budget--modal,
-.btn__lawyer--modal,
-.btn__company--modal,
-.btn__od--modal,
-.btn__reset--modal,
-.modal__complect
 {
 
     height: 54px;
@@ -156,66 +149,47 @@ background-color: none !important;
 @media (max-width: 700px) {
 
     .btn__accountant,
-    .btn__budget,
-    .btn__bigAccountant,
-    .btn__bigBudget,
-    .btn__lawyer,
-    .btn__office,
-    .btn__company,
-    .btn__companyPro,
-    .btn__od,
-    .btn__reset,
-    .dropdown__od {
-       
-        display: none !important;
-    }
+.btn__budget,
+.btn__bigAccountant,
+.btn__bigBudget,
+.btn__lawyer,
+.btn__office,
+.btn__company,
+.btn__companyPro,
 
-
-    .btn__accountantModal,
-    .btn__budget--modal,
-    .btn__lawyer--modal,
-    .btn__ofice--modal,
-    .btn__company--modal,
-    .btn__companyPro--modal,
-    .btn__od--modal,
-    .btn__modal,
-    .dropdown__od--modal {
-        display: flex !important;  
-        justify-content: center;
-        align-items: center;
-        position: sticky;
-        top: 1vh;
-        grid-column-start: 1;
-        grid-column-end: 2;
-        width: 90vh;
+.btn__od,
+.btn__reset{
+        display: block !important;
+        width: 372px !important;
         
     }
 
+
+
+
     .btn__modal{
-        width: 100vh
+        display: flex !important;
+        width: 90%;
+        justify-content: center;
+        align-items: center;
+      
     }
 
 }
 
 @media (max-width: 322px) {
+    .btn__accountant,
+.btn__budget,
+.btn__bigAccountant,
+.btn__bigBudget,
+.btn__lawyer,
+.btn__office,
+.btn__company,
+.btn__companyPro,
 
-    .btns__complect,
-    .btn__budget,
-    .btn__accountantBig,
-    .btn__budgetBig,
-    .btn__lawyer,
-    .btn__company,
-    .btn__od,
-    .btn__reset,
-    .btn__modal,
-
-    .btn__accountant--modal,
-    .btn__budget--modal,
-    .btn__lawyer--modal,
-    .btn__company--modal,
-    .btn__od--modal,
-    .btn__reset--modal,
-    .modal__complect {
+.btn__od,
+.btn__reset
+{
 
         width: 275px !important;
         height: 45px  !important;

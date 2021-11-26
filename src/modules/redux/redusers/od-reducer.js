@@ -24,7 +24,7 @@ let initialState = {
 
 
 export const odChangeActionCreator = (name, currentComplect) => {
-debugger
+
     return {
         type: CHANGE_CURRENT_OD,
         name: name,

@@ -2,13 +2,15 @@
 import React, { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
-import style from "../button.module.css"
+import "../buttons.css"
 import styleModal from "./modal.module.css"
 import headerStyle from "../../header/header.module.css"
 import logo from '../../header/img/logo-icon-solid-horizontal.svg'
-import ResetButton from '../reset'
-import ComplectModalButtons from './modal.buttons'
-import ODModalButtons from './modal.od'
+
+import "../../complect/complect.css"
+import ComplectButtonsContainer from '../buttons-Container'
+import ODButtonsContainer from '../od-Container'
+import ResetButtonContainer from '../reset-Container'
 
 
 
@@ -18,48 +20,18 @@ import ODModalButtons from './modal.od'
 
 
 const ModalButton = (props) => {
-  
-  const styleFromState = props.state.currentStyle
-  //  props.dispatch(actionStyle)
-  const currentComplect = props.state.currentComplect 
-  // props.dispatch(actionCurrent)
 
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const styleTheme = {
-    backgroundColor: styleFromState.backgroundColor,
-    color: styleFromState.color,
-    transitionProperty: styleFromState.transitionProperty,
-    transitionDuration: styleFromState.transitionDuration,
-    transitionDelay: styleFromState.transitionDelay,
-    backgroundPosition: `center`,
+// let title = props.title
 
-    transform: `rotateZ(720deg)`
-  }
-  const currentColor = () => {
-    let color = props.state.theme.style[props.state.theme.indexOfTheme].backgroundColor
-    if (currentComplect) {
-      props.state.allComplects.forEach(element => {
-        if (element.name === currentComplect.name) {
-          color = element.color
-        }
-      })
-    }
-    return color
-  }
-  const styleBtnModal = {
-    backgroundColor: currentColor(),
-    color: props.state.theme.style[props.state.theme.indexOfTheme].color,
-    border: '1px solid',
-    borderColor:props.state.theme.style[props.state.theme.indexOfTheme].color,
-
-  }
   return (
     <>
-      <Button style={styleBtnModal} variant="otline" onClick={handleShow} className={style.btn__modal}>
-        {currentComplect ? currentComplect.name : 'Выберите комплект'}
+      <Button style={props.styleBtnModal} variant="otline" onClick={handleShow} className={'btn__modal'}>
+        {props.currentComplect ? props.currentComplect.name : 'Выберите комплект'}
+        {/* {title} */}
       </Button>
 
       <Modal
@@ -69,28 +41,34 @@ const ModalButton = (props) => {
 
 
       >
-        <Modal.Header closeButton style={styleTheme}>
+        {/* <Modal.Header closeButton style={props.styleTheme}>
           <div className={headerStyle.header__container}>
             <img className={headerStyle.header__logo} src={logo} alt="logo"></img>
 
           </div>
-        </Modal.Header>
-        <Modal.Body className={styleModal.body} style={styleTheme}>
+        </Modal.Header> */}
+        <Modal.Body className={styleModal.body} style={props.styleTheme}>
 
-          < ComplectModalButtons state={props.state} dispatch={props.dispatch}/>
+          {/* < ComplectModalButtons state={props.state} dispatch={props.dispatch}/>
 
           < ODModalButtons state={props.state} dispatch={props.dispatch}/>
 
-          <ResetButton state={props.state} dispatch={props.dispatch} />
+          <ResetButton state={props.state} dispatch={props.dispatch} /> */}
+          <div className={'container__small'}>
+
+            <ComplectButtonsContainer />
+            <ODButtonsContainer />
+            <ResetButtonContainer />
+          </div>
 
         </Modal.Body>
-        <Modal.Footer style={styleTheme}>
+        <Modal.Footer style={props.styleTheme}>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Закрыть
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
+          {/* <Button variant="primary" onClick={handleClose}>
+            Сохранить
+          </Button> */}
         </Modal.Footer>
       </Modal>
     </>

@@ -10,7 +10,6 @@ import React from 'react'
 const Theme = (props) => {
     let themeRef = React.createRef()
     let element = themeRef.current
-debugger
     let img 
     if(props.classOfTheme === "round__img"){
         img = Moon

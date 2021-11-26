@@ -2,6 +2,7 @@ import "./complect.css"
 import ComplectButtonsContainer from "../buttons/buttons-Container";
 import ODButtonsContainer from "../buttons/od-Container";
 import ResetButtonContainer from "../buttons/reset-Container";
+import ModalButton from "../buttons/modal/modal";
 
 
 
@@ -21,8 +22,12 @@ const Complect = () => {
 
                 <ComplectButtonsContainer />
                 <ODButtonsContainer />
-                <ResetButtonContainer /> 
-                 {/* <ModalButton state={props.state} dispatch={props.dispatch} /> */}
+                <ResetButtonContainer />
+                {/* <ModalButton state={props.state} dispatch={props.dispatch} /> */}
+            </div>
+
+            <div className={'container__modal'}>
+                <ModalButton />
             </div>
         </form>
     )
