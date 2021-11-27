@@ -16,7 +16,7 @@ const Header = (props) => {
       <NavLink as={Link} to='/main' > <img className="header__logo" src={logo} alt="logo"></img></NavLink>
       
         <div className="leftBlock">
-          <PhoneNumberContainer />
+          {/* <PhoneNumberContainer /> */}
           <ThemeContainer mainClass={props.mainClass}/>
         </div>
 

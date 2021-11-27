@@ -34,7 +34,7 @@ const mapStateToProps = (state) => {
         color: currentTheme.color,
         border: '1px solid',
         borderColor: currentTheme.color,
-
+      
     }
     let title = currentComplect ? currentComplect.name : 'Выберите комплект'
     return {
@@ -45,24 +45,24 @@ const mapStateToProps = (state) => {
         title,
         allComplects: state.allComplects,
         styleBtnModal,
-        show
+        show,
+        
 
 
     }
 }
 const mapDispatchToProps = (dispatch) => {
-let actionClose = modalActionCreator(false)
-let actionShow = modalActionCreator(true)
 
     return {
-        handleClose : () => {
-            console.log('close')
+        handleClose : (element) => {
+            let actionClose = modalActionCreator(false, element.current)
+
             
            return dispatch(actionClose)
         },
-        handleShow : () => {
-            console.log('show')
-           
+        handleShow : (element) => {
+            let actionShow = modalActionCreator(true, element.current)
+
 
             return dispatch(actionShow)
         }

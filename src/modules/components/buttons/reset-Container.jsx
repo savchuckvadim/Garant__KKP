@@ -17,7 +17,7 @@ let mapStateToProps = (state) => {
         // minWidth: '322px',
         height: '54px',
         width: '100%',
-        border: '2px solid',
+        border: '1px solid',
         borderColor: currentTheme.color,
 
         variant: 'light',
@@ -35,7 +35,7 @@ let mapStateToProps = (state) => {
         deleteIcon = DeleteWhite;
     }
     return {
-        resetStyle,
+        style: resetStyle,
         deleteIcon
     }
 

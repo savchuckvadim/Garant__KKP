@@ -26,13 +26,12 @@ let mapStateToProps = (state) => {
             flexDirection: 'row',
             flexWrap: 'nowrap',
             transitionProperty: 'background-color, transform, color',
-            transitionDuration: '5.5s',
+            transitionDuration: '1.5s',
             transitionDelay: '0.0s',
-            border: '2px solid',
+            border: '1px solid',
+            margin: 0.5,
             borderColor: borderColor,
-            '@media(maxWidth: 950px)': {
-                display: 'none'
-            },
+           
 
 
 

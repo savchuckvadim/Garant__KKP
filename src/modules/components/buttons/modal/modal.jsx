@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import "../buttons.css"
-import  "./modal.css"
-// import "../../header/header.css"
+import "./modal.css"
+import "../../header/header.css"
 import logo from '../../header/img/logo-icon-solid-horizontal.svg'
 
 import "../../complect/complect.css"
@@ -13,37 +13,31 @@ import ODButtonsContainer from '../od-Container'
 import ResetButtonContainer from '../reset-Container'
 
 
-
-
-
-
-
-
 const ModalButton = (props) => {
 
 
   // const [show, setShow] = useState(false);
   // const handleClose = () => setShow(false);
   // const handleShow = () => setShow(true);
-
+  let ref = React.createRef()
 
   return (
     <>
-      <Button style={props.styleBtnModal} variant="otline" onClick={props.handleShow} className={'btn__modal'}>
+      <Button ref={ref} style={props.styleBtnModal} variant="otline" onClick={() => { props.handleShow(ref) }} className={'btn__modal'}>
         {props.title}
 
       </Button>
 
       <Modal
         show={props.show}
-        onHide={props.handleClose}
-        size="lg"
+        onHide={() => { props.handleClose(ref) }}
+        size="fullscreen"
 
 
       >
         {/* <Modal.Header closeButton style={props.styleTheme}>
-          <div className={headerStyle.header__container}>
-            <img className={headerStyle.header__logo} src={logo} alt="logo"></img>
+          <div className="header__container">
+            <img className="header__logo" src={logo} alt="logo"></img>
 
           </div>
         </Modal.Header> */}
@@ -63,8 +57,8 @@ const ModalButton = (props) => {
 
         </Modal.Body>
         <Modal.Footer style={props.styleTheme}>
-          <Button variant="secondary" onClick={props.handleClose}>
-            Закрыть
+          <Button variant="secondary" onClick={() => { props.handleClose(ref) }}>
+           закрыть
           </Button>
           {/* <Button variant="primary" onClick={handleClose}>
             Сохранить
