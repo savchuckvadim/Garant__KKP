@@ -10,20 +10,20 @@ import store from './modules/redux/redux-store';
 import { render } from 'react-dom'
 // components
 import App from './App'
-import { theme } from './styles/theme';
+import { darkModeTheme, theme } from './styles/theme';
 
 export const startApp = (state, store) => {
-  
+
   ReactDOM.render(
 
     // <React.StrictMode>
-      <BrowserRouter>
-        <Provider store={store}>
-        <ThemeProvider theme={theme}>
+    <BrowserRouter>
+      <Provider store={store}>
+        <ThemeProvider theme={darkModeTheme}>
           <App state={state} />
-          </ThemeProvider>
-        </Provider>
-      </BrowserRouter>,
+        </ThemeProvider>
+      </Provider>
+    </BrowserRouter >,
     // </React.StrictMode>,
     document.getElementById('root')
   );
@@ -31,7 +31,7 @@ export const startApp = (state, store) => {
 let state = store.getState()
 startApp(state, store);
 store.subscribe(() => {
-  
-  
+
+
   startApp(state, store);
 })

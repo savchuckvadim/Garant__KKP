@@ -27,22 +27,19 @@
 .btn__office,
 .btn__company,
 .btn__companyPro,
-
 .btn__od,
 .btn__reset,
-
 .btn__modal {
 
-    height: 54px;
-    /* display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    border: 1 solid !important; */
+    
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
     transition-property: background-color, transform, color;
-    transition-duration: 0.5s;
-    transition-delay: 0.0s;
+    transition-duration: 1.1s !important;
+    transition-delay: 0.4s !important;
 
     font-style: bold !important;
     font-size: 11px !important;
@@ -53,12 +50,15 @@
 
     background-position: 36.4vh;
     background-repeat: no-repeat;
-
+    margin: 1%;
+    height: 54px;
+   
 
 }
 
 .btn__od {
     width: 100% !important;
+    
 }
 
 .od__label {

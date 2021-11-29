@@ -20,20 +20,9 @@ let mapStateToProps = (state) => {
         let styleOfButtons = {
             color: textColor,
             backgroundColor: complectColor,
-            height: '54px',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            flexDirection: 'row',
-            flexWrap: 'nowrap',
-            transitionProperty: 'background-color, transform, color',
-            transitionDuration: '1.5s',
-            transitionDelay: '0.0s',
             border: '1px solid',
-            margin: 0.5,
             borderColor: borderColor,
            
-
-
 
         }
 

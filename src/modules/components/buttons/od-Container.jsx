@@ -13,25 +13,13 @@ let mapStateToProps = (state) => {
   let currentComplect = state.currentComplect
   let allOds = state.od.names
   let currentTheme = state.theme.style[state.theme.indexOfTheme]
-  let odClassName = currentTheme.classOfOd
+  let odClassName = currentTheme.currentMainClass
   let currentOd = state.od.currentOd
   const style = {
     height: 54,
-    // textColor: props.state.theme[props.state.indexOfTheme].textolor ,
-    // color: props.state.theme[props.state.indexOfTheme].color,
-    // backgroundColor: props.state.theme[props.state.indexOfTheme].backgroundColor,
-    border: '0.5px ',
-    borderStyle: 'solid',
-    borderColor: currentTheme.color,
-    borderRadius: '3%',
+    backgroundColor: currentTheme.backgroundColor,
+    color: currentTheme.color
 
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    flexDirection: 'row',
-    flexWrap: 'nowrap',
-    transitionProperty: 'background-color, transform, color',
-    transitionDuration: '0.5s',
-    transitionDelay: '0.3s'
 
   }
 
