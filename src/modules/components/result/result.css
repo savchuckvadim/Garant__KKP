@@ -1,0 +1,109 @@
+/* @import url('../../App.css'); */
+.result__container {
+    /* margin-top: 4vh !important; */
+    margin-top: 4vh;
+    
+    width: 425px;   
+    /* min-height: 250px; */
+    max-height: 100%;
+    padding: 2vh;
+    position: sticky;
+    top: 15vh;
+    right: 0vh;
+    margin-right: 3vh;
+    border-style: solid;
+    /* display: grid; */
+  /* justify-self: end; */
+    display: flex;
+    flex-direction: column; 
+     justify-content: space-between;
+    border-width: 1px;
+    border-color: rgb(160, 179, 179);
+    transition-property: background-color, top, bottom, left, right,  height;
+    transition-duration: 1.5s; 
+    transition-delay: 0.5s; 
+}
+.text{
+    display: flex;
+    justify-content: space-between;
+}
+.textLt{
+    display: flex;
+    justify-content: space-between;
+}
+.spanResult{
+    font-weight: 600;
+}
+
+
+
+
+@media (max-width: 778px) {
+
+    .result__container{
+        width: 100%;
+        min-height: 10px;
+        height: auto;
+        padding: 2vh;
+        /* position: sticky;
+        right: 0vh;
+        left: 0vh;
+        bottom: 0px; */
+        display: flex;
+        flex-direction: column;
+
+        justify-content: flex-end;
+   
+        
+    }
+    .information{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        
+    }
+
+
+    .text, .textLt{
+        margin: 1px;
+        font-size: small;
+      
+    }
+
+}
+
+@media (max-width: 680px) {
+
+    .result__container{
+        /* width: 75vh; */
+        min-height: 10px;
+        height: auto;
+        padding: 2vh;
+        /* position: sticky;
+        right: 0vh;
+        left: 0vh;
+        bottom: 50vh; */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+     
+    }
+    .information{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        
+    }
+
+
+    .text{
+        margin: 1px;
+        font-size: small;
+    }
+    .textLt{
+        display: none !important;
+    }
+
+}

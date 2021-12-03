@@ -238,13 +238,13 @@ const changeEr = (stateCome, action) => {
   state[1].value[5] = [...stateCome][1].value[5]
   state[1].value[6] = [...stateCome][1].value[6]
   state[1].value[7] = [...stateCome][1].value[7]
-debugger
+
 
   state = changePaketsErFromCurrent(state, action.currentComplect)
-debugger
+
 
   state = changeErFromCurrent(state, action.currentComplect)
-debugger
+
     return state
 }
 

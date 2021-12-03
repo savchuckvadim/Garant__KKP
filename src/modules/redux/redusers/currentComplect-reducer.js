@@ -25,7 +25,7 @@ export const createComplectActionCreator = (obj, index, ods, currentOd) => {
 }
 
 const changeCurrentInfoblocks = (state, action) => { //меняет текущее наполнение в currentComplect
-    debugger
+    
     if (state) {
         if (state.name !== 'Бухгалтер' && state.name !== 'Бухгалтер госсектора') {
 

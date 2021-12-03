@@ -52,7 +52,7 @@ function BlocksOfInfoblocks(props) {
             return items
 
         })
-        debugger
+        
     return (
         <div id="menu" className="wrapper">
             {blocksOfInfoblocks}

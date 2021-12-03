@@ -1,6 +1,6 @@
-import  "./main.css"
+import "./main.css"
 import Complect from "../complect/complect"
-// import ResultContainer from "../result/resultContainer"
+import ResultContainer from "../result/resultContainer"
 import BlocksOfInfoblocksContainer from "../infoblocks/blocksOfInfoblocks-Container"
 
 
@@ -8,8 +8,20 @@ import BlocksOfInfoblocksContainer from "../infoblocks/blocksOfInfoblocks-Contai
 
 
 const Main = (props) => {
-    
+    let styleResult = {
+        color: 'white'
+    }
+    const result = () => {
+        if (props.currentComplect) {
+            return (
+                <div className="result__container">
+                    <ResultContainer />
+                </div>
+            )
+        }
 
+
+    }
 
     return (
         <div className={props.className}>
@@ -23,7 +35,7 @@ const Main = (props) => {
                 </div>
 
                 <div className={'infoblocks'}>
-                <BlocksOfInfoblocksContainer />
+                    <BlocksOfInfoblocksContainer />
 
                 </div>
 
@@ -31,7 +43,7 @@ const Main = (props) => {
                     <Result state={props.state} dispatch={props.dispatch} />
                 </div> */}
 
-                {/* {result()} */}
+                {result()}
 
             </div>
 

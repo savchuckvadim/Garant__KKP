@@ -3,9 +3,11 @@ import Header from './modules/components/header/header'
 import Main from './modules/components/main/main'
 import './App.css'
 import { useTheme } from '@material-ui/core';
+import MainContainer from './modules/components/main/main-Container';
 const App = (props) => {
   const theme = useTheme();
-  let currentTheme = props.state.theme.style[props.state.theme.indexOfTheme]
+  let currentTheme = props.state.theme.style[props.state.theme.indexOfTheme];
+  let currentComplect = props.state.currentComplect
   const styleFromState = props.state.theme.style[props.state.theme.indexOfTheme]
 
   let style = {
@@ -24,7 +26,7 @@ const App = (props) => {
       className={currentTheme.currentMainClass}>
       <div>{theme.palette.mode}</div>
       {/* <Header mainClass={mainClassRef} /> */}
-      <Main className={currentTheme.currentMainClass} />
+      <MainContainer className={currentTheme.currentMainClass} currentComplect={currentComplect} />
     </div>
 
   )
