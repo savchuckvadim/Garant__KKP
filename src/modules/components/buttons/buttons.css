@@ -37,9 +37,9 @@
     align-items: center !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
-    transition-property: background-color, transform, color;
-    transition-duration: 1.1s !important;
-    transition-delay: 0.4s !important;
+    transition-property: background-color, transform, color, text-color !important;
+    transition-duration: 0.3s !important;
+    transition-delay: 0.1s !important;
 
     font-style: bold !important;
     font-size: 11px !important;

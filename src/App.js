@@ -23,7 +23,7 @@ const App = (props) => {
       
       className={currentTheme.currentMainClass}>
       <div>{theme.palette.mode}</div>
-      <Header mainClass={mainClassRef} />
+      {/* <Header mainClass={mainClassRef} /> */}
       <Main className={currentTheme.currentMainClass} />
     </div>
 

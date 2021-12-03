@@ -38,12 +38,12 @@ let mapStateToProps = (state) => {
                 borderColor = currentTheme.color
                 textColor = currentTheme.textColor
             } else {
-                complectColor = 'none'
+                complectColor = currentTheme.backgroundColor
             }
         } else {
             complectColor = 'none'
         }
-
+        
         return dinamicStyleForButtons(borderColor, textColor, complectColor)
     })
     let ellipse = state.allComplects.map(complect => {

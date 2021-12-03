@@ -1,7 +1,7 @@
 import  "./main.css"
 import Complect from "../complect/complect"
 // import ResultContainer from "../result/resultContainer"
-// import BlocksOfInfoblocksContainer from "../infoblocks/blocksOfInfoblocks-Container"
+import BlocksOfInfoblocksContainer from "../infoblocks/blocksOfInfoblocks-Container"
 
 
 
@@ -23,7 +23,7 @@ const Main = (props) => {
                 </div>
 
                 <div className={'infoblocks'}>
-                {/* <BlocksOfInfoblocksContainer /> */}
+                <BlocksOfInfoblocksContainer />
 
                 </div>
 

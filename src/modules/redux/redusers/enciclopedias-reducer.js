@@ -7,7 +7,9 @@ let initialState = [
 
     {
         'nameOfType': 'Пакет Энциклопедий решений',
-        'value': [{
+        'value': 
+        [
+          {
                 'name': 'Пакет Энциклопедий решений для бухгалтера',
                 'checked': false,
                 'including': [0, 2, 4, 5, 6],
@@ -33,7 +35,8 @@ let initialState = [
     {
         'nameOfType': 'Энциклопедии решений',
 
-        'value': [{
+        'value': [
+          {
                 'name': 'Энциклопедия решений.Проверки организаций и предпринимателей',
                 'checked': false,
                 'weight': 0.5,
@@ -92,6 +95,8 @@ let initialState = [
 
 ////////////////////////////////
 export const changePaketsErFromCurrent = (state, currentComplect) => {      //меняет _state
+
+
 
   const changerErDependPaket = (indexOfPaket) => {
 
@@ -210,12 +215,42 @@ export const changePaketsErFromCurrent = (state, currentComplect) => {      //м
       element.weight = 0.5
     })
   }
+
+  return state
 }
 /////////////////////////////////
 
+const changeEr = (stateCome, action) => {
+  let state = [...stateCome]
+  state[0] = [...stateCome][0]
+  state[1] = [...stateCome][1]
+  
+  
+  state[0].value[0] = [...stateCome][0].value[0]
+  state[0].value[1] = [...stateCome][0].value[1]
+  state[0].value[2] = [...stateCome][0].value[2]
+  
+  state[1].value[0] = [...stateCome][1].value[0]
+  state[1].value[1] = [...stateCome][1].value[1]
+  state[1].value[2] = [...stateCome][1].value[2]
+  state[1].value[3] = [...stateCome][1].value[3]
+  state[1].value[4] = [...stateCome][1].value[4]
+  state[1].value[5] = [...stateCome][1].value[5]
+  state[1].value[6] = [...stateCome][1].value[6]
+  state[1].value[7] = [...stateCome][1].value[7]
+debugger
+
+  state = changePaketsErFromCurrent(state, action.currentComplect)
+debugger
+
+  state = changeErFromCurrent(state, action.currentComplect)
+debugger
+    return state
+}
 
 ///////////////////////////
 export const changeErFromCurrent = (state, currentComplect) => {
+ 
 
   if (currentComplect) {
     state[1].value.forEach((element, index) => {
@@ -239,8 +274,12 @@ export const changeErFromCurrent = (state, currentComplect) => {
 export const changeErAndPaketsErFromCurrent = (state = initialState, action) => {
 
   if (action.type === 'CREATE_COMPLECT' || action.type === CHANGE_CURRENT_PAKETS_ER || action.type === CHANGE_CURRENT_ER || action.type === 'RESET'){
-    changePaketsErFromCurrent(state, action.currentComplect)
-    changeErFromCurrent(state, action.currentComplect)
+    // changePaketsErFromCurrent(state, action.currentComplect)
+    // changeErFromCurrent(state, action.currentComplect)
+
+   return changeEr(state, action)
+  }else{
+    return state
+
   }
-  return state
 }

@@ -179,11 +179,19 @@ let initialState = [{
 
 export const changeInfoblocksFromCurrent = (state, currentComplect) => { //меняет стэйт в соответствии с currentComplect
 
-
+  
+    let stateCopy_0 = [...state][0]
+    let stateCopy_1 = [...state][1]
+    let stateCopy_2 = [...state][2]
+    let stateCopy_3 = [...state][3]
+    let stateCopy_4 = [...state][4]
+    let stateCopy = [stateCopy_0, stateCopy_1, stateCopy_2, stateCopy_3, stateCopy_4]
     if (currentComplect) {
-
-        state.forEach((element) => {
+        
+        stateCopy.forEach((element) => {
             element.value.forEach((elem) => {
+                
+
                 if (currentComplect.currentFilling.includes(elem.name)) {
                     elem.checked = true
                 } else elem.checked = false
@@ -192,11 +200,12 @@ export const changeInfoblocksFromCurrent = (state, currentComplect) => { //ме�
                     elem.checked = true
                 }
             })
+
         })
 
     } else {
 
-        state.forEach((element) => {
+        stateCopy.forEach((element) => {
             element.value.forEach((elem) => {
 
                 elem.checked = false
@@ -206,12 +215,18 @@ export const changeInfoblocksFromCurrent = (state, currentComplect) => { //ме�
     }
 
 
-    return state
+    return stateCopy
 }
 const changeInfolocksFromNewComplect = (state, currentComplect) => {
+    let stateCopy_0 = [...state][0]
+    let stateCopy_1 = [...state][1]
+    let stateCopy_2 = [...state][2]
+    let stateCopy_3 = [...state][3]
+    let stateCopy_4 = [...state][4]
+    let stateCopy = [stateCopy_0, stateCopy_1, stateCopy_2, stateCopy_3, stateCopy_4]
     if (currentComplect) {
 
-        state.forEach((element) => {
+        stateCopy.forEach((element) => {
             element.value.forEach((elem) => {
                 if (currentComplect.filling.includes(elem.name)) {
                     elem.checked = true
@@ -225,7 +240,7 @@ const changeInfolocksFromNewComplect = (state, currentComplect) => {
 
     } else {
 
-        state.forEach((element) => {
+        stateCopy.forEach((element) => {
             element.value.forEach((elem) => {
 
                 elem.checked = false
@@ -234,14 +249,14 @@ const changeInfolocksFromNewComplect = (state, currentComplect) => {
         })
     }
 
-    return state
+    return stateCopy
 }
 
 export const infoblocks = (state = initialState, action) => {
-
+    
     if (action.type === 'CHANGE_CURRENT_INFOBLOCKS' || action.type === 'RESET') {
         return changeInfoblocksFromCurrent(state, action.currentComplect)
-    } else if (action.type === 'CHANGE_BLOCKS_FROM_NEW_COMPLECT' ) {
+    } else if (action.type === 'CHANGE_BLOCKS_FROM_NEW_COMPLECT') {
         return changeInfolocksFromNewComplect(state, action.currentComplect)
     } else
         return state
