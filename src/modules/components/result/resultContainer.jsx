@@ -6,7 +6,7 @@ import Result from "./result"
 import "./result.css"
 
 let mapStateToProps = (state) => {
-    debugger
+   
     const getWeight = (state) => {
         let info = 0;
         let er = 0;
@@ -52,7 +52,7 @@ let mapStateToProps = (state) => {
         )
     };
     let toolTip = getToolTipText();
-    let input = <p>{state.currentComplect.name}</p>
+    let input = state.currentComplect.name
     
     // <InputTextContainer
     //     // state={state}

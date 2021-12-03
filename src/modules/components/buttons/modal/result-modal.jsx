@@ -30,7 +30,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const ModalButton = (props) => {
+const ResultModalButton = (props) => {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -43,7 +43,7 @@ const ModalButton = (props) => {
   let ref = React.createRef()
   return (
     <div>
-      <Button ref={ref} style={props.styleBtnModal}  onClick={handleClickOpen} className={'btn__modal'}>
+      <Button ref={ref} style={props.styleBtnModal}  onClick={handleClickOpen} className={'btn__result__modal'}>
         {props.title}
 
       </Button>
@@ -85,5 +85,5 @@ const ModalButton = (props) => {
 }
 
 
-export default ModalButton
+export default ResultModalButton
 

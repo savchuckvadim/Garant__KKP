@@ -12,7 +12,7 @@ const Main = (props) => {
         color: 'white'
     }
     const result = () => {
-        if (props.currentComplect) {
+        if (props.currentComplect && !props.modal) {
             return (
                 // <div className="result__container">
                     <ResultContainer />

@@ -103,7 +103,7 @@ const changeCurrentEr = (state, action) => { //меняет currentComplect
         changeErInState(state, action.checked, action.index, state.fillingEncyclopediasIndexes)
 
     }
-
+console.log(state)
     return state
 }
 const changeCurrentPketsEr = (state, action) => { //меняет currentComplect
@@ -154,7 +154,7 @@ const changeCurrentPketsEr = (state, action) => { //меняет currentComplect
 
    
 
-
+        console.log(state)
     return state
 }
 const changeLt = (state, action) => {
@@ -257,7 +257,7 @@ const changeLt = (state, action) => {
 
 
 }
-const changeNameOfComplect = (state = initialState, action) => {
+const changeNameOfComplect = (state, action) => {
  
     if(action.type === 'INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT'){
         state.name = action.value

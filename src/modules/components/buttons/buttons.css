@@ -28,9 +28,9 @@
 .btn__company,
 .btn__companyPro,
 .btn__od,
-.btn__reset,
-.btn__modal {
+.btn__reset
 
+ {
     
     display: flex !important;
     justify-content: space-between !important;
@@ -55,7 +55,31 @@
    
 
 }
+.btn__modal{
+    
+    /* display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important; */
+    transition-property: background-color, transform, color, text-color !important;
+    transition-duration: 0.3s !important;
+    transition-delay: 0.1s !important;
 
+    font-style: bold !important;
+    font-size: 11px !important;
+
+    font-weight: 400 !important;
+    line-height: 22px !important;
+    letter-spacing: -0.3px !important;
+
+    background-position: 36.4vh;
+    background-repeat: no-repeat;
+    margin: 1%;
+    height: 54px;
+   width: 45vh !important;
+
+}
 .btn__od {
     width: 100% !important;
     
@@ -77,6 +101,16 @@
 
 
 }
+.btn__result__modal {
+    height: 45px;
+
+    display: flex !important;
+    width: 350px !important;
+    margin: 1vhv !important;
+    margin-top: 3vh !important;
+
+}
+
 
 @media (max-width: 1225px) {
 
@@ -168,7 +202,7 @@
 
     .btn__modal {
         display: flex !important;
-        width: 98%;
+        /* width: 98vh !important; */
         justify-content: center;
         align-items: center;
         padding: 0 !important;

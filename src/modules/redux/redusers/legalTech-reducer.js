@@ -93,9 +93,13 @@ let initialState = {
 
 
 export const changeltData = (state, currentComplect) => {
-    
+    let value = state.value.map(lt => {
+        return {...lt}
+    })
+
+
     if (currentComplect) {
-        state.value.forEach((elem, index) => {
+        value.forEach((elem, index) => {
             
             if (currentComplect.fillingLTIndexes.includes(index) || currentComplect.fillingPaketLT.includes(index)) {
                 elem.checked = true
@@ -103,15 +107,22 @@ export const changeltData = (state, currentComplect) => {
         })
 
     } else {
-        state.value.forEach((elem) => {
+        value.forEach((elem) => {
             elem.checked = false
         })
     }
+    state.value = value
+    
     return state
 }
 
-export const weightLtForResult = (state, currentComplect) => {
-
+export const weightLtForResult = (stateCome, currentComplect) => {
+    let value = stateCome.value.map(lt => {
+        return {...lt}
+    })
+    let state = {...stateCome}
+    state.value = value
+    
     if (currentComplect) {
         state.ltIncluded = 0
         state.weightLt = 0
@@ -151,10 +162,14 @@ export const weightLtForResult = (state, currentComplect) => {
 }
 
 export const changeLTFromCurrent = (state = initialState, action) => {
-    
-    if (action.type === CHANGE_CURRENT_LT || action.type === CREATE_COMPLECT || action.type === 'RESET'){
-        changeltData(state, action.currentComplect)
-        weightLtForResult(state, action.currentComplect)
+    let changeLt = (state) => {
+        state = changeltData(state, action.currentComplect)
+        state = weightLtForResult(state, action.currentComplect)
+        return state
     }
+    if (action.type === CHANGE_CURRENT_LT || action.type === CREATE_COMPLECT || action.type === 'RESET'){
+       return changeLt(state)
+    }
+    debugger
     return state
 }

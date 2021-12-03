@@ -5,7 +5,8 @@ let mapStateToProps = (state) => {
     let currentTheme = state.theme.style[state.theme.indexOfTheme];
     return {
         currentComplect: state.currentComplect,
-        className: currentTheme.currentMainClass
+        className: currentTheme.currentMainClass,
+        modal: state.modal.show
     }
 }
 let mapDispatchToProps = (dispatch) => {

@@ -17,13 +17,14 @@ let mapStateToProps = (state) => {
                 arrayForRender: state.infoblocks
             },
             {
-                typeOfAction: CHANGE_CURRENT_ER,
+                typeOfAction: CHANGE_CURRENT_PAKETS_ER,
                 arrayForRender: state.encyclopedias[0]
             },
             {
-                typeOfAction: CHANGE_CURRENT_PAKETS_ER,
+                typeOfAction: CHANGE_CURRENT_ER,
                 arrayForRender: state.encyclopedias[1]
             },
+            
             {
                 typeOfAction: CHANGE_CURRENT_LT,
                 arrayForRender: state.legalTech
