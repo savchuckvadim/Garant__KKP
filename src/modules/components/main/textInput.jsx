@@ -1,6 +1,6 @@
 import { Input } from "@material-ui/core"
 import React from "react"
-import styleMod from "./textInput.module.css"
+import "./textInput.css"
 
 
 const InputText = (props) => {
@@ -20,7 +20,7 @@ const InputText = (props) => {
             placeholder='Garant'
             autoFocus={props.autofocus}
             ref={refInput}
-            className={styleMod.input}
+            className="input"
             onChange={(e) => { props.change(e.target.value) }}
             onBlur={(e) => { props.blur(e.target.value) }}
 

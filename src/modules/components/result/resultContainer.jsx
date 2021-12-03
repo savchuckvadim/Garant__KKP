@@ -52,18 +52,20 @@ let mapStateToProps = (state) => {
         )
     };
     let toolTip = getToolTipText();
-    let input = <InputTextContainer
-        // state={state}
-        // dispatch={props.dispatch}
+    let input = <p>{state.currentComplect.name}</p>
+    
+    // <InputTextContainer
+    //     // state={state}
+    //     // dispatch={props.dispatch}
         
-        type="nameOfComplect"
-        // autofocus={state.currentComplect.currentStatusInputComplectName}
-        value={state.currentComplect.name}
-        // placeholder='Гарант'
-        width={width}
-        typeOfAction="INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT"
+    //     type="nameOfComplect"
+    //     // autofocus={state.currentComplect.currentStatusInputComplectName}
+    //     value={state.currentComplect.name}
+    //     // placeholder='Гарант'
+    //     // width={width}
+    //     typeOfAction="INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT"
 
-    />
+    // />
 
 
 

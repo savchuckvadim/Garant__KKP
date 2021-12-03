@@ -14,9 +14,9 @@ const Main = (props) => {
     const result = () => {
         if (props.currentComplect) {
             return (
-                <div className="result__container">
+                // <div className="result__container">
                     <ResultContainer />
-                </div>
+                // </div>
             )
         }
 

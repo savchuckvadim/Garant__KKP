@@ -1,7 +1,7 @@
 // import { Tooltip } from "@material-ui/core";
 import ItemTitleResult from "./item-title-result"
 import ItemValueResult from "./item-value-result";
-
+import "./result.css"
 
 const ItemResult = (props) => {
     const titles = ItemTitleResult(props.state.result.resultItems);
