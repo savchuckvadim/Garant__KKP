@@ -531,7 +531,7 @@ export const changeColorOfButtonActionCreator = (index, currentTheme) => {
     }
 }
 export const changeColorOfButton = (state = initialState, action) => {
-    if (action.type === CHANGE_COLOR_OF_BUTTON) {
+    if (action.type === CHANGE_COLOR_OF_BUTTON || action.type === 'RESET') {
         state.forEach(element => {
             element.backgroundColor = 'white'
             //  action.currentTheme.backgroundColor

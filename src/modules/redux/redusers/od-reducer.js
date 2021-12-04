@@ -16,37 +16,42 @@ let initialState = {
         '30 Одновременных доступов',
         '50 Одновременных доступов',
     ],
-   
+
 
 }
 
 
 
 
-export const odChangeActionCreator = (name, currentComplect) => {
+export const odChangeActionCreator = (name, names, currentComplect) => {
 
     return {
         type: CHANGE_CURRENT_OD,
         name: name,
         currentComplect: currentComplect,
-        
+        ods: names
+
     }
 }
 
 
 export const oD = (state = initialState, action) => {
-
+    let stateCopy = {
+        ...state
+    }
+    stateCopy.currentOd = state.currentOd
     if (action.type === 'CHANGE_CURRENT_OD') {
         if (!action.currentComplect) {
             window.alert('сначала выберите комплект')
         } else {
-            state.currentOd = action.name;
+            
+            stateCopy.currentOd = action.name;
             // state.currentComplect.od = state.currentOd;
 
         }
     }
-
-    return state
+   
+    return stateCopy
 
 
 }

@@ -13,6 +13,7 @@ import { priceReducer } from './redusers/price-reducer';
 import { theme } from './redusers/theme-reducer';
 import { result } from './redusers/result-reducer';
 import { modal } from './redusers/modal-reducer';
+import { resultModal } from './redusers/result-modal-reducer';
 // import weightReducer from './redusers/weight-reduser';
 
 
@@ -45,6 +46,7 @@ let reducers = combineReducers({
     theme: theme,
     result: result,
     modal: modal,
+    resultModal: resultModal
 
 
 });

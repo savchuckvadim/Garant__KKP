@@ -79,8 +79,9 @@ const createComplect = (state, action) => {
 
 const changeCurrentEr = (state, action) => { //меняет currentComplect
 
+    let filling = [...state.fillingEncyclopediasIndexes]
 
-    const changeErInState = (state, checked, index, filling) => { //для ЭР и Пакетов в зависимости от параметров если checked делает uncheck в дате allEnciclopedis - заходит в state и убирает из filling индексов
+    const changeErInState = (checked, index, filling) => { //для ЭР и Пакетов в зависимости от параметров если checked делает uncheck в дате allEnciclopedis - заходит в state и убирает из filling индексов
 
         if (checked === true) {
             if (filling.length > 0) {
@@ -100,20 +101,21 @@ const changeCurrentEr = (state, action) => { //меняет currentComplect
     }
 
     if (state.name !== 'Бухгалтер' && state.name !== 'Бухгалтер госсектора') {
-        changeErInState(state, action.checked, action.index, state.fillingEncyclopediasIndexes)
+        changeErInState(action.checked, action.index, filling)
 
     }
-console.log(state)
+    state.fillingEncyclopediasIndexes = filling
     return state
 }
 const changeCurrentPketsEr = (state, action) => { //меняет currentComplect
+let fillingPaketsERIndexes = [...state.fillingPaketsERIndexes]
 
-    const changePaketsInState = (state, checked, index) => { // если текущий комплект не офис для Пакетов в зависимости от параметров если checked делает uncheck в дате allEnciclopedis - заходит в state и убирает из filling индексов
+    const changePaketsInState = (checked, index) => { // если текущий комплект не офис для Пакетов в зависимости от параметров если checked делает uncheck в дате allEnciclopedis - заходит в state и убирает из filling индексов
 
         if (checked === true) {
-            state.fillingPaketsERIndexes = [] // - очищает информацию о входящих в комплект пакетах в state.currentComplect
+            fillingPaketsERIndexes = [] // - очищает информацию о входящих в комплект пакетах в state.currentComplect
         } else {
-            state.fillingPaketsERIndexes = [index]
+            fillingPaketsERIndexes = [index]
         }
 
         // changePaketsErFromCurrent(state);
@@ -123,27 +125,27 @@ const changeCurrentPketsEr = (state, action) => { //меняет currentComplect
 
             if (state.name !== 'Офис') {
 
-                changePaketsInState(state, action.checked, action.index) // изменяет индекс входящих в комплект пакетов
+                changePaketsInState(action.checked, action.index) // изменяет индекс входящих в комплект пакетов
 
             } else {
 
                 window.alert('в комплекте Гарант-Офис должны содержаться два любых Пакета ЭР')
                 if (action.checked === true) {
                     if (action.index === 0) {
-                        state.fillingPaketsERIndexes = [1, 2]
+                        fillingPaketsERIndexes = [1, 2]
                     } else if (action.index === 1) {
-                        state.fillingPaketsERIndexes = [0, 2]
+                        fillingPaketsERIndexes = [0, 2]
                     } else if (action.index === 2) {
-                        state.fillingPaketsERIndexes = [0, 1]
+                        fillingPaketsERIndexes = [0, 1]
                     }
 
                 } else { //checked == false
                     if (action.index === 0) {
-                        state.fillingPaketsERIndexes = [0, 2]
+                        fillingPaketsERIndexes = [0, 2]
                     } else if (action.index === 1) {
-                        state.fillingPaketsERIndexes = [0, 1]
+                        fillingPaketsERIndexes = [0, 1]
                     } else if (action.index === 2) {
-                        state.fillingPaketsERIndexes = [1, 2]
+                        fillingPaketsERIndexes = [1, 2]
                     }
                 }
                 // changePaketsErFromCurrent (state);
@@ -152,12 +154,13 @@ const changeCurrentPketsEr = (state, action) => { //меняет currentComplect
             }
         }
 
-   
-
-        console.log(state)
+        state.fillingPaketsERIndexes = fillingPaketsERIndexes
     return state
 }
 const changeLt = (state, action) => {
+    
+    state.fillingLTIndexes = [...state.fillingLTIndexes]
+    state.fillingPaketLT   = [...state.fillingPaketLT]
     const currentWeightOfIncludedLT = (state) => {
         let currentWeight = 0
 
@@ -250,9 +253,7 @@ const changeLt = (state, action) => {
             }
         }
     }
-
-
-    // save()
+    
     return state
 
 

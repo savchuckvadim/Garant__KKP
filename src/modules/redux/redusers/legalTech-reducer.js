@@ -1,4 +1,3 @@
-
 const CHANGE_CURRENT_LT = 'CHANGE_CURRENT_LT'
 const CREATE_COMPLECT = 'CREATE_COMPLECT'
 
@@ -6,85 +5,85 @@ const CREATE_COMPLECT = 'CREATE_COMPLECT'
 
 let initialState = {
 
-        'pricesOfLt': [960, 2200, 3300],
-        'nameOfType': 'Legal Tech',
-        'display': 'none',
-        'status': false,
-        'weightLt': 0,
-        'ltIncluded': 0,
-        'nameOflt': '',
-        'priceOfLt': 0,
-        'value': [{
-                'name': 'Аналитическая система "Сутяжник" ',
-                'checked': false,
-                'weight': 1,
-                'description': ''
-            },
-            {
-                'name': 'Конструктор правовых документов',
-                'checked': false,
-                'weight': 1,
-                'description': ''
-            },
-            {
-                'name': 'Экспресс проверка контрагентов',
-                'checked': false,
-                'weight': 1,
-                'description': ''
-            },
-            {
-                'name': 'Экспресс Согласование',
-                'checked': false,
-                'weight': 1,
-                'description': ''
-            },
-            {
-                'name': 'Экспресс тендер',
-                'checked': false,
-                'weight': 1,
-                'description': ''
-            },
-            {
-                'name': 'Гарант Диск',
-                'checked': false,
-                'weight': 1,
-                'description': ''
-            },
-            {
-                'name': 'Гарант Коннект',
-                'checked': false,
-                'weight': 1,
-                'description': ''
-            },
-            {
-                'name': 'Гарант Патент',
-                'checked': false,
-                'weight': 1,
-                'description': ''
-            },
-            {
-                'name': 'Интернет-Семианры',
-                'checked': false,
-                'weight': 1,
-                'description': ''
-            },
-            {
-                'name': 'ЭТАЛОННЫЙ КЛАССИФИКАТОР',
-                'checked': false,
-                'weight': 1,
-                'description': ''
-            },
-            {
-                'name': 'Бизнес на контроле',
-                'checked': false,
-                'weight': 1,
-                'description': ''
-            },
+    'pricesOfLt': [960, 2200, 3300],
+    'nameOfType': 'Legal Tech',
+    'display': 'none',
+    'status': false,
+    'weightLt': 0,
+    'ltIncluded': 0,
+    'nameOflt': '',
+    'priceOfLt': 0,
+    'value': [{
+            'name': 'Аналитическая система "Сутяжник" ',
+            'checked': false,
+            'weight': 1,
+            'description': ''
+        },
+        {
+            'name': 'Конструктор правовых документов',
+            'checked': false,
+            'weight': 1,
+            'description': ''
+        },
+        {
+            'name': 'Экспресс проверка контрагентов',
+            'checked': false,
+            'weight': 1,
+            'description': ''
+        },
+        {
+            'name': 'Экспресс Согласование',
+            'checked': false,
+            'weight': 1,
+            'description': ''
+        },
+        {
+            'name': 'Экспресс тендер',
+            'checked': false,
+            'weight': 1,
+            'description': ''
+        },
+        {
+            'name': 'Гарант Диск',
+            'checked': false,
+            'weight': 1,
+            'description': ''
+        },
+        {
+            'name': 'Гарант Коннект',
+            'checked': false,
+            'weight': 1,
+            'description': ''
+        },
+        {
+            'name': 'Гарант Патент',
+            'checked': false,
+            'weight': 1,
+            'description': ''
+        },
+        {
+            'name': 'Интернет-Семианры',
+            'checked': false,
+            'weight': 1,
+            'description': ''
+        },
+        {
+            'name': 'ЭТАЛОННЫЙ КЛАССИФИКАТОР',
+            'checked': false,
+            'weight': 1,
+            'description': ''
+        },
+        {
+            'name': 'Бизнес на контроле',
+            'checked': false,
+            'weight': 1,
+            'description': ''
+        },
 
-        ]
-    
+    ]
 
-    
+
+
 
 }
 
@@ -92,15 +91,20 @@ let initialState = {
 
 
 
-export const changeltData = (state, currentComplect) => {
-    let value = state.value.map(lt => {
-        return {...lt}
+export const changeltData = (stateCome, currentComplect) => {
+    let value = []
+    stateCome.value.forEach(lt => {
+        value.push({
+            ...lt
+        })
     })
-
-
+    let state = {
+        ...stateCome
+    }
+    state.value = value
     if (currentComplect) {
         value.forEach((elem, index) => {
-            
+
             if (currentComplect.fillingLTIndexes.includes(index) || currentComplect.fillingPaketLT.includes(index)) {
                 elem.checked = true
             } else elem.checked = false
@@ -111,18 +115,22 @@ export const changeltData = (state, currentComplect) => {
             elem.checked = false
         })
     }
-    state.value = value
-    
+
+
     return state
 }
 
 export const weightLtForResult = (stateCome, currentComplect) => {
     let value = stateCome.value.map(lt => {
-        return {...lt}
+        return {
+            ...lt
+        }
     })
-    let state = {...stateCome}
+    let state = {
+        ...stateCome
+    }
     state.value = value
-    
+
     if (currentComplect) {
         state.ltIncluded = 0
         state.weightLt = 0
@@ -167,9 +175,10 @@ export const changeLTFromCurrent = (state = initialState, action) => {
         state = weightLtForResult(state, action.currentComplect)
         return state
     }
-    if (action.type === CHANGE_CURRENT_LT || action.type === CREATE_COMPLECT || action.type === 'RESET'){
-       return changeLt(state)
+    
+    if (action.type === CHANGE_CURRENT_LT || action.type === CREATE_COMPLECT || action.type === 'RESET') {
+        return changeLt(state)
     }
-    debugger
+    
     return state
 }

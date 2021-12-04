@@ -35,8 +35,9 @@ let mapStateToProps = (state) => {
 }
 let mapDispatchToProps = (dispatch) => {
   return {
-    odChange : (name, currentComplect) => { 
-      const action = odChangeActionCreator(name, currentComplect)
+    odChange : (name, names, currentComplect) => { 
+      const action = odChangeActionCreator(name, names, currentComplect)
+      
       dispatch(action)
     }
   }

@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { modalActionCreator } from "../../../redux/redusers/modal-reducer";
+import { resultModalActionCreator } from "../../../redux/redusers/result-modal-reducer";
 
 import ResultModalButton from "./result-modal";
 
@@ -10,7 +11,7 @@ const mapStateToProps = (state) => {
     //currentColor
     //currentComplect
     //currentTheme
-    let show = state.modal.show
+    let show = state.resultModal.show
    
     let currentComplect = state.currentComplect
     let currentTheme = state.theme.style[state.theme.indexOfTheme]
@@ -56,13 +57,13 @@ const mapDispatchToProps = (dispatch) => {
 
     return {
         handleClose : (element) => {
-            let actionClose = modalActionCreator(false, element.current)
+            let actionClose = resultModalActionCreator(false, element.current)
 
             
            return dispatch(actionClose)
         },
         handleShow : (element) => {
-            let actionShow = modalActionCreator(true, element.current)
+            let actionShow = resultModalActionCreator(true, element.current)
 
 
             return dispatch(actionShow)

@@ -7,10 +7,10 @@ let initialState = {
     className: 'btn__modal'
 }
 
-export const modalActionCreator = (show, element) => {
+export const resultModalActionCreator = (show, element) => {
 
     return {
-        type: MODAL,
+        type: RESULT_MODAL,
         show: show,
         element
     }
@@ -19,25 +19,16 @@ export const modalActionCreator = (show, element) => {
 const changeShow = (state, show, element) => {
 
 
-    let className
-    if (show) {
-        // displayButton = 'none'
-        element.className = 'btn btn__modal--invisible'
-    } else {
-        // displayButton = 'flex'
-        element.className = 'btn btn__modal'
-    }
     let newState = {
-        show: show,
-        className
+        ...state
     }
-    state = newState
-    return state
+    newState.show = show
+    return newState
 }
 
-export const modal = (state = initialState, action) => {
+export const resultModal = (state = initialState, action) => {
 
-    if (action.type === MODAL) {
+    if (action.type === RESULT_MODAL) {
 
 
         return changeShow(state, action.show, action.element)

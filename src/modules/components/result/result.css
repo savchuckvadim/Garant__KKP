@@ -20,18 +20,24 @@
      align-items: center;
     border-width: 1px;
     border-color: rgb(160, 179, 179);
-    transition-property: background-color, top, bottom, left, right,  height;
-    transition-duration: 1.5s; 
+    transition-property: background-color, top, bottom, left, right,  height, display, position !important;
+    transition-duration: 5.5s !important; 
     transition-delay: 0.5s; 
     background-color: rgb(255, 254, 246);
 }
 .text{
     display: flex;
     justify-content: space-between;
+    transition-property: background-color, top, bottom, left, right,  height, display !important;
+    transition-duration: 5.5s !important; 
+    transition-delay: 0.5s; 
 }
 .textLt{
     display: flex;
     justify-content: space-between;
+    transition-property: background-color, top, bottom, left, right,  height, display !important;
+    transition-duration: 5.5s !important; 
+    transition-delay: 0.5s; 
 }
 .text, .textLt {
     margin: 2%;

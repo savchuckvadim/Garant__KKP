@@ -12,18 +12,26 @@ import { useTheme } from "@material-ui/styles";
 
 const ODButtons = (props) => {
 const theme = useTheme()
+
+const [age, setAge] = React.useState('');
+
+  const handleChange = (event) => {
+    setAge(props.currentOd);
+  };
+
   let ods = []
+
 
   props.allOds.forEach((name, index) => {
 
-    ods[index] = <MenuItem key={`item-od-${index}`} ><Button key={`btn-od-${index}`} style={props.style} onClick={() => { props.odChange(name, props.currentComplect) }} className="btn__od" as="button">{name}</Button></MenuItem>
+    ods[index] = <MenuItem key={`item-od-${index}`} ><Button key={`btn-od-${index}`} style={props.style} onClick={() => { props.odChange(name, props.allOds, props.currentComplect) }} className="btn__od" as="button">{name}</Button></MenuItem>
 
   })
 
 
 
 
-
+  
   return (
 
   //   <FormControl style={props.style} className={props.odClassName} fullWidth>
@@ -40,22 +48,23 @@ const theme = useTheme()
   //   </Select>
   // </FormControl >
     
-      <FormControl color="primary" fullWidth>
+      <FormControl color="primary" className="formControlOd">
         <InputLabel   id="demo-simple-select-autowidth-label">{props.currentComplect ? props.currentOd : 'Количество доступов'}</InputLabel>
         <Select
           sx={{
             display: 'flex',
-            width: '100%',
+            width: '90%',
             alignItems: 'center',
             justifyContent: 'center',
             bgcolor: 'background.default',
             color: 'text.primary',
-            borderRadius: 1,
+            borderRadius: 0,
             p: 3,
           }}
-          // variant="main"
-          // className="select"
-        // onChange={ handleChange}
+          // value={age}
+          // variant="standart"
+          className="select"
+        onChange={ handleChange}
         >
 
           {ods}
