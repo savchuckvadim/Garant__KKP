@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
+import { BX24 } from "bx24";
 
 
 import store from './modules/redux/redux-store';
@@ -13,6 +14,8 @@ import App from './App'
 import { darkModeTheme, theme } from './styles/theme';
 
 export const startApp = (state, store) => {
+
+
 
   ReactDOM.render(
 

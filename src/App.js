@@ -1,10 +1,10 @@
-
 import Header from './modules/components/header/header'
 import Main from './modules/components/main/main'
 import './App.css'
 import { useTheme } from '@material-ui/core';
 import MainContainer from './modules/components/main/main-Container';
 const App = (props) => {
+  
   const theme = useTheme();
   let currentTheme = props.state.theme.style[props.state.theme.indexOfTheme];
   let currentComplect = props.state.currentComplect
@@ -19,6 +19,7 @@ const App = (props) => {
   }
 
   const mainClassRef = React.createRef()
+ 
   return (
 
     <div ref={mainClassRef}

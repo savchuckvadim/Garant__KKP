@@ -1694,10 +1694,10 @@
   "resolved" "https://registry.npmjs.org/acorn/-/acorn-5.7.4.tgz"
   "version" "5.7.4"
 
-"acorn@^8.0.4":
-  "integrity" "sha512-v+DieK/HJkJOpFBETDJioequtc3PfxsWMaxIdIwujtF7FEV/MAyDQLlm6/zPvr7Mix07mLh6ccVwIsloceodlg=="
-  "resolved" "https://registry.npmjs.org/acorn/-/acorn-8.0.5.tgz"
-  "version" "8.0.5"
+"acorn@^8.0.4", "acorn@^8.5.0":
+  "integrity" "sha512-U1riIR+lBSNi3IbxtaHOIKdH8sLFv3NYfNv8sg7ZsNhcfl4HF2++BfqqrNAxoCLQW1iiylOj76ecnaUxz+z9yw=="
+  "resolved" "https://registry.npmjs.org/acorn/-/acorn-8.6.0.tgz"
+  "version" "8.6.0"
 
 "add-asset-html-webpack-plugin@^3.2.0":
   "integrity" "sha512-Qb+4dSuCYmxJcZrdS3eY2WGb7U4LYnRKGX6Ye1aV4qi22UBReZOGt16VpULdjJ0kNts/KRUPqwsUTxMMGxx88Q=="
@@ -8272,7 +8272,7 @@
     "leven" "^2.1.0"
     "pretty-format" "^20.0.3"
 
-"jest-worker@^26.2.1", "jest-worker@^26.6.2":
+"jest-worker@^26.2.1":
   "integrity" "sha512-KWYVV1c4i+jbMpaBC+U++4Va0cp8OisU185o73T1vo99hqi7w8tSJfUXYswwqqrjzwxa6KpRK54WhPvwf5w6PQ=="
   "resolved" "https://registry.npmjs.org/jest-worker/-/jest-worker-26.6.2.tgz"
   "version" "26.6.2"
@@ -8280,6 +8280,15 @@
     "@types/node" "*"
     "merge-stream" "^2.0.0"
     "supports-color" "^7.0.0"
+
+"jest-worker@^27.0.6":
+  "integrity" "sha512-0QMy/zPovLfUPyHuOuuU4E+kGACXXE84nRnq6lBVI9GJg5DCBiA97SATi+ZP8CpiJwEQy1oCPjRBf8AnLjN+Ag=="
+  "resolved" "https://registry.npmjs.org/jest-worker/-/jest-worker-27.4.2.tgz"
+  "version" "27.4.2"
+  dependencies:
+    "@types/node" "*"
+    "merge-stream" "^2.0.0"
+    "supports-color" "^8.0.0"
 
 "jest@20.0.4":
   "integrity" "sha1-PdJgwpidba1nix6cxNkZRPbWAqw="
@@ -9898,7 +9907,7 @@
   dependencies:
     "p-try" "^2.0.0"
 
-"p-limit@^3.0.2", "p-limit@^3.1.0":
+"p-limit@^3.0.2":
   "integrity" "sha512-TYOanM3wGwNGsZN2cVTYPArw454xnXj5qmWF1bEoAc4+cU/ol7GVh7odevjp1FNHduHc3KZMcFduxU5Xc6uJRQ=="
   "resolved" "https://registry.npmjs.org/p-limit/-/p-limit-3.1.0.tgz"
   "version" "3.1.0"
@@ -12283,6 +12292,15 @@
     "ajv" "^6.12.5"
     "ajv-keywords" "^3.5.2"
 
+"schema-utils@^3.1.1":
+  "integrity" "sha512-Y5PQxS4ITlC+EahLuXaY86TXfR7Dc5lw294alXOq86JAHCihAIZfqv8nNCWvaEJvaC51uN9hbLGeV0cFBdH+Fw=="
+  "resolved" "https://registry.npmjs.org/schema-utils/-/schema-utils-3.1.1.tgz"
+  "version" "3.1.1"
+  dependencies:
+    "@types/json-schema" "^7.0.8"
+    "ajv" "^6.12.5"
+    "ajv-keywords" "^3.5.2"
+
 "scss-tokenizer@^0.2.3":
   "integrity" "sha1-jrBtualyMzOCTT9VMGQRSYR85dE="
   "resolved" "https://registry.npmjs.org/scss-tokenizer/-/scss-tokenizer-0.2.3.tgz"
@@ -12435,6 +12453,13 @@
   "integrity" "sha512-SaaNal9imEO737H2c05Og0/8LUXG7EnsZyMa8MzkmuHoELfT6txuj0cMqRj6zfPKnmQ1yasR4PCJc8x+M4JSPA=="
   "resolved" "https://registry.npmjs.org/serialize-javascript/-/serialize-javascript-5.0.1.tgz"
   "version" "5.0.1"
+  dependencies:
+    "randombytes" "^2.1.0"
+
+"serialize-javascript@^6.0.0":
+  "integrity" "sha512-Qr3TosvguFt8ePWqsvRfrKyQXIiW+nGbYpy8XK24NQHE83caxWt+mIymTT19DGFbNWNLfEwsrkSmN64lVWB9ag=="
+  "resolved" "https://registry.npmjs.org/serialize-javascript/-/serialize-javascript-6.0.0.tgz"
+  "version" "6.0.0"
   dependencies:
     "randombytes" "^2.1.0"
 
@@ -12732,10 +12757,10 @@
   dependencies:
     "source-map" "^0.5.6"
 
-"source-map-support@~0.5.12", "source-map-support@~0.5.19":
-  "integrity" "sha512-Wonm7zOCIJzBGQdB+thsPar0kYuCIzYvxZwlBa87yi/Mdjv7Tip2cyVbLj5o0cFPN4EVkuTwb3GDDyUx2DGnGw=="
-  "resolved" "https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.19.tgz"
-  "version" "0.5.19"
+"source-map-support@~0.5.12", "source-map-support@~0.5.19", "source-map-support@~0.5.20":
+  "integrity" "sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w=="
+  "resolved" "https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.21.tgz"
+  "version" "0.5.21"
   dependencies:
     "buffer-from" "^1.0.0"
     "source-map" "^0.6.0"
@@ -13241,6 +13266,13 @@
   dependencies:
     "has-flag" "^4.0.0"
 
+"supports-color@^8.0.0":
+  "integrity" "sha512-MpUEN2OodtUzxvKQl72cUF7RQ5EiHsGvSsVG0ia9c5RbWGL2CI4C7EpPS8UTBIplnlzZiNuV56w+FuNxy3ty2Q=="
+  "resolved" "https://registry.npmjs.org/supports-color/-/supports-color-8.1.1.tgz"
+  "version" "8.1.1"
+  dependencies:
+    "has-flag" "^4.0.0"
+
 "svg-parser@^2.0.2":
   "integrity" "sha512-e4hG1hRwoOdRb37cIMSgzNsxyzKfayW6VOflrwvR+/bzrkyxY/31WkbgnQpgtrNp1SdpJvpUAGTa/ZoiPNDuRQ=="
   "resolved" "https://registry.npmjs.org/svg-parser/-/svg-parser-2.0.4.tgz"
@@ -13406,17 +13438,16 @@
   dependencies:
     "execa" "^0.7.0"
 
-"terser-webpack-plugin@^5.1.1":
-  "integrity" "sha512-5XNNXZiR8YO6X6KhSGXfY0QrGrCRlSwAEjIIrlRQR4W8nP69TaJUlh3bkuac6zzgspiGPfKEHcY295MMVExl5Q=="
-  "resolved" "https://registry.npmjs.org/terser-webpack-plugin/-/terser-webpack-plugin-5.1.1.tgz"
-  "version" "5.1.1"
+"terser-webpack-plugin@^5.1.1", "terser-webpack-plugin@^5.2.5":
+  "integrity" "sha512-3luOVHku5l0QBeYS8r4CdHYWEGMmIj3H1U64jgkdZzECcSOJAyJ9TjuqcQZvw1Y+4AOBN9SeYJPJmFn2cM4/2g=="
+  "resolved" "https://registry.npmjs.org/terser-webpack-plugin/-/terser-webpack-plugin-5.2.5.tgz"
+  "version" "5.2.5"
   dependencies:
-    "jest-worker" "^26.6.2"
-    "p-limit" "^3.1.0"
-    "schema-utils" "^3.0.0"
-    "serialize-javascript" "^5.0.1"
+    "jest-worker" "^27.0.6"
+    "schema-utils" "^3.1.1"
+    "serialize-javascript" "^6.0.0"
     "source-map" "^0.6.1"
-    "terser" "^5.5.1"
+    "terser" "^5.7.2"
 
 "terser@^4.6.3":
   "integrity" "sha512-EAPipTNeWsb/3wLPeup1tVPaXfIaU68xMnVdPafIL1TV05OhASArYyIfFvnvJCNrR2NIOvDVNNTFRa+Re2MWyw=="
@@ -13436,14 +13467,14 @@
     "source-map" "~0.7.2"
     "source-map-support" "~0.5.19"
 
-"terser@^5.5.1":
-  "integrity" "sha512-vyqLMoqadC1uR0vywqOZzriDYzgEkNJFK4q9GeyOBHIbiECHiWLKcWfbQWAUaPfxkjDhapSlZB9f7fkMrvkVjA=="
-  "resolved" "https://registry.npmjs.org/terser/-/terser-5.6.0.tgz"
-  "version" "5.6.0"
+"terser@^5.7.2":
+  "integrity" "sha512-AMmF99DMfEDiRJfxfY5jj5wNH/bYO09cniSqhfoyxc8sFoYIgkJy86G04UoZU5VjlpnplVu0K6Tx6E9b5+DlHA=="
+  "resolved" "https://registry.npmjs.org/terser/-/terser-5.10.0.tgz"
+  "version" "5.10.0"
   dependencies:
     "commander" "^2.20.0"
     "source-map" "~0.7.2"
-    "source-map-support" "~0.5.19"
+    "source-map-support" "~0.5.20"
 
 "test-exclude@^4.2.1":
   "integrity" "sha512-SYbXgY64PT+4GAL2ocI3HwPa4Q4TBKm0cwAVeKOt/Aoc0gSpNRjJX8w0pA1LMKZ3LBmd8pYBqApFNQLII9kavA=="
