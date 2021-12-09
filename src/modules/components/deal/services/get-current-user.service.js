@@ -1,5 +1,6 @@
 import { BX24 } from "bx24";
 import axios from "axios";
+import createDeal from "./create-deal";
 
 function getCurrentUser() {
   const bx24 = new BX24();
@@ -33,6 +34,7 @@ function getCurrentUser() {
 //     console.log('B24 SDK is ready!', bx24.isAdmin());
 
 // });
+createDeal()
   return  currentUserPromise;
 }
 

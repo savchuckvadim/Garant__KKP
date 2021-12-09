@@ -94,21 +94,7 @@
         "keywords": "<%= keywords %>"
       }
     </script>
-    <script src="//api.bitrix24.com/api/v1/"></script>
-    <script>
-        // Make a call to REST when JS SDK is loaded
-        BX24.init(function(){
-
-            BX24.callMethod('user.current', {}, function(res){
-                var name  = res.data().NAME + ' ' + res.data().LAST_NAME;
-                console.log(name);
-            });
-
-            console.log('B24 SDK is ready!', BX24.isAdmin());
-
-        });
-    </script>
-  
+   
   </head>
   <body>
     <noscript>Enable JavaScript, please</noscript>
