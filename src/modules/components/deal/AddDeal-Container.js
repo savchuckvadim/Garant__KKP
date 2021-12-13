@@ -4,7 +4,7 @@ import { AddDeal } from "./AddDeal"
 
 
 const mapStateToProps = (state) => {
-    debugger
+  
 let currentComplect  = state.currentComplect;
 
 // let fields = []
@@ -14,7 +14,8 @@ let currentComplect  = state.currentComplect;
 // let encyclopedias = state.encyclopedias[1].value
 
 // let legalTech = state.legalTech.value
-let price = state.price
+let price = state.price.currentPrice.value
+
 
 
     return{

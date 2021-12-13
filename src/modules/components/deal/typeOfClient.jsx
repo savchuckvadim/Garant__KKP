@@ -1,11 +1,13 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@material-ui/core"
+import React from "react"
 import "./prepaid.css"
 const TypeOfClient = (props) => {
     let items = []
-    props.typesOfClient.forEach(type => {
+    props.typesOfClient.forEach((type, index) => {
        
-        items.push( <MenuItem key={type} value={type}>{type}</MenuItem>)
+        items.push( <MenuItem  onClick={(e) => { props.changeTypeOfClient (index) }} key={`Client-item-${index}`} value={type.name}>{type.name}</MenuItem>)
     })
+    let ref = React.createRef()
     
     return (
         <div className="prepaid__container">
@@ -14,9 +16,11 @@ const TypeOfClient = (props) => {
                 <Select
                     labelId="deal-client-select-label"
                     id="deal-client-select"
-                    value={props.value}
+                    value={props.value.name}
                     label={props.name}
-                    onChange={(e) => { props.changeTypeOfClient (e) }}
+                    ref={ref}
+                    // onChange={(e) => { props.changeTypeOfClient (e) }}
+                    key={props.name}
                 >
                     {items}
                 </Select>

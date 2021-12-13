@@ -2,11 +2,13 @@ import { FormControl, InputLabel, MenuItem, Select } from "@material-ui/core"
 import "./prepaid.css"
 const TypeOfContract = (props) => {
     let items = []
-    props.typesOfContract.forEach(type => {
-       
-        items.push( <MenuItem key={type} value={type}>{type}</MenuItem>)
-    })
     
+    props.typesOfContract.forEach((type, index) => {
+       
+        items.push( <MenuItem onClick={(e) => { props.changeTypeOfContract (index) }} key={type.id} value={type.name}>{type.name}</MenuItem>)
+    })
+    let ref = React.createRef()
+
     return (
         <div className="prepaid__container">
             <FormControl fullWidth>
@@ -14,9 +16,10 @@ const TypeOfContract = (props) => {
                 <Select
                     labelId="deal-contract-select-label"
                     id="deal-contract-select"
-                    value={props.value}
+                    value={props.value.name}
                     label={props.name}
-                    onChange={(e) => { props.changeTypeOfContract (e) }}
+                    ref={ref}
+                    // onChange={(e) => { props.changeTypeOfContract (e) }}
                 >
                     {items}
                 </Select>

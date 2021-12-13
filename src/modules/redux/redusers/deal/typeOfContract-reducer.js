@@ -28,10 +28,11 @@ let initialState = {
 
 
 
-export const typeOfContractActionCreator = () => {
+export const typeOfContractActionCreator = (index) => {
 
     return {
-        type: TYPE_OF_CONTRACT
+        type: TYPE_OF_CONTRACT,
+        index: index
     }
 }
 
@@ -40,6 +41,7 @@ const changeTypeOfContract = (stateCome, action) => {
     let state = {
         ...stateCome
     }
+    state.value = state.typesOfContract[action.index]
 
     return state
 }
@@ -47,7 +49,7 @@ const changeTypeOfContract = (stateCome, action) => {
 export const typeOfContractReducer = (state = initialState, action) => {
 
     if (action.type === TYPE_OF_CONTRACT) {
-        return changeTypeOfContract()
+        return changeTypeOfContract(state, action)
     }
     return state
 }

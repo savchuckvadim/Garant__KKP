@@ -15,8 +15,19 @@ export const AddDeal = (props) => {
   let idTypeOfContract = props.typeOfContract.id
   // let idPrepaid = props.prepaid.id
 
-  let price = price
-  let fields = < DealIncludedContainer />
+  let price = props.priceOfComplect
+  let included = 'Pfrjyjld'
+let included2 = 
+ `
+  <pre>
+  1
+  2
+  3
+  ${included}
+  </pre>
+  `
+
+  let complectIncluded = included2 
   console.log('🚀 ~ file: AddTask.jsx ~ line 6 ~ AddTask ~ taskData', taskData);
 
   const onChange = (event) => {
@@ -44,9 +55,8 @@ export const AddDeal = (props) => {
         "OPPORTUNITY": 5000,
 
         "CATEGORY_ID": 6,
-        "COMMENTS": fields,
-        'UF_CRM_1540190343': '1915',
-        'UF_CRM_1540190412': '1925',
+        
+
 
 
 
@@ -81,8 +91,9 @@ export const AddDeal = (props) => {
 
           // 'UF_CRM_1540190412': typeOfClient,
           // 'UF_CRM_1540190343': typeOfContract,
-          'UF_CRM_1540190412': 'Индивидуальный предприниматель',
-          'UF_CRM_1540190343': 'Абонентский',
+          'UF_CRM_1540190343': '1915',
+          'UF_CRM_1540190412': '1925',
+          "COMMENTS": `${complectIncluded}`,
 
 
         },
@@ -94,6 +105,8 @@ export const AddDeal = (props) => {
     console.log('changeDeal = ', changeDeal);
     console.log('products = ', products);
     console.log('fields = ', fields.answer.result);
+    console.log('updateDeal = ', updateDeal.answer.result);
+
     console.log('UF_CRM_1540190343 = ', fields.answer.result.UF_CRM_1540190343);
     console.log('UF_CRM_1539338045 = ', fields.answer.result.UF_CRM_1539338045);
     console.log('UF_CRM_1540190412 = ', fields.answer.result.UF_CRM_1540190412);

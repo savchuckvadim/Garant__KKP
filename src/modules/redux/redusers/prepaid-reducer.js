@@ -27,13 +27,11 @@ const changePrepaid = (stateCome, action) => {
 export const prepaidReducer = (state = initialState, action) => {
 
     if (action.type === INPUT_CHANGE_PREPAID) {
-        // state.width = action.width
-        // state.value = action.value
-        // state.status = action.status
-        return changePrepaid
+
+        return changePrepaid(state, action)
     }
 
-
+    
     return state
 
 }

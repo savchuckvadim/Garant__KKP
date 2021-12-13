@@ -12,8 +12,8 @@ const mapStateToProps = (state) => {
     }
 }
 const mapDispatchToProps = (dispatch) => {
-    let action = typeOfContractActionCreator()
-    let changeTypeOfContract = () => {
+    let changeTypeOfContract = (index) => {
+        let action = typeOfContractActionCreator(index)
         dispatch(action)
     }
     return {

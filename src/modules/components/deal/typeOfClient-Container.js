@@ -22,8 +22,9 @@ const mapStateToProps = (state) => {
     }
 }
 const mapDispatchToProps = (dispatch) => {
-    let action = typeOfClientActionCreator()
-    let changeTypeOfClient = () => {
+    
+    let changeTypeOfClient = (index) => {
+        let action = typeOfClientActionCreator(index)
         dispatch(action)
     }
     return {

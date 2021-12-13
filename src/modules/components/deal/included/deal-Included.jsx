@@ -7,6 +7,12 @@ const Included = (props) => {
     // props.state.changePaketsErData()
     // props.state.changeErData()
     // props.state.changeltData()
+    let testItem = 'еще один блок'
+    let test = `
+    Правовой Консалтинг. Премиум
+    еще один блок
+   
+    `
     let defineClassName = () => {
         if (props.state.currentComplect.name === 'Предприятие' || props.state.currentComplect.name === 'Предприятие PRO') {
             return 'texSmall';
@@ -100,46 +106,62 @@ const Included = (props) => {
 
             )
         }
-        if(props.state.currentComplect.number < 7){
-            return (
-                <div className="wrapper">
-                    <div>
-                        {infoblocks(props.state.infoblocks)}
-                        <FreeBlocks />
-                    </div>
-    
-                    <div>
-                        {infoblocks(props.state.encyclopedias)}
-    
-    
-                        {legalTech(props.state.legalTech)}
-                       
-                    </div>
-    
-                </div>
-            )
-        }else{
-            return (
-                <div className="wrapper">
-                    <div>
-                        {infoblocks(props.state.infoblocks)}
-                        {legalTech(props.state.legalTech)}
-                        
-                    </div>
-    
-                    <div>
-                        {infoblocks(props.state.encyclopedias)}
-    
-    
-                        
-                        <FreeBlocks />
-                    </div>
-    
-                </div>
-            )
-        }
-        
+
+
+        //     if(props.state.currentComplect.number < 7){
+        //         return (
+        //             <div className="wrapper">
+        //                 <div>
+        //                     {infoblocks(props.state.infoblocks)}
+        //                     <FreeBlocks />
+        //                 </div>
+
+        //                 <div>
+        //                     {infoblocks(props.state.encyclopedias)}
+
+
+        //                     {legalTech(props.state.legalTech)}
+
+        //                 </div>
+
+        //             </div>
+        //         )
+        //     }else{
+        //         return (
+        //             <div className="wrapper">
+        //                 <div>
+        //                     {infoblocks(props.state.infoblocks)}
+        //                     {legalTech(props.state.legalTech)}
+
+        //                 </div>
+
+        //                 <div>
+        //                     {infoblocks(props.state.encyclopedias)}
+
+
+
+        //                     <FreeBlocks />
+        //                 </div>
+
+        //             </div>
+        //         )
+        //     }
+
+        // }
+
+        return (
+            
+            `
+            <pre>
+            1
+            2
+            3
+            ${1}
+            </pre>
+            `
+            
+                
+        )
     }
 }
-
-export default Included
+    export default Included
