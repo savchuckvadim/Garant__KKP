@@ -6,13 +6,19 @@ import getDeal from "./services/get-deal";
 
 import Button from '@material-ui/core/Button';
 
-import { AddDeal } from './AddDeal';
+import { PrepaidContainer} from "./prepaid-Container";
+import { TypeOfClientContainer } from "./typeOfClient-Container";
+import { TypeOfContractContainer } from "./typeOfContract-Container";
+import { AddDealContainer } from "./AddDeal-Container";
 
 const Deal = () => {
   return (
     <div className="deal__container">
       <h1>Добавление Сделки</h1>
-      <AddDeal />
+      <AddDealContainer />
+      <PrepaidContainer />
+      <TypeOfClientContainer/>
+      <TypeOfContractContainer/>
     </div>
   );
 };

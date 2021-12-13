@@ -14,6 +14,14 @@ import { theme } from './redusers/theme-reducer';
 import { result } from './redusers/result-reducer';
 import { modal } from './redusers/modal-reducer';
 import { resultModal } from './redusers/result-modal-reducer';
+import deal from './redusers/deal-reducer';
+import { totalPriceReducer } from './redusers/totalPrice-reducer';
+import { prepaidReducer } from './redusers/prepaid-reducer';
+import {typeOfContractReducer} from './redusers/deal/typeOfContract-reducer';
+import {typeOfClientReducer} from './redusers/deal/typeOfClient-reducer';
+import {supplierReducer} from './redusers/deal/supplier-reducer';
+import {goodsReducer} from './redusers/deal/goods-reducer';
+import {dateOfContractReducer} from './redusers/deal/datesOfContract-reducer';
 // import weightReducer from './redusers/weight-reduser';
 
 
@@ -41,12 +49,21 @@ let reducers = combineReducers({
     phoneNumber: changeDataPhone,
     // changePrepaid,
     price: priceReducer,
+    totalPrice: totalPriceReducer,
     // weight: weightReducer,
     // reset,
+    prepaid: prepaidReducer,
     theme: theme,
     result: result,
     modal: modal,
-    resultModal: resultModal
+    resultModal: resultModal,
+    deal: deal,
+    typeOfContract: typeOfContractReducer,
+    typeOfClient: typeOfClientReducer,
+    supplier: supplierReducer,
+    dateOfContract: dateOfContractReducer,
+    goods: goodsReducer,
+
 
 
 });

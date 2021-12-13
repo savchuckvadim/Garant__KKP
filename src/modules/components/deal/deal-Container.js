@@ -2,13 +2,13 @@ import { connect } from "react-redux"
 import Deal from "./deal"
 
 
-const mapStateToProps = () => {
+const mapStateToProps = (state) => {
 
     return{
 
     }
 }
-const mapDispatchToProps = () => {
+const mapDispatchToProps = (dispatch) => {
 
     return{
 

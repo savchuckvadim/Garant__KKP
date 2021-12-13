@@ -1,3 +1,4 @@
+import { PriceContainer } from "./price-Container"
 
 
 
@@ -8,7 +9,7 @@ const ItemValueResult = (props) => {
         props.values.weight,
         props.values.od.substr(0,2),
         props.values.ltIncluded,
-        props.values.price,
+        // props.values.price,
         props.values.nameOflt,
         props.values.weightLt,
         props.values.priceOfLt,
@@ -22,6 +23,7 @@ const ItemValueResult = (props) => {
         return <span key={element} className={props.styleSpanResult}>{element}</span>
 
     })
+    items.push(<PriceContainer/>)
   
  return items
   
