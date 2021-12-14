@@ -10,16 +10,35 @@ import { PrepaidContainer} from "./prepaid-Container";
 import { TypeOfClientContainer } from "./typeOfClient-Container";
 import { TypeOfContractContainer } from "./typeOfContract-Container";
 import { AddDealContainer } from "./AddDeal-Container";
+import { DealIncludedContainer } from "./included/deal-included-Container";
+import { TableDealContainer } from "./table-price/dealPrice-Container";
 
 const Deal = () => {
   return (
+    <>
+     <h1>Добавление Сделки</h1>
     <div className="deal__container">
-      <h1>Добавление Сделки</h1>
+     
+      <div className="addDeal__container">
       <AddDealContainer />
+
+      </div>
+      <div className="dealContract__container">
       <PrepaidContainer />
       <TypeOfClientContainer/>
       <TypeOfContractContainer/>
+      </div>
+      <div className="dealFields__container">
+      <DealIncludedContainer/>
+
+      </div>
+      <div className="dealTable__container">
+      <TableDealContainer/>
+      </div>
+      
+
     </div>
+    </>
   );
 };
 

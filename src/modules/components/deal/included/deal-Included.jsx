@@ -18,9 +18,9 @@ const Included = (props) => {
             return 'texSmall';
 
         } else if (props.state.currentComplect.name === 'Бухгалтер' || props.state.currentComplect.name === 'Бухгалтер госсектора') {
-            return 'textXl'
+            return 'texSmall'
         } else {
-            return 'texLarge';
+            return 'texSmall';
         }
     }
 
@@ -28,8 +28,8 @@ const Included = (props) => {
         if (props.state.currentComplect.name === 'Главный Бухгалтер' || props.state.currentComplect.name === 'Главный Бухгалтер госсектора' || props.state.currentComplect.name === 'Предприятие' || props.state.currentComplect.name === 'Предприятие PRO') {
             return (
                 <>
-                    <p className={className}> Правовой Консалтинг. Премиум</p>
-                    <p className={className}> 2 Экспертных заключения в месяц</p>
+                    <p key='itemOfinfoblock-6' className={className}> Правовой Консалтинг. Премиум</p>
+                    <p key='itemOfinfoblock-7' className={className}> 2 Экспертных заключения в месяц</p>
                 </>
             )
         } else {
@@ -42,14 +42,14 @@ const Included = (props) => {
 
 
         return (
-            <div className="infoTypeWrapper">
-                <h5 className="titleOfBlocks">Дополнительная поддержка</h5>
-                <p className={className}> Услуги горячей линии </p>
-                <p className={className}> ПРАЙМ </p>
-                <p className={className}> Большая Домашняя правовая библиотека </p>
+            <div key='1-infoTypeWrapper' className="infoTypeWrapper">
+                <h5 key='1h5-titleOfBlocks' className="titleOfBlocks">Дополнительная поддержка</h5>
+                <p key='itemOfinfoblock-1' className={className}> Услуги горячей линии </p>
+                <p key='itemOfinfoblock-2' className={className}> ПРАЙМ </p>
+                <p key='itemOfinfoblock-3' className={className}> Большая Домашняя правовая библиотека </p>
 
-                <p className={className}> Судебная практика: приложение к консультационным блокам</p>
-                <p className={className}> База знаний службы Правового консалтинга</p>
+                <p key='itemOfinfoblock-4' className={className}> Судебная практика: приложение к консультационным блокам</p>
+                <p key='itemOfinfoblock-5' className={className}> База знаний службы Правового консалтинга</p>
                 {/* <p className={className}> Гарант Консалтинг: нормативные акты и судебная практика</p> */}
                 <Сonsalting />
             </div>
@@ -65,11 +65,11 @@ const Included = (props) => {
 
             array.forEach((elem, idx) => {
                 let resultArray = []
-                let type = <h4 className="titleOfBlocks">{array[idx].nameOfType}</h4>
+                let type = <h4 key={array[idx].nameOfType} className="titleOfBlocks">{array[idx].nameOfType}</h4>
                 elem.value.forEach((element) => {
 
                     if (element.checked) {
-                        resultArray.push(<p className={className}> {element.name} </p>)
+                        resultArray.push(<p key={element.name} className={className}> {element.name} </p>)
                     }
                 })
                 if (resultArray.length > 0) {
@@ -80,7 +80,7 @@ const Included = (props) => {
 
             })
             return (
-                <div className="info">
+                <div key="info" className="info">
 
                     {result}
                 </div>
@@ -91,15 +91,15 @@ const Included = (props) => {
             let resultArray = []
             array.value.forEach((elem) => {
                 if (elem.checked === true) {
-                    resultArray.push(<p className={className}>{elem.name}</p>)
+                    resultArray.push(<p key={elem.name} className={className}>{elem.name}</p>)
                 }
             })
             let title
             if (resultArray.length > 0) {
-                title = <h3 className="titleOfBlocks">{array.nameOfType}</h3>
+                title = <h3 key={array.nameOfType} className="titleOfBlocks">{array.nameOfType}</h3>
             }
             return (
-                <div className="infoTypeWrapper">
+                <div key='infoTypeWrapper-0' className="infoTypeWrapper">
                     {title}
                     {resultArray}
                 </div>
@@ -108,60 +108,48 @@ const Included = (props) => {
         }
 
 
-        //     if(props.state.currentComplect.number < 7){
-        //         return (
-        //             <div className="wrapper">
-        //                 <div>
-        //                     {infoblocks(props.state.infoblocks)}
-        //                     <FreeBlocks />
-        //                 </div>
+            if(props.state.currentComplect.number < 7){
+                return (
+                    <div className="deal__included__wrapper">
+                        <div>
+                            {infoblocks(props.state.infoblocks)}
+                            <FreeBlocks />
+                        </div>
 
-        //                 <div>
-        //                     {infoblocks(props.state.encyclopedias)}
-
-
-        //                     {legalTech(props.state.legalTech)}
-
-        //                 </div>
-
-        //             </div>
-        //         )
-        //     }else{
-        //         return (
-        //             <div className="wrapper">
-        //                 <div>
-        //                     {infoblocks(props.state.infoblocks)}
-        //                     {legalTech(props.state.legalTech)}
-
-        //                 </div>
-
-        //                 <div>
-        //                     {infoblocks(props.state.encyclopedias)}
+                        <div>
+                            {infoblocks(props.state.encyclopedias)}
 
 
+                            {legalTech(props.state.legalTech)}
 
-        //                     <FreeBlocks />
-        //                 </div>
+                        </div>
 
-        //             </div>
-        //         )
-        //     }
+                    </div>
+                )
+            }else{
+                return (
+                    <div className="deal__included__wrapper">
+                        <div>
+                            {infoblocks(props.state.infoblocks)}
+                            {legalTech(props.state.legalTech)}
 
-        // }
+                        </div>
 
-        return (
-            
-            `
-            <pre>
-            1
-            2
-            3
-            ${1}
-            </pre>
-            `
-            
-                
-        )
-    }
+                        <div>
+                            {infoblocks(props.state.encyclopedias)}
+
+
+
+                            <FreeBlocks />
+                        </div>
+
+                    </div>
+                )
+            }
+
+        }
+
+ 
+    
 }
     export default Included

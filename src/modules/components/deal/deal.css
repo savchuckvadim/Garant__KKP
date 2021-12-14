@@ -1,3 +1,37 @@
 .deal__container{
-    padding: 10vh !important;
+    padding-top: 5vh !important;
+    margin: 0 auto !important;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    display: grid;
+    /* grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr); */
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: repeat(2, 1fr);
+    grid-template-areas:
+      "addDeal contract fields"
+      
+      "dealTable dealTable dealTable";
+    width: 90%;
+    height: 50%;
+}
+.addDeal__container{
+    grid-area: addDeal;
+}
+.dealContract__container{
+    grid-area: contract;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 50%;
+}
+
+.dealFields__container{
+    grid-area: fields;
+}
+
+.dealTable__container{
+    grid-area: dealTable;
 }

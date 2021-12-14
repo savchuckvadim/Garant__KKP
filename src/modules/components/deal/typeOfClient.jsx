@@ -2,6 +2,9 @@ import { FormControl, InputLabel, MenuItem, Select } from "@material-ui/core"
 import React from "react"
 import "./prepaid.css"
 const TypeOfClient = (props) => {
+    let value 
+     props.value  ? value = props.value.name  : value = props.value
+    debugger
     let items = []
     props.typesOfClient.forEach((type, index) => {
        
@@ -16,7 +19,7 @@ const TypeOfClient = (props) => {
                 <Select
                     labelId="deal-client-select-label"
                     id="deal-client-select"
-                    value={props.value.name}
+                    value={value}
                     label={props.name}
                     ref={ref}
                     // onChange={(e) => { props.changeTypeOfClient (e) }}
