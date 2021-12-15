@@ -12,6 +12,7 @@ import { TypeOfContractContainer } from "./typeOfContract-Container";
 import { AddDealContainer } from "./AddDeal-Container";
 import { DealIncludedContainer } from "./included/deal-included-Container";
 import { TableDealContainer } from "./table-price/dealPrice-Container";
+import { DealPushButtonContainer } from "./push-deal-form/push-deal-button-Container";
 
 const Deal = () => {
   return (
@@ -24,9 +25,12 @@ const Deal = () => {
 
       </div>
       <div className="dealContract__container">
-      <PrepaidContainer />
-      <TypeOfClientContainer/>
       <TypeOfContractContainer/>
+      
+      {/* <PrepaidContainer /> */}
+      
+      {/* <TypeOfClientContainer/> */}
+      
       </div>
       <div className="dealFields__container">
       <DealIncludedContainer/>
@@ -34,6 +38,9 @@ const Deal = () => {
       </div>
       <div className="dealTable__container">
       <TableDealContainer/>
+      </div>
+      <div className="dealPush__container">
+      <DealPushButtonContainer/>
       </div>
       
 

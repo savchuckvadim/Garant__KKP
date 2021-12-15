@@ -36,15 +36,15 @@ const ResultModalButton = (props) => {
         onClose={handleClose}
         TransitionComponent={Transition}
       >
-        <AppBar sx={{ position: 'relative' }}>
+        {/* <AppBar sx={{ position: 'relative' }}>
           <Toolbar>
             <IconButton
               edge="end"
-              // color="inherit"
+           
               onClick={handleClose}
               aria-label="close"
             >
-              {/* <CloseIcon /> */}
+            
             </IconButton>
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
 
@@ -53,7 +53,7 @@ const ResultModalButton = (props) => {
               save
             </Button>
           </Toolbar>
-        </AppBar>
+        </AppBar> */}
         <List>
          
           <DealContainer/>

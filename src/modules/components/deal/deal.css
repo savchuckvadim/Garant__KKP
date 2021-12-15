@@ -11,27 +11,36 @@
     grid-auto-rows: repeat(2, 1fr);
     grid-template-areas:
       "addDeal contract fields"
-      
-      "dealTable dealTable dealTable";
+      "dealTable dealTable dealTable"
+      "- - push";
     width: 90%;
-    height: 50%;
+    /* height: 50%; */
 }
 .addDeal__container{
     grid-area: addDeal;
+    height: 55vh;
+
 }
 .dealContract__container{
     grid-area: contract;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: start;
     align-items: center;
-    height: 50%;
+    height: 55vh;
 }
 
 .dealFields__container{
     grid-area: fields;
+    height: 55vh;
+
 }
 
 .dealTable__container{
     grid-area: dealTable;
+}
+
+.dealPush__container{
+    grid-area: push;
+  
 }

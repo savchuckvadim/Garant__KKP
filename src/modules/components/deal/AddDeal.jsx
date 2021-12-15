@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import BX24API from 'bx24-api';
 import { DealIncludedContainer } from './included/deal-included-Container';
+import { DealPushContainer } from './push-deal-form/push-deal-form-Container';
 
 export const AddDeal = (props) => {
   const [taskData, setTaskData] = useState({
@@ -121,22 +122,23 @@ let included2 =
   };
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <input
-          type='text'
-          name='title'
-          value={taskData.title}
-          onChange={onChange}
-        />
-        <input
-          type='text'
-          name='description'
-          value={taskData.description}
-          onChange={onChange}
-        />
-        <button type='submit'>Добавить задачу</button>
-      </form>
-    </div>
+    // <div>
+    //   <form onSubmit={onSubmit}>
+    //     <input
+    //       type='text'
+    //       name='title'
+    //       value={taskData.title}
+    //       onChange={onChange}
+    //     />
+    //     <input
+    //       type='text'
+    //       name='description'
+    //       value={taskData.description}
+    //       onChange={onChange}
+    //     />
+    //     <button type='submit'>Добавить задачу</button>
+    //   </form>
+    // </div>
+    <DealPushContainer/>
   );
 };
