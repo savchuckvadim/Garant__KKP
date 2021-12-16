@@ -24,7 +24,8 @@ export const AddDeal = (props) => {
 
   let price = props.priceOfComplect
   let goodsId = props.goods
-  console.log(goodsId)
+  console.log(`addDealJSX ${goodsId}`)
+
   let included = 'Pfrjyjld'
   let included2 =
     `
@@ -90,11 +91,13 @@ export const AddDeal = (props) => {
       id: idOfCurrentDeal,
       rows:
         [
-          { "PRODUCT_ID": goodsId, "PRICE": price, "QUANTITY": 1  },
+          { "PRODUCT_ID": goodsId, "PRICE": price, 'MEASURE_NAME': 'Абон. 12 мес.' , "QUANTITY": 1  },
 
         ]
     })
     const fields = await BX24API.callMethod('crm.deal.fields')
+    const units = await BX24API.callMethod('crm.measure.fields')
+    const productrow = await BX24API.callMethod('crm.productrow.fields')
     const updateDeal = await BX24API.callMethod(
       "crm.deal.update",
       {
@@ -124,6 +127,9 @@ export const AddDeal = (props) => {
     console.log('UF_CRM_1539338045 = ', fields.answer.result.UF_CRM_1539338045);
     console.log('UF_CRM_1540190412 = ', fields.answer.result.UF_CRM_1540190412);
     console.log('STAGE_ID = ', fields.answer.result.STAGE_ID);
+    console.log('units = ', units);
+    console.log('productrow = ', productrow.answer.result);
+    
     props.reset()
 
     // console.log('updateDeal = ', updateDeal.answer.result);

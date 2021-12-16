@@ -12,7 +12,9 @@ let initialState = {
     typesOfContract: [{
             id: '1913',
             name: 'Internet',
-            typeOfGood: 'prof'
+            typeOfGood: 'prof',
+           
+            
         },
         // {
         //     id: '1915',

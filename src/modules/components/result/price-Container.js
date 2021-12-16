@@ -2,6 +2,7 @@ import { connect } from "react-redux"
 import Price from "./price"
 
 const mapStateToProps = (state) => {
+let typeOfContract = state.typeOfContract.value.typeOfGood
 
     return {
         price: state.price

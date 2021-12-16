@@ -4,8 +4,10 @@ import { typeOfContractActionCreator } from "../../redux/redusers/deal/typeOfCon
 import TypeOfContract from "./typeOfContract"
 
 const mapStateToProps = (state) => {
-    let numberOfComplect 
-    state.currentComplect ? numberOfComplect = state.currentComplect.number : numberOfComplect = 0
+    let numberOfComplect = 0
+    if(state.currentComplect) {
+        numberOfComplect = state.currentComplect.number
+    }
     let numberOfOD 
     state.od.names.forEach((el, ind) => {
         if(el === state.od.currentOd){
@@ -25,9 +27,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     
     return {
-        changeTypeOfContract: (index, numberOfOD, typeOfContract) => {
+        changeTypeOfContract: (index, numberOfComplect, numberOfOD, typeOfContract) => {
             let actionContract = typeOfContractActionCreator(index)
-            let actionGoods = goodsActionCreator(index, numberOfOD, typeOfContract)
+            let actionGoods = goodsActionCreator(numberOfComplect, numberOfOD, typeOfContract)
 
             dispatch(actionContract)
             dispatch(actionGoods)
