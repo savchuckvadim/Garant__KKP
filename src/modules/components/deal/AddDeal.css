@@ -1,0 +1,15 @@
+.dealPush__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+}
+
+
+
+.dealButtons__container{
+    display: flex;
+    justify-content: space-between;
+
+}
+

@@ -8,12 +8,22 @@ import { changeColorOfButtonActionCreator } from "../../redux/redusers/allComple
 import { changeBlocksFromNewComplectActionCreator } from "../../redux/redusers/checkBoxes-action";
 import ComplectButtons from "./buttons";
 import { connect } from "react-redux";
+import { goodsActionCreator } from "../../redux/redusers/deal/goods-reducer";
 
 
 
 
 let mapStateToProps = (state) => {
+let currentOd = state.od.currentOd
+    let numberOfOD 
+    state.od.names.forEach((od, index) => {
+        if(od === currentOd){
+            numberOfOD = index
+        }
+    })
+    let typeOfContract = state.typeOfContract.value.typeOfGood
     let currentComplect = state.currentComplect
+
     let currentTheme = state.theme.style[state.theme.indexOfTheme]
     const dinamicStyleForButtons = (borderColor, textColor, complectColor) => {
 
@@ -22,7 +32,7 @@ let mapStateToProps = (state) => {
             backgroundColor: complectColor,
             border: '1px solid',
             borderColor: borderColor,
-           
+
 
         }
 
@@ -45,7 +55,7 @@ let mapStateToProps = (state) => {
             complectColor = currentTheme.backgroundColor
         }
         style.push(dinamicStyleForButtons(borderColor, textColor, complectColor))
-    
+
     })
     let ellipse = state.allComplects.map(complect => {
         if (currentComplect) {
@@ -54,10 +64,10 @@ let mapStateToProps = (state) => {
             } else {
                 return Ellipse
             }
-        }else {
+        } else {
             return Ellipse
         }
-        
+
     })
     return {
         allComplects: state.allComplects,
@@ -66,20 +76,25 @@ let mapStateToProps = (state) => {
         ods: state.od.names,
         currentTheme: currentTheme,
         style: style,
-        ellipse: ellipse
+        ellipse: ellipse,
+        
+        numberOfOD,
+        typeOfContract
 
     }
 }
 let mapDispatchToProps = (dispatch) => {
     return {
-        createComplect: (obj, index, ods, currentOd, currentTheme) => {
+        createComplect: (obj, index, ods, currentOd, currentTheme,  numberOfOD, typeOfContract) => {
 
             let actionNewComplect = createComplectActionCreator(obj, index, ods, currentOd)
             let actionColorOfButton = changeColorOfButtonActionCreator(index, currentTheme)
             let actionBlocksFromNewComplect = changeBlocksFromNewComplectActionCreator(obj)
+            let actionGoods = goodsActionCreator(index, numberOfOD, typeOfContract)
             dispatch(actionColorOfButton)
             dispatch(actionNewComplect)
             dispatch(actionBlocksFromNewComplect)
+            dispatch(actionGoods)
 
         }
     }

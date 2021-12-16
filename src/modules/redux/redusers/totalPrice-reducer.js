@@ -43,11 +43,7 @@ export const totalPriceReducer = (state = initialState, action) => {
     if (action.type === GET_TOTAL_PRICE || action.type === CREATE_COMPLECT || action.type === CHANGE_CURRENT_OD) {
 
         return totalPrice(state, action)
-    }  else if (action.type === RESET) {
-
-        return reset(state)
-
-    } else {
+    }  else {
         return state
     }
 }

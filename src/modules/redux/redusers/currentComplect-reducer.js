@@ -9,7 +9,12 @@ const RESET = 'RESET'
 
 
 let initialState = null
+export const resetActionCreator = () => {
 
+    return{
+        type: RESET
+    }
+}
 export const createComplectActionCreator = (obj, index, ods, currentOd) => {
   
     

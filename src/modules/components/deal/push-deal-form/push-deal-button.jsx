@@ -1,9 +1,12 @@
 import{ Button} from "@material-ui/core";
-const DealPushButton = () => {
+const DealPushButton = (props) => {
 
 
     return (
-        <Button variant="outlined">Outlined</Button>
+
+        <Button style={props.style} onClick={props.submit} variant="outlined">{props.name}</Button>
+   
+        
     )
 }
 

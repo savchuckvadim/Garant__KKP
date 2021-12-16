@@ -17,7 +17,7 @@ import { DealPushButtonContainer } from "./push-deal-form/push-deal-button-Conta
 const Deal = () => {
   return (
     <>
-     <h1>Добавление Сделки</h1>
+     {/* <h3>Добавление Сделки</h3> */}
     <div className="deal__container">
      
       <div className="addDeal__container">
@@ -39,9 +39,9 @@ const Deal = () => {
       <div className="dealTable__container">
       <TableDealContainer/>
       </div>
-      <div className="dealPush__container">
+      {/* <div className="dealPush__container">
       <DealPushButtonContainer/>
-      </div>
+      </div> */}
       
 
     </div>

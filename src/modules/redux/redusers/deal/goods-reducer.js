@@ -22,7 +22,7 @@ let initialState = {
         [6026, 6028, 6030, 6032, 6034, 6036, 6038, 6040],
         [6042, 6044, 6046, 6048, 6050, 6052, 6054, 6056],
         [6058, 6060, 6062, 6064, 6066, 6068, 6070, 6072],
-        
+
     ],
 
     abonEleven: [
@@ -34,26 +34,43 @@ let initialState = {
         [6154, 6156, 6158, 6160, 6162, 6164, 6166, 6168],
         [6170, 6172, 6174, 6176, 6178, 6180, 6182, 6184],
         [6186, 6188, 6190, 6192, 6194, 6196, 6198, 6200],
-        
-    ]
+
+    ],
+
+    currentId: 5576
 
 }
 
 
 
-export const goodsActionCreator = () => {
+export const goodsActionCreator = (numberOfComplect, numberOfOD, typeOfContract) => {
 
     return {
-        type: GOODS
+        type: GOODS,
+        numberOfComplect,
+        numberOfOD,
+        typeOfContract
     }
 }
 
 const changeGoods = (stateCome, action) => {
+    let numberOfComplect = action.numberOfComplect
+    let numberOfOD = action.numberOfOD
+    let typeOfContract = action.typeOfContract
 
     let state = {
         ...stateCome
     }
+    
+    if(typeOfContract === 'abonSix'){
+        state.currentId = state.abonSix[numberOfOD][numberOfComplect]
+    }else if(typeOfContract === 'abonEleven'){
+        state.currentId = state.abonEleven[numberOfOD][numberOfComplect]
+    }else{
+        state.currentId = state.prof[numberOfOD][numberOfComplect]
 
+    }
+ 
     return state
 }
 
@@ -64,4 +81,3 @@ export const goodsReducer = (state = initialState, action) => {
     }
     return state
 }
-

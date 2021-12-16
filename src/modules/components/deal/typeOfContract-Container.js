@@ -1,23 +1,37 @@
 import { connect } from "react-redux"
+import { goodsActionCreator } from "../../redux/redusers/deal/goods-reducer"
 import { typeOfContractActionCreator } from "../../redux/redusers/deal/typeOfContract-reducer"
 import TypeOfContract from "./typeOfContract"
 
 const mapStateToProps = (state) => {
-
+    let numberOfComplect 
+    state.currentComplect ? numberOfComplect = state.currentComplect.number : numberOfComplect = 0
+    let numberOfOD 
+    state.od.names.forEach((el, ind) => {
+        if(el === state.od.currentOd){
+            numberOfOD = ind
+        }
+    })      
+    
     return {
         name: state.typeOfContract.name,
         id: state.typeOfContract.id,
-        value: state.typeOfContract.value,
-        typesOfContract: state.typeOfContract.typesOfContract
+        value: state.typeOfContract.value.typeOfGood,
+        typesOfContract: state.typeOfContract.typesOfContract,
+        numberOfComplect,
+        numberOfOD
     }
 }
 const mapDispatchToProps = (dispatch) => {
-    let changeTypeOfContract = (index) => {
-        let action = typeOfContractActionCreator(index)
-        dispatch(action)
-    }
+    
     return {
-        changeTypeOfContract: changeTypeOfContract
+        changeTypeOfContract: (index, numberOfOD, typeOfContract) => {
+            let actionContract = typeOfContractActionCreator(index)
+            let actionGoods = goodsActionCreator(index, numberOfOD, typeOfContract)
+
+            dispatch(actionContract)
+            dispatch(actionGoods)
+        }
     }
 }
 

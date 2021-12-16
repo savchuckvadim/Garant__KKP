@@ -4,23 +4,36 @@ let initialState = {
 
     name: 'Тип договора',
     id: 'UF_CRM_1540190343',
-    value: "",
+    value: {
+        id: '1913',
+        name: 'Internet',
+        typeOfGood: 'prof'
+    },
     typesOfContract: [{
             id: '1913',
-            name: 'Internet'
+            name: 'Internet',
+            typeOfGood: 'prof'
         },
+        // {
+        //     id: '1915',
+        //     name: 'Договор услуг',
+        //     typeOfGood: 'prof'
+        // },
         {
-            id: '1915',
-            name: 'Договор услуг'
+            id: '3616',
+            name: 'Абонентский полгода',
+            typeOfGood: 'abonSix'
         },
         {
             id: '3616',
-            name: 'Абонентский'
+            name: 'Абонентский год',
+            typeOfGood: 'abonEleven'
         },
-        {
-            id: '3170',
-            name: 'Лицензионный'
-        },
+        // {
+        //     id: '3170',
+        //     name: 'Лицензионный',
+        //     typeOfGood: 'prof'
+        // },
 
     ]
 
@@ -42,7 +55,7 @@ const changeTypeOfContract = (stateCome, action) => {
         ...stateCome
     }
     state.value = state.typesOfContract[action.index]
-
+console.log(state.value.typeOfGood)
     return state
 }
 

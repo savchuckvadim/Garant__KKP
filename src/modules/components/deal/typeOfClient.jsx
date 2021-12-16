@@ -4,7 +4,7 @@ import "./prepaid.css"
 const TypeOfClient = (props) => {
     let value 
      props.value  ? value = props.value.name  : value = props.value
-    debugger
+    
     let items = []
     props.typesOfClient.forEach((type, index) => {
        

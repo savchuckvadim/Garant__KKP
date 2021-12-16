@@ -24,7 +24,7 @@ const [age, setAge] = React.useState('');
 
   props.allOds.forEach((name, index) => {
 
-    ods[index] = <MenuItem key={`item-od-${index}`} ><Button key={`btn-od-${index}`} style={props.style} onClick={() => { props.odChange(name, props.allOds, props.currentComplect) }} className="btn__od" as="button">{name}</Button></MenuItem>
+    ods[index] = <MenuItem key={`item-od-${index}`} ><Button key={`btn-od-${index}`} style={props.style} onClick={() => { props.odChange(name, props.allOds, props.currentComplect, props.currentComplect.number, index, props.typeOfContract) }} className="btn__od" as="button">{name}</Button></MenuItem>
 
   })
 

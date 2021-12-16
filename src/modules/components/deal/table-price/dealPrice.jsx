@@ -25,7 +25,7 @@ const TableDeal = (props) => {
             'total': total,
             'price': price
         }
-        debugger
+        
         return result
     
     }
@@ -45,7 +45,7 @@ const TableDeal = (props) => {
 
 
     const goods = (state) => {
-debugger
+
         if (state.currentComplect) {
 
             rows = [

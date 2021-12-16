@@ -4,6 +4,7 @@ import * as React from 'react';
 import { odChangeActionCreator } from "../../redux/redusers/od-reducer";
 import ODButtons from "./od";
 import { connect } from "react-redux";
+import { goodsActionCreator } from "../../redux/redusers/deal/goods-reducer";
 
 //
 
@@ -22,23 +23,25 @@ let mapStateToProps = (state) => {
 
 
   }
-
+  let typeOfContract = state.typeOfContract.value.typeOfGood
 
   return {
     currentComplect,
     allOds,
     odClassName,
     currentOd,
-    style
+    style,
+    typeOfContract
 
   }
 }
 let mapDispatchToProps = (dispatch) => {
   return {
-    odChange : (name, names, currentComplect) => { 
-      const action = odChangeActionCreator(name, names, currentComplect)
-      
-      dispatch(action)
+    odChange : (name, names, currentComplect, numberOfComplect, index, typeOfContract) => { 
+      const actionOd = odChangeActionCreator(name, names, currentComplect)
+      const actionGoods = goodsActionCreator(numberOfComplect, index, typeOfContract)
+      dispatch(actionOd)
+      dispatch(actionGoods)
     }
   }
 }

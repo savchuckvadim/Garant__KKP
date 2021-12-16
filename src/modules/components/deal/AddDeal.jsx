@@ -2,9 +2,15 @@ import React, { useState } from 'react';
 import BX24API from 'bx24-api';
 import { DealIncludedContainer } from './included/deal-included-Container';
 import { DealPushContainer } from './push-deal-form/push-deal-form-Container';
-
+import { DealPushButtonContainer } from './push-deal-form/push-deal-button-Container';
+import { DealCancelhButtonContainer } from './push-deal-form/cancel-deal-button-Container';
+import { TextField } from '@material-ui/core';
+import { Button } from "@material-ui/core";
+import "./AddDeal.css"
+import "./prepaid.css"
 export const AddDeal = (props) => {
-  const [taskData, setTaskData] = useState({
+   
+  const [nameData, setNameData] = useState({
     title: '',
     description: '',
   });
@@ -17,9 +23,11 @@ export const AddDeal = (props) => {
   // let idPrepaid = props.prepaid.id
 
   let price = props.priceOfComplect
+  let goodsId = props.goods
+  console.log(goodsId)
   let included = 'Pfrjyjld'
-let included2 = 
- `
+  let included2 =
+    `
   <pre>
   1
   2
@@ -31,23 +39,24 @@ let included2 =
   </pre>
   `
 
-  let complectIncluded = included2 
-  console.log('🚀 ~ file: AddTask.jsx ~ line 6 ~ AddTask ~ taskData', taskData);
+  let complectIncluded = included2
+  console.log('🚀 ~ file: AddTask.jsx ~ line 6 ~ AddTask ~ taskData', nameData);
 
   const onChange = (event) => {
-    setTaskData({
-      ...taskData,
+    setNameData({
+      ...nameData,
       [event.target.name]: event.target.value,
     });
   };
 
   const onSubmit = async (event) => {
+
     event.preventDefault();
     console.log('Начал думать');
     const result = await BX24API.callMethod('crm.deal.add', {
       fields: {
         "ID": 56767,
-        "TITLE": `${taskData.title}`,
+        "TITLE": `${nameData.title}`,
         // "STAGE_ID": "GOODS",
         "STAGE_ID": "NEW",
         // "COMPANY_ID": 3,
@@ -59,7 +68,7 @@ let included2 =
         "OPPORTUNITY": 5000,
 
         "CATEGORY_ID": 6,
-        
+
 
 
 
@@ -81,7 +90,7 @@ let included2 =
       id: idOfCurrentDeal,
       rows:
         [
-          { "PRODUCT_ID": 5578, "PRICE": price, "QUANTITY": 4 },
+          { "PRODUCT_ID": goodsId, "PRICE": price, "QUANTITY": 1  },
 
         ]
     })
@@ -115,7 +124,7 @@ let included2 =
     console.log('UF_CRM_1539338045 = ', fields.answer.result.UF_CRM_1539338045);
     console.log('UF_CRM_1540190412 = ', fields.answer.result.UF_CRM_1540190412);
     console.log('STAGE_ID = ', fields.answer.result.STAGE_ID);
-
+    props.reset()
 
     // console.log('updateDeal = ', updateDeal.answer.result);
 
@@ -139,6 +148,18 @@ let included2 =
     //     <button type='submit'>Добавить задачу</button>
     //   </form>
     // </div>
-    <DealPushContainer/>
+    <div className='dealPush__container' >
+      <div className="prepaid__container">
+        <TextField name='title' onChange={onChange} fullWidth id="push-deal-name" label="Название Сделки" variant="outlined" value={nameData.title} />
+      </div>
+      <div className='dealButtons__container'>
+        <Button style={props.styleOfPush} onClick={onSubmit} variant="outlined">Создать Сделку</Button>
+        <Button style={props.styleOfCancel} variant="outlined">Отменить</Button>
+        {/* <DealCancelhButtonContainer /> */}
+      </div>
+
+    </div>
+
+
   );
 };

@@ -7,7 +7,7 @@ const DealPush = (props) => {
     return (
         <div className="prepaid__container">
             <TextField fullWidth id="push-deal-name" label="Название Сделки" variant="outlined" />
-        </div >
+        </div>
     )
 }
 
