@@ -12,8 +12,9 @@
     grid-auto-rows: repeat(2, 1fr);
     grid-template-areas:
       "addDeal contract fields"
-      "dealTable dealTable dealTable";
-    width: 90%;
+      "dealTable dealTable dealTable"
+      "- - push";
+    width: 99%;
     /* height: 50%; */
 }
 .addDeal__container{
@@ -44,8 +45,19 @@
     grid-area: push;
     display: flex;
     justify-content: end;
-    align-items: center;
+    align-items: flex-end;
     height: 15vh;
 
   
+}
+.deal__container--load{
+    padding: 7vh !important;
+    margin: 0 auto !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#e66465, #9198e5);
+    width: 100vh;
+    height: 100vh;
+
 }

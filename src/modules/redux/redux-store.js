@@ -22,6 +22,9 @@ import {typeOfClientReducer} from './redusers/deal/typeOfClient-reducer';
 import {supplierReducer} from './redusers/deal/supplier-reducer';
 import {goodsReducer} from './redusers/deal/goods-reducer';
 import {dateOfContractReducer} from './redusers/deal/datesOfContract-reducer';
+import { dealFieldReducer } from './redusers/deal/field-reducer';
+import { dealStatusReducer } from './redusers/deal/dealStatus-reducer';
+import { dealNameReducer } from './redusers/deal/dealName-reducer';
 // import weightReducer from './redusers/weight-reduser';
 
 
@@ -63,9 +66,10 @@ let reducers = combineReducers({
     supplier: supplierReducer,
     dateOfContract: dateOfContractReducer,
     goods: goodsReducer,
-
-
-
+    field: dealFieldReducer,
+    dealStatus: dealStatusReducer,
+    dealName: dealNameReducer,
+    
 });
 let store = createStore(reducers)
 

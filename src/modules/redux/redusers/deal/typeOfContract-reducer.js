@@ -7,14 +7,24 @@ let initialState = {
     value: {
         id: '1913',
         name: 'Internet',
-        typeOfGood: 'prof'
+        typeOfGood: 'prof',
+        units: {
+            value: 'Месяц',
+            ID: '11',
+            CODE: '15',
+        }
     },
     typesOfContract: [{
             id: '1913',
             name: 'Internet',
             typeOfGood: 'prof',
-           
-            
+            units: {
+                value: 'Месяц',
+                ID: '11',
+                CODE: '15',
+            }
+
+
         },
         // {
         //     id: '1915',
@@ -24,12 +34,22 @@ let initialState = {
         {
             id: '3616',
             name: 'Абонентский полгода',
-            typeOfGood: 'abonSix'
+            typeOfGood: 'abonSix',
+            units: {
+                value: 'Абон. 6 мес.',
+                ID: '12',
+                CODE: '20',
+            }
         },
         {
             id: '3616',
             name: 'Абонентский год',
-            typeOfGood: 'abonEleven'
+            typeOfGood: 'abonEleven',
+            units: {
+                value: 'Абон. 12 мес.',
+                ID: '14',
+                CODE: '25',
+            }
         },
         // {
         //     id: '3170',
@@ -57,7 +77,7 @@ const changeTypeOfContract = (stateCome, action) => {
         ...stateCome
     }
     state.value = state.typesOfContract[action.index]
-console.log(state.value.typeOfGood)
+    console.log(state.value.typeOfGood)
     return state
 }
 

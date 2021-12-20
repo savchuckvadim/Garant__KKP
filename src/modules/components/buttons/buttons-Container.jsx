@@ -9,20 +9,26 @@ import { changeBlocksFromNewComplectActionCreator } from "../../redux/redusers/c
 import ComplectButtons from "./buttons";
 import { connect } from "react-redux";
 import { goodsActionCreator } from "../../redux/redusers/deal/goods-reducer";
+import { dealFieldActionCreator } from "../../redux/redusers/deal/field-reducer";
 
 
 
 
 let mapStateToProps = (state) => {
-let currentOd = state.od.currentOd
-    let numberOfOD 
+
+    let currentOd = state.od.currentOd
+    let numberOfOD
     state.od.names.forEach((od, index) => {
-        if(od === currentOd){
+        if (od === currentOd) {
             numberOfOD = index
         }
     })
     let typeOfContract = state.typeOfContract.value.typeOfGood
     let currentComplect = state.currentComplect
+
+    let infoblocks = state.infoblocks
+    let legalTech = state.legalTech
+    let er = state.encyclopedias
 
     let currentTheme = state.theme.style[state.theme.indexOfTheme]
     const dinamicStyleForButtons = (borderColor, textColor, complectColor) => {
@@ -77,24 +83,30 @@ let currentOd = state.od.currentOd
         currentTheme: currentTheme,
         style: style,
         ellipse: ellipse,
-        
         numberOfOD,
-        typeOfContract
+        typeOfContract,
+
+        currentComplect,
+        infoblocks,
+        legalTech,
+        er,
 
     }
 }
 let mapDispatchToProps = (dispatch) => {
     return {
-        createComplect: (obj, index, ods, currentOd, currentTheme,  numberOfOD, typeOfContract) => {
+        createComplect: (obj, index, ods, currentOd, currentTheme, numberOfOD, typeOfContract, infoblocks, er, lt) => {
 
             let actionNewComplect = createComplectActionCreator(obj, index, ods, currentOd)
             let actionColorOfButton = changeColorOfButtonActionCreator(index, currentTheme)
             let actionBlocksFromNewComplect = changeBlocksFromNewComplectActionCreator(obj)
             let actionGoods = goodsActionCreator(index, numberOfOD, typeOfContract)
+            let dealField = dealFieldActionCreator(obj, infoblocks, er, lt)
             dispatch(actionColorOfButton)
             dispatch(actionNewComplect)
             dispatch(actionBlocksFromNewComplect)
             dispatch(actionGoods)
+            dispatch(dealField)
 
         }
     }

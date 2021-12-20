@@ -2,6 +2,9 @@ import {
     connect
 } from "react-redux"
 import { resetActionCreator } from "../../redux/redusers/currentComplect-reducer";
+import { dealNameActionCreator } from "../../redux/redusers/deal/dealName-reducer";
+import { dealStatusActionCreator } from "../../redux/redusers/deal/dealStatus-reducer";
+import { dealFieldActionCreator } from "../../redux/redusers/deal/field-reducer";
 import {
     AddDeal
 } from "./AddDeal"
@@ -9,8 +12,11 @@ import {
 
 
 const mapStateToProps = (state) => {
-
+debugger
     let currentComplect = state.currentComplect;
+    let dealField = state.field.current
+
+
 
     // let fields = []
     // let infoblocks = []
@@ -38,12 +44,16 @@ const mapStateToProps = (state) => {
 
     return {
         typeOfContract: state.typeOfContract,
+        unit: state.typeOfContract.value.units.CODE,
         typeOfClient: state.typeOfClient,
         prepaid: state.prepaid,
         priceOfComplect: price,
         goods: goods,
         styleOfPush,
-        styleOfCancel
+        styleOfCancel,
+        dealField,
+     
+        name: state.dealName.value
 
 
 
@@ -55,6 +65,17 @@ const mapDispatchToProps = (dispatch) => {
         reset: () => {
             let resetAction = resetActionCreator()
             return dispatch(resetAction)
+        },
+
+        // changeDealStatus: () => {
+           
+        //     let statusAction = dealStatusActionCreator();
+        //     dispatch(statusAction)
+        // },
+        changeDealName: (value) => {
+           
+            let nameAction = dealNameActionCreator(value);
+            dispatch(nameAction)
         }
         
     }

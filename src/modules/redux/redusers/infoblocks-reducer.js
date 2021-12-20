@@ -1,4 +1,5 @@
-let initialState = [{
+let initialState = [
+    {
         'nameOfType': 'Нормативно-правовые акты',
         'value': [{
 

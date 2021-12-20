@@ -13,40 +13,52 @@ import { AddDealContainer } from "./AddDeal-Container";
 import { DealIncludedContainer } from "./included/deal-included-Container";
 import { TableDealContainer } from "./table-price/dealPrice-Container";
 import { DealPushButtonContainer } from "./push-deal-form/push-deal-button-Container";
+import { DealNameContainer } from "./dealName-Container";
 
-const Deal = () => {
-  return (
-    <>
-     {/* <h3>Добавление Сделки</h3> */}
-    <div className="deal__container">
-     
-      <div className="addDeal__container">
-      <AddDealContainer />
-
+const Deal = (props) => {
+  // if(props.status){
+    return (
+      <>
+       {/* <h3>Добавление Сделки</h3> */}
+      <div className="deal__container">
+       
+        <div className="addDeal__container">
+        
+        <DealNameContainer/>
+        </div>
+        <div className="dealContract__container">
+        <TypeOfContractContainer/>
+        
+        {/* <PrepaidContainer /> */}
+        
+        {/* <TypeOfClientContainer/> */}
+        
+        </div>
+        <div className="dealFields__container">
+        <DealIncludedContainer/>
+  
+        </div>
+        <div className="dealTable__container">
+        <TableDealContainer/>
+        </div>
+        {/* <div className="dealPush__container">
+        <DealPushButtonContainer/>
+        </div> */}
+        
+         <div className="dealPush__container">
+         <AddDealContainer />
+        </div>
       </div>
-      <div className="dealContract__container">
-      <TypeOfContractContainer/>
-      
-      {/* <PrepaidContainer /> */}
-      
-      {/* <TypeOfClientContainer/> */}
-      
-      </div>
-      <div className="dealFields__container">
-      <DealIncludedContainer/>
-
-      </div>
-      <div className="dealTable__container">
-      <TableDealContainer/>
-      </div>
-      {/* <div className="dealPush__container">
-      <DealPushButtonContainer/>
-      </div> */}
-      
-
-    </div>
-    </>
-  );
+      </>
+    );
+  // }else{
+  //   <div className="deal__container--load">
+       
+  //   Загрузка...
+  //   </div>
+   
+  // }
+  
 };
 
 export default Deal;
