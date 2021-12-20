@@ -6,6 +6,8 @@ const CREATE_COMPLECT = 'CREATE_COMPLECT'
 let initialState = {
 
     'pricesOfLt': [960, 2200, 3300],
+    'ltIds': [5040, 5042, 5044],
+    'currentId': null,
     'nameOfType': 'Legal Tech',
     'display': 'none',
     'status': false,
@@ -147,21 +149,26 @@ export const weightLtForResult = (stateCome, currentComplect) => {
             }
             state.weightLt > 0 ? state.display = 'flex' : state.display = 'none'
             if (state.weightLt === 0) {
-                state.nameOflt = ``
+                state.nameOflt = ''
                 state.priceOfLt = ''
+                state.currentId = null
             }
             if (state.weightLt === 2) {
                 state.nameOflt = `Малый Пакет`
                 state.priceOfLt = state.pricesOfLt[0]
+                state.currentId = state.ltIds[0]
             } else if (state.weightLt === 5) {
                 state.nameOflt = `Средний Пакет `
                 state.priceOfLt = state.pricesOfLt[1]
+                state.currentId = state.ltIds[1]
             } else if (state.weightLt === 10) {
                 state.nameOflt = `Большой Пакет `
                 state.priceOfLt = state.pricesOfLt[2]
+                state.currentId = state.ltIds[2]
             }
             if ((state.weightLt === 1 || state.weightLt > 2) && (state.weightLt < 5 || state.weightLt > 5) && (state.weightLt < 11)) {
                 state.nameOflt = `LT собран неверно`
+                state.currentId = null
             }
         })
 

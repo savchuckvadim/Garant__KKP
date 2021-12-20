@@ -22,6 +22,8 @@ export const AddDeal = (props) => {
 
   let price = props.priceOfComplect
   let goodsId = props.goods
+  let ltId = props.ltGoods
+  let priceOfLt = props.priceOfLt
   console.log(`addDealJSX ${goodsId}`)
 
 
@@ -72,14 +74,28 @@ export const AddDeal = (props) => {
     })
     const unit = props.unit
 
-    const products = await BX24API.callMethod('crm.deal.productrows.set', {
-      id: idOfCurrentDeal,
-      rows:
-        [
-          { "PRODUCT_ID": goodsId, "PRICE": price, 'MEASURE_CODE': unit , "QUANTITY": 1  },
-
-        ]
-    })
+    let products
+    console.log(`price of lt ${priceOfLt}`)
+    if(ltId){
+      products = await BX24API.callMethod('crm.deal.productrows.set', {
+        id: idOfCurrentDeal,
+        rows:
+          [
+            { "PRODUCT_ID": goodsId, "PRICE": price, 'MEASURE_CODE': unit , "QUANTITY": 1  },
+            { "PRODUCT_ID": ltId, "PRICE": priceOfLt, 'MEASURE_CODE': unit , "QUANTITY": 1  }
+  
+          ]
+      })
+    }else{
+      products = await BX24API.callMethod('crm.deal.productrows.set', {
+        id: idOfCurrentDeal,
+        rows:
+          [
+            { "PRODUCT_ID": goodsId, "PRICE": price, 'MEASURE_CODE': unit , "QUANTITY": 1  },
+  
+          ]
+      })
+    }
     const fields = await BX24API.callMethod('crm.deal.fields')
     const productrow = await BX24API.callMethod('crm.productrow.fields')
     const updateDeal = await BX24API.callMethod(

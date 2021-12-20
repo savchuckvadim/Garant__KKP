@@ -27,6 +27,8 @@ debugger
     // let legalTech = state.legalTech.value
     let price = state.price.currentPrice.value
     let goods = state.goods.currentId
+    let ltGoods = state.legalTech.currentId
+    let priceOfLt = state.legalTech.priceOfLt
     let backgroundColor = state.allComplects[state.currentComplect.number].color
     let color = state.allComplects[state.currentComplect.number].backgroundColor
 
@@ -49,6 +51,8 @@ debugger
         prepaid: state.prepaid,
         priceOfComplect: price,
         goods: goods,
+        ltGoods: ltGoods,
+        priceOfLt: priceOfLt,
         styleOfPush,
         styleOfCancel,
         dealField,
