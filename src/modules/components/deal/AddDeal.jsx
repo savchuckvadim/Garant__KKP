@@ -9,6 +9,7 @@ import { Button } from "@material-ui/core";
 import "./AddDeal.css"
 import "./prepaid.css"
 import { DealNameContainer } from './dealName-Container';
+import { DealFieldContainer } from './included/deal-field-Container';
 export const AddDeal = (props) => {
    
 
@@ -24,6 +25,9 @@ export const AddDeal = (props) => {
   let goodsId = props.goods
   let ltId = props.ltGoods
   let priceOfLt = props.priceOfLt
+  let dealField = `${<DealFieldContainer/>}`
+  console.log(dealField)
+
   console.log(`addDealJSX ${goodsId}`)
 
 
@@ -39,7 +43,10 @@ export const AddDeal = (props) => {
     event.preventDefault();
 
     console.log('Начал думать');
-   
+    
+    const currentUserIdExtend = await BX24API.callMethod('user.current')
+    const currentUserId = currentUserIdExtend.answer.result.ID
+    
     const result = await BX24API.callMethod('crm.deal.add', {
       fields: {
         "ID": 56767,
@@ -49,7 +56,7 @@ export const AddDeal = (props) => {
         // "COMPANY_ID": 3,
         // "CONTACT_ID": 3,
         "OPENED": "Y",
-        "ASSIGNED_BY_ID": 1,
+        "ASSIGNED_BY_ID": currentUserId,
         "PROBABILITY": 30,
         "CURRENCY_ID": "RUB",
         "OPPORTUNITY": 5000,
@@ -139,6 +146,9 @@ export const AddDeal = (props) => {
     // console.log('updateDeal = ', updateDeal.answer.result);
 
   }
+  const onCancel = () => {
+    document.location.replace(`https://april-garant.bitrix24.ru/marketplace/app/98/`);
+  }
 
   return (
 
@@ -146,7 +156,7 @@ export const AddDeal = (props) => {
 
       <div className='dealButtons__container'>
         <Button style={props.styleOfPush} className='addDeal__btn' onClick={onSubmit} variant="outlined">Создать Сделку</Button>
-        <Button style={props.styleOfCancel} className='addDeal__btn' variant="outlined">Отменить</Button>
+        <Button style={props.styleOfCancel} className='addDeal__btn' onClick={onCancel} variant="outlined">Отменить</Button>
 
       </div>
 

@@ -12,7 +12,7 @@ import {
 
 
 const mapStateToProps = (state) => {
-debugger
+
     let currentComplect = state.currentComplect;
     let dealField = state.field.current
 

@@ -27,7 +27,7 @@ ${element.name} </br>`
             }
         })
         if (resultArray) {
-            result.push(type)
+            // result.push(type)
             result.push(resultArray)
         }
     })
@@ -45,7 +45,7 @@ ${element}`
 
     )
 }
-let legalTech = (array) => {
+let oldlegalTech = (array) => {
     let resultArray = `<pre>`
     array.value.forEach((elem) => {
         if (elem.checked === true) {
@@ -153,11 +153,44 @@ result += paketsString
 result += erString
 // result += `/<pre>`
 
-console.log(result)
+
 return result
 }
 
+let legalTech = (currentComplect, legalTech) => {
+    let ltInComplect =``
+    let paketLT = ``
+    let fillingLt = ``
+    let nameOfPaketLt = ``
+    let getNameOfLt = (number) => {
+if(number === 2){
+    return `Малый сервисный Пакет Legal Tech`
+}else if(number === 5){
+    return `Средний сервисный Пакет Legal Tech`
+}else if(number === 10){
+    return `Большой сервисный Пакет Legal Tech`
+}
+return ``
+    }
+    nameOfPaketLt = getNameOfLt(currentComplect.fillingPaketLT.length)
+    currentComplect.fillingLTIndexes.forEach(ltIndex => {
+        ltInComplect += `
+${legalTech.value[ltIndex].name}`
+    })
+if(currentComplect.fillingPaketLT){
+    paketLT = `
 
+${nameOfPaketLt}`
+    currentComplect.fillingPaketLT.forEach(ltIndex => {
+        paketLT += `
+${legalTech.value[ltIndex].name}`
+    })
+}
+fillingLt = `${ltInComplect}`
+fillingLt += `${paketLT}`
+console.log(fillingLt)
+return fillingLt
+}
 export const dealFieldActionCreator = (currentComplect, infoblocks = 0, er = 0, lt = 0, freeBlocks = 0) => {
 
 
@@ -187,19 +220,20 @@ const changeField = (stateCome, action) => {
     if (action.er) {
         erString = enciclopedias(action.currentComplect, action.er[0], action.er[1])
     }
-    // if (action.lt) {
-    //     ltString = legalTech(action.lt)
-    // }
+    if (action.lt) {
+        ltString = legalTech(action.currentComplect, action.lt)
+    }
 
 
 
     state.infoblocks = infoblocksString
     state.er = erString
+    state.lt = ltString
    
     state.current = `
     ${infoblocksString}
     ${erString}
-
+    ${ltString}
     
     `
   
@@ -207,7 +241,7 @@ const changeField = (stateCome, action) => {
 }
 
 export const dealFieldReducer = (state = initialState, action) => {
-
+console.log('deal field action', action)
     if (action.type === DEAL_FIELD) {
         return changeField(state, action)
     }

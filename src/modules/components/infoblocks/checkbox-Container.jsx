@@ -1,5 +1,6 @@
 import { connect } from "react-redux"
 import { changeCheckBoxActionCreator } from "../../redux/redusers/checkBoxes-action"
+import { dealFieldActionCreator } from "../../redux/redusers/deal/field-reducer"
 
 import CheckBox from "./checkbox"
 
@@ -25,9 +26,14 @@ let mapDispatchToProps = (dispatch, ownProps) => {
 
   return {
     changeCheckbox: (currentComplect, state) => {
+      let infoblocks = state.infoblocks
+      let legalTech = state.legalTech
+      let er = state.encyclopedias 
 
       let action = changeCheckBoxActionCreator(ownProps.type, ownProps.name, ownProps.checked, ownProps.index, currentComplect, state)
+      let actionFieldDeal = dealFieldActionCreator(currentComplect, infoblocks, er, legalTech)
       dispatch(action)
+      dispatch(actionFieldDeal)
     }
   }
 }
