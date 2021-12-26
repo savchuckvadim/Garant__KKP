@@ -1,29 +1,26 @@
 const DEAL_STATUS = 'DEAL_STATUS'
 
 const inittialState ={
-    current: true
+    isFetching: false
 } 
 
-export const dealStatusActionCreator = () => {
+export const dealStatusActionCreator = (status) => {
 
     return {
-        type: DEAL_STATUS
+        type: DEAL_STATUS,
+        status
     }
 }
 
-const changeDealStatus = (stateCome) => {
-    debugger
+const changeDealStatus = (stateCome, action) => {
+   
     let state = {...stateCome}
-    if(state){
-        state.current = false
-        console.log('changeDealStatus false')
+   
+        state.isFetching = action.status
+      
 
-       
-    }else{
-        state.current = true
-        console.log('changeDealStatus true')
-
-    }
+    
+    
     return state
 }
 
@@ -31,7 +28,7 @@ const changeDealStatus = (stateCome) => {
 export const dealStatusReducer = (state = inittialState, action) => {
     console.log('changeDealStatus')
     if(action.type === DEAL_STATUS){
-        return changeDealStatus(state)
+        return changeDealStatus(state, action)
     }
     return state
 }

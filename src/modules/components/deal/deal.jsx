@@ -14,43 +14,90 @@ import { DealIncludedContainer } from "./included/deal-included-Container";
 import { TableDealContainer } from "./table-price/dealPrice-Container";
 import { DealPushButtonContainer } from "./push-deal-form/push-deal-button-Container";
 import { DealNameContainer } from "./dealName-Container";
-
+import ODButtonsContainer from '../buttons/od-Container'
+import Circular from "./deal-loading/dealLoading";
 const Deal = (props) => {
   // if(props.status){
-    return (
-      <>
-       {/* <h3>Добавление Сделки</h3> */}
-      <div className="deal__container">
+    let dealResult =  <>
+    {/* <h3>Добавление Сделки</h3> */}
+   <div className="deal__container">
+    
+     <div className="addDeal__container">
+     
+     <DealNameContainer/>
+     <div className="dealOd__container">
+     <ODButtonsContainer/>
+     </div>
+   
+     </div>
+     <div className="dealContract__container">
+     <TypeOfContractContainer/>
+    
+     {/* <PrepaidContainer /> */}
+     
+     {/* <TypeOfClientContainer/> */}
+     
+     </div>
+     <div className="dealFields__container">
+     <DealIncludedContainer/>
+
+     </div>
+     <div className="dealTable__container">
+     <TableDealContainer/>
+     </div>
+     {/* <div className="dealPush__container">
+     <DealPushButtonContainer/>
+     </div> */}
+     
+      <div className="dealPush__container">
+      <AddDealContainer />
+     </div>
+   </div>
+   </>
+   if(props.status){
+    dealResult =  <div className="deal__circular__container">
+<Circular/>
+    </div>
+   }
+    return dealResult
+    // (
+    //   <>
+    //    {/* <h3>Добавление Сделки</h3> */}
+    //   <div className="deal__container">
        
-        <div className="addDeal__container">
+    //     <div className="addDeal__container">
         
-        <DealNameContainer/>
-        </div>
-        <div className="dealContract__container">
-        <TypeOfContractContainer/>
+    //     <DealNameContainer/>
+    //     <div className="dealOd__container">
+    //     <ODButtonsContainer/>
+    //     </div>
+      
+    //     </div>
+    //     <div className="dealContract__container">
+    //     <TypeOfContractContainer/>
+       
+    //     {/* <PrepaidContainer /> */}
         
-        {/* <PrepaidContainer /> */}
+    //     {/* <TypeOfClientContainer/> */}
         
-        {/* <TypeOfClientContainer/> */}
-        
-        </div>
-        <div className="dealFields__container">
-        <DealIncludedContainer/>
+    //     </div>
+    //     <div className="dealFields__container">
+    //     <DealIncludedContainer/>
   
-        </div>
-        <div className="dealTable__container">
-        <TableDealContainer/>
-        </div>
-        {/* <div className="dealPush__container">
-        <DealPushButtonContainer/>
-        </div> */}
+    //     </div>
+    //     <div className="dealTable__container">
+    //     <TableDealContainer/>
+    //     </div>
+    //     {/* <div className="dealPush__container">
+    //     <DealPushButtonContainer/>
+    //     </div> */}
         
-         <div className="dealPush__container">
-         <AddDealContainer />
-        </div>
-      </div>
-      </>
-    );
+    //      <div className="dealPush__container">
+    //      <AddDealContainer />
+    //     </div>
+    //   </div>
+    //   </>
+    // );
   // }else{
   //   <div className="deal__container--load">
        

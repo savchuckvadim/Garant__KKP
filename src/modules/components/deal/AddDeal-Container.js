@@ -1,10 +1,18 @@
 import {
     connect
 } from "react-redux"
-import { resetActionCreator } from "../../redux/redusers/currentComplect-reducer";
-import { dealNameActionCreator } from "../../redux/redusers/deal/dealName-reducer";
-import { dealStatusActionCreator } from "../../redux/redusers/deal/dealStatus-reducer";
-import { dealFieldActionCreator } from "../../redux/redusers/deal/field-reducer";
+import {
+    resetActionCreator
+} from "../../redux/redusers/currentComplect-reducer";
+import {
+    dealNameActionCreator
+} from "../../redux/redusers/deal/dealName-reducer";
+import {
+    dealStatusActionCreator
+} from "../../redux/redusers/deal/dealStatus-reducer";
+import {
+    dealFieldActionCreator
+} from "../../redux/redusers/deal/field-reducer";
 import {
     AddDeal
 } from "./AddDeal"
@@ -15,7 +23,7 @@ const mapStateToProps = (state) => {
 
     let currentComplect = state.currentComplect;
     let dealField = state.field.current
-
+    let dealStatus = state.dealStatus.isFetching
 
 
     // let fields = []
@@ -42,7 +50,7 @@ const mapStateToProps = (state) => {
         color: 'white',
 
     }
-   
+
 
     return {
         typeOfContract: state.typeOfContract,
@@ -56,7 +64,7 @@ const mapStateToProps = (state) => {
         styleOfPush,
         styleOfCancel,
         dealField,
-     
+        dealStatus: dealStatus,
         name: state.dealName.value
 
 
@@ -71,17 +79,17 @@ const mapDispatchToProps = (dispatch) => {
             return dispatch(resetAction)
         },
 
-        // changeDealStatus: () => {
-           
-        //     let statusAction = dealStatusActionCreator();
-        //     dispatch(statusAction)
-        // },
+        changeDealStatus: (status) => {
+
+            let statusAction = dealStatusActionCreator(status);
+            dispatch(statusAction)
+        },
         changeDealName: (value) => {
-           
+
             let nameAction = dealNameActionCreator(value);
             dispatch(nameAction)
         }
-        
+
     }
 }
 

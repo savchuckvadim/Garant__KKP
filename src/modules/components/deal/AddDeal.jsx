@@ -11,7 +11,7 @@ import "./prepaid.css"
 import { DealNameContainer } from './dealName-Container';
 import { DealFieldContainer } from './included/deal-field-Container';
 export const AddDeal = (props) => {
-   
+
 
   let typeOfClient = props.typeOfClient
   let typeOfContract = props.typeOfContract
@@ -25,7 +25,8 @@ export const AddDeal = (props) => {
   let goodsId = props.goods
   let ltId = props.ltGoods
   let priceOfLt = props.priceOfLt
-  let dealField = `${<DealFieldContainer/>}`
+  let dealField = `${<DealFieldContainer />}`
+  let dealName = props.name
   console.log(dealField)
 
   console.log(`addDealJSX ${goodsId}`)
@@ -41,18 +42,18 @@ export const AddDeal = (props) => {
   const onSubmit = async (event) => {
 
     event.preventDefault();
-
+    props.changeDealStatus(true)
     console.log('Начал думать');
-    
+
     const currentUserIdExtend = await BX24API.callMethod('user.current')
     const currentUserId = currentUserIdExtend.answer.result.ID
-    
+
     const result = await BX24API.callMethod('crm.deal.add', {
       fields: {
         "ID": 56767,
         "TITLE": `${props.name}`,
         // "STAGE_ID": "GOODS",
-        "STAGE_ID": "NEW",
+        "STAGE_ID": "Составление комплекта",
         // "COMPANY_ID": 3,
         // "CONTACT_ID": 3,
         "OPENED": "Y",
@@ -60,7 +61,7 @@ export const AddDeal = (props) => {
         "PROBABILITY": 30,
         "CURRENCY_ID": "RUB",
         "OPPORTUNITY": 5000,
-       
+
         "CATEGORY_ID": 6,
 
 
@@ -83,28 +84,42 @@ export const AddDeal = (props) => {
 
     let products
     console.log(`price of lt ${priceOfLt}`)
-    if(ltId){
+    if (ltId) {
       products = await BX24API.callMethod('crm.deal.productrows.set', {
         id: idOfCurrentDeal,
         rows:
           [
-            { "PRODUCT_ID": goodsId, "PRICE": price, 'MEASURE_CODE': unit , "QUANTITY": 1  },
-            { "PRODUCT_ID": ltId, "PRICE": priceOfLt, 'MEASURE_CODE': unit , "QUANTITY": 1  }
-  
+            { "PRODUCT_ID": goodsId, "PRICE": price, 'MEASURE_CODE': unit, "QUANTITY": 1 },
+            { "PRODUCT_ID": ltId, "PRICE": priceOfLt, 'MEASURE_CODE': unit, "QUANTITY": 1 }
+
           ]
       })
-    }else{
+    } else {
       products = await BX24API.callMethod('crm.deal.productrows.set', {
         id: idOfCurrentDeal,
         rows:
           [
-            { "PRODUCT_ID": goodsId, "PRICE": price, 'MEASURE_CODE': unit , "QUANTITY": 1  },
-  
+            { "PRODUCT_ID": goodsId, "PRICE": price, 'MEASURE_CODE': unit, "QUANTITY": 1 },
+
           ]
       })
     }
     const fields = await BX24API.callMethod('crm.deal.fields')
     const productrow = await BX24API.callMethod('crm.productrow.fields')
+    const company = await BX24API.callMethod('crm.company.list', {
+      order: { "DATE_CREATE": "ASC" },
+      filter: { "TITLE": `${dealName}` },
+      select: ["ID", "TITLE", "CURRENCY_ID", "REVENUE"]
+    })
+    console.log('company', company.answer)
+    // console.log('company', company.answer.result[0].ID)
+    let companyId 
+    // const companyTitle = company.answer.result[0].TITLE
+if( company.answer.result[0]){
+  companyId = company.answer.result[0].ID
+}else{
+  companyId = null
+}
     const updateDeal = await BX24API.callMethod(
       "crm.deal.update",
       {
@@ -114,9 +129,10 @@ export const AddDeal = (props) => {
 
           // 'UF_CRM_1540190412': typeOfClient,
           // 'UF_CRM_1540190343': typeOfContract,
-          'UF_CRM_1540190343': '1915',
-          'UF_CRM_1540190412': '1925',
+          'UF_CRM_1540190343': props.typeOfContract.value.id,
+          // 'UF_CRM_1540190412': '1925',
           "COMMENTS": `${props.dealField}`,
+          "COMPANY_ID": `${companyId}`
 
 
         },
@@ -124,7 +140,7 @@ export const AddDeal = (props) => {
       },
 
     )
-   
+
     console.log('result = ', result.answer.result);
     console.log('changeDeal = ', changeDeal);
     console.log('products = ', products);
@@ -137,10 +153,10 @@ export const AddDeal = (props) => {
     console.log('STAGE_ID = ', fields.answer.result.STAGE_ID);
     // console.log('units = ', units.answer.result);
     // console.log('productrow = ', productrow.answer.result);
-    
-    props.reset()
-   
 
+    props.reset()
+
+    // props.changeDealStatus(false)
     document.location.replace(`https://april-garant.bitrix24.ru/crm/deal/details/${idOfCurrentDeal}/`);
 
     // console.log('updateDeal = ', updateDeal.answer.result);
@@ -152,13 +168,13 @@ export const AddDeal = (props) => {
 
   return (
 
-  
 
-      <div className='dealButtons__container'>
-        <Button style={props.styleOfPush} className='addDeal__btn' onClick={onSubmit} variant="outlined">Создать Сделку</Button>
-        <Button style={props.styleOfCancel} className='addDeal__btn' onClick={onCancel} variant="outlined">Отменить</Button>
 
-      </div>
+    <div className='dealButtons__container'>
+      <Button style={props.styleOfPush} className='addDeal__btn' onClick={onSubmit} variant="outlined">Создать Сделку</Button>
+      <Button style={props.styleOfCancel} className='addDeal__btn' onClick={onCancel} variant="outlined">Отменить</Button>
+
+    </div>
 
 
 

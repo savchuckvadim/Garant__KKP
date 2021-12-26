@@ -70,7 +70,7 @@ const changeGoods = (stateCome, action) => {
         state.currentId = state.prof[numberOfOD][numberOfComplect]
 
     }
- console.log(`goodsReducer ${state.currentId}`)
+
     return state
 }
 

@@ -6,9 +6,11 @@ import TableDeal from "./dealPrice"
 const mapStateToProps = (state) => {
     let price = state.price.currentPrice.value;
 
+    let unit = state.typeOfContract.value.units.value
     return {
         state: state,
-        price: price
+        price: price,
+        unit: unit
     }
 }
 const mapDispaychToProps = (dispatch) => {

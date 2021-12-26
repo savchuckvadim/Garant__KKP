@@ -15,7 +15,7 @@
       "dealTable dealTable dealTable"
       "- - push";
     width: 99%;
-    /* height: 50%; */
+    height: 100vh;
 }
 .addDeal__container{
     grid-area: addDeal;
@@ -29,6 +29,9 @@
     justify-content: start;
     align-items: center;
     height: 55vh;
+}
+.dealOd__container{
+    width: 63%;
 }
 
 .dealFields__container{
@@ -60,4 +63,14 @@
     width: 100vh;
     height: 100vh;
 
+}
+.deal__circular__container{
+  
+    padding: 7vh !important;
+    margin: 0 auto !important;
+    width: 100vh !important;
+    height: 100vh !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
 }

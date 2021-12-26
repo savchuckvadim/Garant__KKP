@@ -7,7 +7,7 @@ import Deal from "./deal"
 const mapStateToProps = (state) => {
 
     return {
-        status: state.dealStatus.current
+        status: state.dealStatus.isFetching
     }
 }
 const mapDispatchToProps = (dispatch) => {

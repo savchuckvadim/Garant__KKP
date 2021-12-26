@@ -77,7 +77,7 @@ const changeTypeOfContract = (stateCome, action) => {
         ...stateCome
     }
     state.value = state.typesOfContract[action.index]
-    console.log(state.value.typeOfGood)
+  
     return state
 }
 

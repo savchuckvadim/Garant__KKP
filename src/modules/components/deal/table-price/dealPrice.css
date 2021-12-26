@@ -3,8 +3,8 @@
 }
 
 .table{
-    position: sticky !important;
-    top: 99vh !important;
+    /* position: sticky !important; */
+    /* bottom: 1vh !important; */
     background-color: black ;
 }
 @media print {

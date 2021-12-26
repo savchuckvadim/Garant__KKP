@@ -39,7 +39,7 @@ ${element}`
 
     })
     // stringResult += `</pre>`
-    console.log
+    
     return (
         stringResult
 
@@ -91,28 +91,27 @@ let paketsEr = (currentComplect, arrayOfPakets, arrayOfEr) => {
 // ${arrayOfEr.value[indexOfEr].name}</br>`
 //                         }
                         if(!indexesOfIncludedErs.includes(indexOfEr)){
-                            
+                           
                             indexesOfIncludedErs.push(indexOfEr)
                         }
+                       
                         
                     })
-                    indexesOfIncludedErs.forEach(indexOfEr => {
-includedOfPakets += `
-${arrayOfEr.value[indexOfEr].name}</br>`
-                    })
+                    
+                    
 
                 })
-                paketsAndFilling = `
+                indexesOfIncludedErs.forEach(indexOfEr => {
+includedOfPakets += `
+${arrayOfEr.value[indexOfEr].name}</br>`
+                                        })
+               
+paketsAndFilling = `
 ${paketsNames}`
-                //подготавливаем массив из уникальных входящих в два пакетаЭР блоков ЭР
-            
-                paketsAndFilling += `${includedOfPakets}`
+             
+paketsAndFilling += `${includedOfPakets}`
                 
-            // }else{
-            //     currentComplect.fillingPaketsERIndexes.forEach(paketIndex => {
-            //         paketsNames += `${arrayOfPakets[0].value[paketIndex].name} `
-            //     })
-            // }
+
             
         }
     }
@@ -147,7 +146,7 @@ return result
 }
 let paketsString = paketsEr(currentComplect, arrayOfPakets, arrayOfEr)
 let erString = er(currentComplect, arrayOfEr, indexesOfIncludedErs)
-console.log(erString)
+
 
 result += paketsString
 result += erString
@@ -188,7 +187,6 @@ ${legalTech.value[ltIndex].name}`
 }
 fillingLt = `${ltInComplect}`
 fillingLt += `${paketLT}`
-console.log(fillingLt)
 return fillingLt
 }
 export const dealFieldActionCreator = (currentComplect, infoblocks = 0, er = 0, lt = 0, freeBlocks = 0) => {
@@ -241,7 +239,7 @@ const changeField = (stateCome, action) => {
 }
 
 export const dealFieldReducer = (state = initialState, action) => {
-console.log('deal field action', action)
+
     if (action.type === DEAL_FIELD) {
         return changeField(state, action)
     }

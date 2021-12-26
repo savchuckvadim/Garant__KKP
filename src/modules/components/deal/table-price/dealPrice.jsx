@@ -8,6 +8,7 @@ import "./dealPrice.css";
 
 const TableDeal = (props) => {
 
+let unit = props.unit
 
     function createData(type, name, prepaid, discount, total) {
         
@@ -88,7 +89,7 @@ const TableDeal = (props) => {
                 <TableHead>
                     <TableRow >
                         <TableCell>Наименование</TableCell>
-                        <TableCell align="right">Месяцы</TableCell>
+                        <TableCell align="right">{unit}</TableCell>
                         {/* <TableCell align="right">Аванс&nbsp;(мес.)</TableCell> */}
                         {/* <TableCell align="right">Скидка&nbsp;(%)</TableCell> */}
                         <TableCell align="right">Сумма&nbsp;(руб.)</TableCell>

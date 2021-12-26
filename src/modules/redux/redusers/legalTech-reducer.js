@@ -1,11 +1,11 @@
 const CHANGE_CURRENT_LT = 'CHANGE_CURRENT_LT'
 const CREATE_COMPLECT = 'CREATE_COMPLECT'
-
+const TYPE_OF_CONTRACT = 'TYPE_OF_CONTRACT'
 
 
 let initialState = {
 
-    'pricesOfLt': [960, 2200, 3300],
+    'pricesOfLt': [1050, 2200, 3300],
     'ltIds': [5040, 5042, 5044],
     'currentId': null,
     'nameOfType': 'Legal Tech',
@@ -15,6 +15,7 @@ let initialState = {
     'ltIncluded': 0,
     'nameOflt': '',
     'priceOfLt': 0,
+    'previousPrice' : 0,
     'value': [{
             'name': 'Аналитическая система "Сутяжник" ',
             'checked': false,
@@ -176,16 +177,45 @@ export const weightLtForResult = (stateCome, currentComplect) => {
     return state
 }
 
+const changeQuantityLt = (stateCome, index) => {
+    let state = {
+        ...stateCome
+    }
+    let currentIndexOfLtPrice = 0
+    state.pricesOfLt.forEach((price, index) => {
+        if(price === state.priceOfLt){
+            currentIndexOfLtPrice = index
+        }
+    })
+    
+    
+    if (index === 1) {
+        state.priceOfLt = state.pricesOfLt[currentIndexOfLtPrice] * 6
+    } else if (index === 2) {
+        state.priceOfLt = state.pricesOfLt[currentIndexOfLtPrice] * 12
+    }else {
+        state.priceOfLt =  state.pricesOfLt[currentIndexOfLtPrice]
+    }
+    console.log('price of lt', state.priceOfLt)
+    console.log('state.previousPrice', state.previousPrice)
+    return state
+}
+
 export const changeLTFromCurrent = (state = initialState, action) => {
+
     let changeLt = (state) => {
+        debugger
         state = changeltData(state, action.currentComplect)
         state = weightLtForResult(state, action.currentComplect)
         return state
     }
-    
+
     if (action.type === CHANGE_CURRENT_LT || action.type === CREATE_COMPLECT || action.type === 'RESET') {
         return changeLt(state)
     }
-    
+    if (action.type === TYPE_OF_CONTRACT) {
+        return changeQuantityLt(state, action.index)
+    }
+
     return state
 }
