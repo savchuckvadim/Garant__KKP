@@ -10,9 +10,10 @@ import "./AddDeal.css"
 import "./prepaid.css"
 import { DealNameContainer } from './dealName-Container';
 import { DealFieldContainer } from './included/deal-field-Container';
+
 export const AddDeal = (props) => {
 
-
+console.log('dealField', props.dealField)
   let typeOfClient = props.typeOfClient
   let typeOfContract = props.typeOfContract
   // let prepaid = props.prepaid
@@ -63,10 +64,7 @@ export const AddDeal = (props) => {
         "OPPORTUNITY": 5000,
 
         "CATEGORY_ID": 6,
-
-
-
-
+        'STAGE_ID': 'C6:NEW',
 
         'UF_CRM_5B39D7C2EC0AB': true
 
@@ -111,6 +109,9 @@ export const AddDeal = (props) => {
       filter: { "TITLE": `${dealName}` },
       select: ["ID", "TITLE", "CURRENCY_ID", "REVENUE"]
     })
+    const stages = await BX24API.callMethod('crm.dealcategory.stage.list',
+    {id: 6})//Возвращает список стадий сделок для направления по идентификатору.
+    console.log('stages', stages);
     console.log('company', company.answer)
     // console.log('company', company.answer.result[0].ID)
     let companyId 
@@ -132,8 +133,18 @@ if( company.answer.result[0]){
           'UF_CRM_1540190343': props.typeOfContract.value.id,
           // 'UF_CRM_1540190412': '1925',
           "COMMENTS": `${props.dealField}`,
-          "COMPANY_ID": `${companyId}`
-
+          'UF_CRM_1642056396': ` ${props.description}`,
+          "COMPANY_ID": `${companyId}`,
+          
+          'UF_CRM_1516965054': `${props.freeBlocks[0]}`, //прайм
+          'UF_CRM_1516965226': `${props.freeBlocks[1]}`,  //архивы
+          'UF_CRM_1516965314': `${props.freeBlocks[2]}`, // база знаний
+          'UF_CRM_1516965345': `${props.freeBlocks[3]}`, // гарант-консалтинг
+          'UF_CRM_1516965007': `${props.freeBlocks[4]}`,  //суд практика приложение заг
+          'UF_CRM_1643079376': `${props.freeBlocks[5]}`, //практика арбитраж
+          'UF_CRM_1643079404': `${props.freeBlocks[6]}`,
+          'UF_CRM_1643079427': `${props.freeBlocks[7]}`,
+          'UF_CRM_1643079552': `${props.freeBlocks[8]}`,
 
         },
         params: { "REGISTER_SONET_EVENT": "Y" }

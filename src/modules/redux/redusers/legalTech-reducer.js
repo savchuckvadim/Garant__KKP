@@ -204,7 +204,7 @@ const changeQuantityLt = (stateCome, index) => {
 export const changeLTFromCurrent = (state = initialState, action) => {
 
     let changeLt = (state) => {
-        debugger
+        
         state = changeltData(state, action.currentComplect)
         state = weightLtForResult(state, action.currentComplect)
         return state

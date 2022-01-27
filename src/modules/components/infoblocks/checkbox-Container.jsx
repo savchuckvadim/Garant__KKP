@@ -29,9 +29,10 @@ let mapDispatchToProps = (dispatch, ownProps) => {
       let infoblocks = state.infoblocks
       let legalTech = state.legalTech
       let er = state.encyclopedias 
-
+      let freeBlocks = state.freeBlocks
+      let consalting = state.consalting
       let action = changeCheckBoxActionCreator(ownProps.type, ownProps.name, ownProps.checked, ownProps.index, currentComplect, state)
-      let actionFieldDeal = dealFieldActionCreator(currentComplect, infoblocks, er, legalTech)
+      let actionFieldDeal = dealFieldActionCreator(currentComplect, infoblocks, er, legalTech, freeBlocks, consalting)
       dispatch(action)
       dispatch(actionFieldDeal)
     }

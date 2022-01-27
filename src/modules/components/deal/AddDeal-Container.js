@@ -23,8 +23,9 @@ const mapStateToProps = (state) => {
 
     let currentComplect = state.currentComplect;
     let dealField = state.field.current
-    let dealStatus = state.dealStatus.isFetching
 
+    let dealStatus = state.dealStatus.isFetching
+    let description = state.description.current
 
     // let fields = []
     // let infoblocks = []
@@ -51,7 +52,16 @@ const mapStateToProps = (state) => {
 
     }
 
-
+    let freeBlocks  = state.freeBlocks.value.map(block => {
+            if (block.checked) {
+                return block.name
+            }else{
+                return ''
+            }
+        })
+    
+   
+debugger
     return {
         typeOfContract: state.typeOfContract,
         unit: state.typeOfContract.value.units.CODE,
@@ -65,7 +75,9 @@ const mapStateToProps = (state) => {
         styleOfCancel,
         dealField,
         dealStatus: dealStatus,
-        name: state.dealName.value
+        name: state.dealName.value,
+        description: description,
+        freeBlocks: freeBlocks
 
 
 

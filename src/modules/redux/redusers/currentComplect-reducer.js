@@ -1,4 +1,3 @@
-
 const CHANGE_CURRENT_INFOBLOCKS = 'CHANGE_CURRENT_INFOBLOCKS'
 const CREATE_COMPLECT = 'CREATE_COMPLECT'
 const CHANGE_CURRENT_ER = 'CHANGE_CURRENT_ER'
@@ -11,26 +10,26 @@ const RESET = 'RESET'
 let initialState = null
 export const resetActionCreator = () => {
 
-    return{
+    return {
         type: RESET
     }
 }
 export const createComplectActionCreator = (obj, index, ods, currentOd) => {
-  
-    
+
+
     return {
         type: CREATE_COMPLECT,
         obj: obj,
         index: index,
-        currentComplect : obj,
+        currentComplect: obj,
         ods: ods,
         currentOd: currentOd
-      
+
     }
 }
 
 const changeCurrentInfoblocks = (state, action) => { //меняет текущее наполнение в currentComplect
-    
+
     if (state) {
         if (state.name !== 'Бухгалтер' && state.name !== 'Бухгалтер госсектора') {
 
@@ -59,7 +58,15 @@ const createComplect = (state, action) => {
     if (action.obj) {
         localStorage.removeItem('currentPrice')
         state = action.obj
+let freeBlocks = [0, 1, 2, 3, 4];
+console.log(' state.filling',  state.filling)
 
+if( state.filling.includes('Практика арбитражных судов округов')){
+    freeBlocks.push(5)
+}
+if( state.filling.includes('Практика судов общей юрисдикции')){
+    freeBlocks.push(6)
+}
         let complect = {
             'name': state.name,
             'number': state.number,
@@ -71,14 +78,16 @@ const createComplect = (state, action) => {
             'fillingEncyclopediasIndexes': state.fillingEncyclopediasIndexes,
             'fillingLTIndexes': state.fillingLTIndexes,
             'fillingPaketLT': state.fillingPaketLT,
-            'currentStatusInputComplectName': false
+            'currentStatusInputComplectName': false,
+            'freeBlocks': freeBlocks,
+            'consalting': state.consalting
 
         }
         state = complect
 
         // addToStorage(complect, 'currentComplect')
     }
-
+   
     return state
 }
 
@@ -97,7 +106,7 @@ const changeCurrentEr = (state, action) => { //меняет currentComplect
                 })
             }
         } else {
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////            // 
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////            // 
             // state.encyclopedias[1].value[index].checked = true;
 
 
@@ -113,7 +122,7 @@ const changeCurrentEr = (state, action) => { //меняет currentComplect
     return state
 }
 const changeCurrentPketsEr = (state, action) => { //меняет currentComplect
-let fillingPaketsERIndexes = [...state.fillingPaketsERIndexes]
+    let fillingPaketsERIndexes = [...state.fillingPaketsERIndexes]
 
     const changePaketsInState = (checked, index) => { // если текущий комплект не офис для Пакетов в зависимости от параметров если checked делает uncheck в дате allEnciclopedis - заходит в state и убирает из filling индексов
 
@@ -126,46 +135,46 @@ let fillingPaketsERIndexes = [...state.fillingPaketsERIndexes]
         // changePaketsErFromCurrent(state);
     }
 
-        if (state.name !== 'Бухгалтер' && state.name !== 'Бухгалтер госсектора') {
+    if (state.name !== 'Бухгалтер' && state.name !== 'Бухгалтер госсектора') {
 
-            if (state.name !== 'Офис') {
+        if (state.name !== 'Офис') {
 
-                changePaketsInState(action.checked, action.index) // изменяет индекс входящих в комплект пакетов
+            changePaketsInState(action.checked, action.index) // изменяет индекс входящих в комплект пакетов
 
-            } else {
+        } else {
 
-                window.alert('в комплекте Гарант-Офис должны содержаться два любых Пакета ЭР')
-                if (action.checked === true) {
-                    if (action.index === 0) {
-                        fillingPaketsERIndexes = [1, 2]
-                    } else if (action.index === 1) {
-                        fillingPaketsERIndexes = [0, 2]
-                    } else if (action.index === 2) {
-                        fillingPaketsERIndexes = [0, 1]
-                    }
-
-                } else { //checked == false
-                    if (action.index === 0) {
-                        fillingPaketsERIndexes = [0, 2]
-                    } else if (action.index === 1) {
-                        fillingPaketsERIndexes = [0, 1]
-                    } else if (action.index === 2) {
-                        fillingPaketsERIndexes = [1, 2]
-                    }
+            window.alert('в комплекте Гарант-Офис должны содержаться два любых Пакета ЭР')
+            if (action.checked === true) {
+                if (action.index === 0) {
+                    fillingPaketsERIndexes = [1, 2]
+                } else if (action.index === 1) {
+                    fillingPaketsERIndexes = [0, 2]
+                } else if (action.index === 2) {
+                    fillingPaketsERIndexes = [0, 1]
                 }
-                // changePaketsErFromCurrent (state);
 
-                //
+            } else { //checked == false
+                if (action.index === 0) {
+                    fillingPaketsERIndexes = [0, 2]
+                } else if (action.index === 1) {
+                    fillingPaketsERIndexes = [0, 1]
+                } else if (action.index === 2) {
+                    fillingPaketsERIndexes = [1, 2]
+                }
             }
-        }
+            // changePaketsErFromCurrent (state);
 
-        state.fillingPaketsERIndexes = fillingPaketsERIndexes
+            //
+        }
+    }
+
+    state.fillingPaketsERIndexes = fillingPaketsERIndexes
     return state
 }
 const changeLt = (state, action) => {
-    
+
     state.fillingLTIndexes = [...state.fillingLTIndexes]
-    state.fillingPaketLT   = [...state.fillingPaketLT]
+    state.fillingPaketLT = [...state.fillingPaketLT]
     const currentWeightOfIncludedLT = (state) => {
         let currentWeight = 0
 
@@ -258,31 +267,31 @@ const changeLt = (state, action) => {
             }
         }
     }
-    
+
     return state
 
 
 }
 const changeNameOfComplect = (state, action) => {
- 
-    if(action.type === 'INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT'){
+
+    if (action.type === 'INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT') {
         state.name = action.value
-          state.fillingLTIndexes = []
-          state.width = action.width
-          state.currentStatusInputComplectName = action.status
+        state.fillingLTIndexes = []
+        state.width = action.width
+        state.currentStatusInputComplectName = action.status
 
     }
-    
+
     return state
 }
 
-const reset = (state) => { 
+const reset = (state) => {
     state = null
     return state
 }
 
 export const currentComplect = (state = initialState, action) => {
-    
+
     if (action.type === CHANGE_CURRENT_INFOBLOCKS) {
 
         return changeCurrentInfoblocks(state, action)
@@ -297,7 +306,7 @@ export const currentComplect = (state = initialState, action) => {
         return changeLt(state, action)
     } else if (action.type === INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT) {
         return changeNameOfComplect(state, action)
-    }else if (action.type === RESET) {
+    } else if (action.type === RESET) {
         return reset(state)
     } else {
         return state

@@ -29,7 +29,8 @@ let mapStateToProps = (state) => {
     let infoblocks = state.infoblocks
     let legalTech = state.legalTech
     let er = state.encyclopedias
-
+let freeBlocks = state.freeBlocks
+let consalting = state.consalting
     let currentTheme = state.theme.style[state.theme.indexOfTheme]
     const dinamicStyleForButtons = (borderColor, textColor, complectColor) => {
 
@@ -75,6 +76,7 @@ let mapStateToProps = (state) => {
         }
 
     })
+    
     return {
         allComplects: state.allComplects,
         currentTheme: state.theme.style[state.theme.indexOfTheme],
@@ -90,18 +92,19 @@ let mapStateToProps = (state) => {
         infoblocks,
         legalTech,
         er,
-
+        freeBlocks,
+        consalting
     }
 }
 let mapDispatchToProps = (dispatch) => {
     return {
-        createComplect: (obj, index, ods, currentOd, currentTheme, numberOfOD, typeOfContract, infoblocks, er, lt) => {
+        createComplect: (obj, index, ods, currentOd, currentTheme, numberOfOD, typeOfContract, infoblocks, er, lt, freeBlocks, consalting) => {
 
             let actionNewComplect = createComplectActionCreator(obj, index, ods, currentOd)
             let actionColorOfButton = changeColorOfButtonActionCreator(index, currentTheme)
             let actionBlocksFromNewComplect = changeBlocksFromNewComplectActionCreator(obj)
             let actionGoods = goodsActionCreator(index, numberOfOD, typeOfContract)
-            let dealField = dealFieldActionCreator(obj, infoblocks, er, lt)
+            let dealField = dealFieldActionCreator(obj, infoblocks, er, lt, freeBlocks, consalting)
             dispatch(actionColorOfButton)
             dispatch(actionNewComplect)
             dispatch(actionBlocksFromNewComplect)

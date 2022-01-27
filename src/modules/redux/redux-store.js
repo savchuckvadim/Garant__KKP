@@ -25,6 +25,9 @@ import {dateOfContractReducer} from './redusers/deal/datesOfContract-reducer';
 import { dealFieldReducer } from './redusers/deal/field-reducer';
 import { dealStatusReducer } from './redusers/deal/dealStatus-reducer';
 import { dealNameReducer } from './redusers/deal/dealName-reducer';
+import { dealDescriptionReducer } from './redusers/deal/description-reducer';
+import { freeBlocks } from './redusers/freeBlocks-reducer';
+import { consalting } from './redusers/consalting-reducer';
 // import weightReducer from './redusers/weight-reduser';
 
 
@@ -45,6 +48,8 @@ let reducers = combineReducers({
     allComplects: changeColorOfButton,
     currentComplect: currentComplect,
     infoblocks,
+    freeBlocks: freeBlocks,
+    consalting: consalting,
     encyclopedias: changeErAndPaketsErFromCurrent,
     legalTech : changeLTFromCurrent,
     // changeNameOfComplect, 
@@ -67,8 +72,10 @@ let reducers = combineReducers({
     dateOfContract: dateOfContractReducer,
     goods: goodsReducer,
     field: dealFieldReducer,
+    description: dealDescriptionReducer,
     dealStatus: dealStatusReducer,
     dealName: dealNameReducer,
+
     
 });
 let store = createStore(reducers)

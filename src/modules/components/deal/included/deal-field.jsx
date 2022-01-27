@@ -95,9 +95,9 @@ ${<Сonsalting />}`
 
             
         }
-
+        console.log('props.state.field.current', props.state.field.current)
 props.changeCurrentField(props.state.currentComplect, props.state.infoblocks, props.state.er, props.state.lt, props.state.freeBlocks)
-console.log(props.state.field.current)
+console.log('props.state.field.current', props.state.field.current)
                 return `${props.state.field.current} `
 
                 

@@ -48,7 +48,9 @@ let initialState =  [
             'fillingPaketsER': '',
             'fillingER': [],
             'fillingPaketLT': [],
-            'fillingLTblocks': ''
+            'fillingLTblocks': '',
+            'freeBlocks':[0,1,2,3,4],
+            'consalting':[0]
 
 
         },
@@ -101,7 +103,9 @@ let initialState =  [
             'fillingPaketsER': '',
             'fillingER': ['Энциклопедия решений.Проверки организаций и предпринимателей'],
             'fillingPaketLT': [],
-            'fillingLTblocks': ''
+            'fillingLTblocks': '',
+            'freeBlocks':[0,1,2,3,4],
+            'consalting':[0]
 
         },
         {
@@ -165,7 +169,9 @@ let initialState =  [
             'fillingPaketsER': '',
             'fillingER': ['Энциклопедия решений. Госзакупки', 'Энциклопедия решений. Корпоративное право'],
             'fillingPaketLT': [],
-            'fillingLTblocks': ''
+            'fillingLTblocks': '',
+            'freeBlocks':[0,1,2,3,4,5],
+            'consalting':[0,2]
 
         },
 
@@ -229,7 +235,9 @@ let initialState =  [
             'fillingPaketsER': '',
             'fillingER': ['Энциклопедия решений. Проверки организаций и предпринимателей', 'Энциклопедия решений. Корпоративное право'],
             'fillingPaketLT': [],
-            'fillingLTblocks': ''
+            'fillingLTblocks': '',
+            'freeBlocks':[0,1,2,3,4,5],
+            'consalting':[0,2]
 
 
         },
@@ -293,7 +301,9 @@ let initialState =  [
             'fillingPaketsER': '',
             'fillingER': [],
             'fillingPaketLT': [],
-            'fillingLTblocks': ''
+            'fillingLTblocks': '',
+            'freeBlocks':[0,1,2,3,4,5,6,7,8],
+            'consalting':[0]
 
         },
 
@@ -362,7 +372,10 @@ let initialState =  [
             'fillingPaketsER': '',
             'fillingER': [],
             'fillingPaketLT': [],
-            'fillingLTblocks': ''
+            'fillingLTblocks': '',
+            'freeBlocks':[0,1,2,3,4,5,6,7,8],
+            'consalting':[0]
+
         },
 
         {
@@ -378,7 +391,6 @@ let initialState =  [
                 'Законодательство России',
                 'Региональное законодательство',
                 'Отраслевое законодательство',
-
                 'Практика высших судебных органов',
                 'Практика арбитражных судов округов',
                 'Практика арбитражных апелляционных судов округов',
@@ -436,7 +448,10 @@ let initialState =  [
                 'Энциклопедия решений.Налоги и взносы'
             ],
             'fillingPaketLT': [],
-            'fillingLTblocks': ''
+            'fillingLTblocks': '',
+            'freeBlocks':[0,1,2,3,4,5,6,7,8],
+            'consalting':[0,2]
+
 
 
 
@@ -515,7 +530,9 @@ let initialState =  [
                 'Энциклопедия решений.Налоги и взносы'
             ],
             'fillingPaketLT': [],
-            'fillingLTblocks': ''
+            'fillingLTblocks': '',
+            'freeBlocks':[0,1,2,3,4,5,6,7,8],
+            'consalting':[0,2]
         },
 
     ]
