@@ -25,7 +25,7 @@ const mapStateToProps = (state) => {
     let dealField = state.field.current
 
     let dealStatus = state.dealStatus.isFetching
-    let description = state.description.current
+    let description = state.description.description
     let descriptionObject = state.description.description
 
     // let fields = []

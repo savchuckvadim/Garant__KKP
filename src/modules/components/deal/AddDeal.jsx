@@ -28,6 +28,9 @@ console.log('dealField', props.dealField)
   let priceOfLt = props.priceOfLt
   let dealField = `${<DealFieldContainer />}`
   let dealName = props.name
+  let allBlocks = props.description
+  console.log(allBlocks)
+
   console.log(dealField)
 
   console.log(`addDealJSX ${goodsId}`)
@@ -141,6 +144,82 @@ let fieldsUpdate = {
           'UF_CRM_1643079404': `${props.freeBlocks[6]}`,
           'UF_CRM_1643079427': `${props.freeBlocks[7]}`,
           'UF_CRM_1643079552': `${props.freeBlocks[8]}`,
+
+          'UF_CRM_1514543923' : allBlocks[0],
+          'UF_CRM_1514543946' : allBlocks[1],
+      
+          'UF_CRM_1514543902' : allBlocks[2],
+          'UF_CRM_1514470897' : allBlocks[3],
+      
+          'UF_CRM_1514543981' : allBlocks[4],
+          'UF_CRM_1514544016' : allBlocks[5],
+      
+          'UF_CRM_1514544048' : allBlocks[6],
+          'UF_CRM_1514544067' : allBlocks[7],
+      
+          'UF_CRM_1514544090' : allBlocks[8],
+          'UF_CRM_1514544106' : allBlocks[9],
+      
+          'UF_CRM_1514544145' : allBlocks[10], //международное право
+          'UF_CRM_1514544158' : allBlocks[11],
+         
+          'UF_CRM_1514544223' : allBlocks[12], //решения Фас
+          'UF_CRM_1514544239' : allBlocks[13],  
+          
+          'UF_CRM_1514544304' : allBlocks[14],  // практика высших
+          'UF_CRM_1514544323' : allBlocks[15],
+         
+          'UF_CRM_1514544356' : allBlocks[16], // Практика арбитражных судов округов (заголовок)
+          'UF_CRM_1514544370' : allBlocks[17],  
+
+          'UF_CRM_1514544483' : allBlocks[18],
+          'UF_CRM_1514544494' : allBlocks[19],
+
+
+          'UF_CRM_1514544538' : allBlocks[20],  //Практика судов общей юрисдикции
+          'UF_CRM_1514544566' : allBlocks[21],
+
+          'UF_CRM_1514545327' : allBlocks[22],  //Энциклопедия судебной практики. Правовые позиции судов 
+          'UF_CRM_1514545339' : allBlocks[23],
+
+          'UF_CRM_1514545364' : allBlocks[24], // Большая библиотека юриста 
+          'UF_CRM_1514545380' : allBlocks[25],
+
+          'UF_CRM_1514545398' : allBlocks[26], //Большая библиотека бухгалтера и кадрового работника 
+          'UF_CRM_1514545419' : allBlocks[27],
+
+          'UF_CRM_1514545615' : allBlocks[28], //Энциклопедия. Законодательство в схемах 
+          'UF_CRM_1514545629' : allBlocks[29],
+
+          'UF_CRM_1514545659' : allBlocks[30], //Формы правовых документов 
+          'UF_CRM_1514545673' : allBlocks[31],
+
+          'UF_CRM_1514545810' : allBlocks[32], //Проверки организаций и предпринимателей  
+          'UF_CRM_1514545827' : allBlocks[33],
+
+
+          'UF_CRM_1514546356' : allBlocks[34], //. Госсектор: учет, отчетность, финконтроль   
+          'UF_CRM_1514546369' : allBlocks[35],
+
+          'UF_CRM_1514546396' : allBlocks[36], //Хозяйственные ситуации  
+          'UF_CRM_1514546415' : allBlocks[37],
+
+
+          'UF_CRM_1514546491' : allBlocks[38], //Госзакупки  
+          'UF_CRM_1514546510' : allBlocks[39],
+          'UF_CRM_1514546595' : allBlocks[40], //Трудовые отношения, кадры   
+          'UF_CRM_1514546609' : allBlocks[41],
+
+
+          'UF_CRM_1514546667' : allBlocks[42], //Договоры и иные сделки    
+          'UF_CRM_1514546688' : allBlocks[43],
+          'UF_CRM_1514546723' : allBlocks[44], //Корпоративное право
+          'UF_CRM_1514546737' : allBlocks[45],
+          'UF_CRM_1514546895' : allBlocks[46], //Налоги и взносы   
+          'UF_CRM_1514546909' : allBlocks[47],
+          
+          
+
        
 }
 console.log(fieldsUpdate)
@@ -173,26 +252,13 @@ console.log(fieldsUpdate)
       },
 
     )
-    const updateDealYels = await BX24API.callMethod(
-      "crm.deal.update",
-      {
-        id: idOfCurrentDeal,
-        fields:
-        {
-...props.descriptionObject
-        
-        },
-        params: { "REGISTER_SONET_EVENT": "Y" }
-      },
 
-    )
 
     console.log('result = ', result.answer.result);
     console.log('changeDeal = ', changeDeal);
     console.log('products = ', products);
     console.log('fields = ', fields.answer.result);
     console.log('updateDeal = ', updateDeal.answer.result);
-    console.log('updateDealYels = ', updateDealYels.answer.result);
 
     console.log('UF_CRM_1540190343 = ', fields.answer.result.UF_CRM_1540190343);
     console.log('UF_CRM_1539338045 = ', fields.answer.result.UF_CRM_1539338045);
