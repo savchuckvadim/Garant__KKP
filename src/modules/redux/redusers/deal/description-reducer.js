@@ -11,9 +11,55 @@ let initialState = {
     lt: '',
     freeBlocks: '',
     current: '',
-    description: ''
+    description: '',
+    descriptionObject : {
+        'UF_CRM_1514543923' : '',
+        'UF_CRM_1514543946' : '',
+    
+        'UF_CRM_1514543902' : '',
+        'UF_CRM_1514470897' : '',
+    
+        'UF_CRM_1514543981' : '',
+        'UF_CRM_1514544016' : '',
+    
+        'UF_CRM_1514544048' : '',
+        'UF_CRM_1514544067' : '',
+    
+        'UF_CRM_1514544090' : '',
+        'UF_CRM_1514544106' : '',
+    
+        'UF_CRM_1514544145' : '',
+        'UF_CRM_1514544158' : '',
+       
+        'UF_CRM_1514544223' : '',
+        'UF_CRM_1514544239' : '',
+    
+    }
 }
+//UF_CRM_1642058636
+let descriptionObject = {
+    'UF_CRM_1514543923' : '',
+    'UF_CRM_1514543946' : '',
 
+    'UF_CRM_1514543902' : '',
+    'UF_CRM_1514470897' : '',
+
+    'UF_CRM_1514543981' : '',
+    'UF_CRM_1514544016' : '',
+
+    'UF_CRM_1514544048' : '',
+    'UF_CRM_1514544067' : '',
+
+    'UF_CRM_1514544090' : '',
+    'UF_CRM_1514544106' : '',
+
+    'UF_CRM_1514544145' : '',
+    'UF_CRM_1514544158' : '',
+   
+    'UF_CRM_1514544223' : '',
+    'UF_CRM_1514544239' : '',
+
+}
 let infoblocks = (array, description) => {
     let result = []
 
@@ -89,7 +135,8 @@ let paketsEr = (currentComplect, arrayOfPakets, arrayOfEr) => {
         if (currentComplect.fillingPaketsERIndexes) {
             // if(currentComplect.fillingPaketsERIndexes.length < 2){ //если в текущем комплекте меньше двух пакетов ЭР - т.е. не Офис
                 currentComplect.fillingPaketsERIndexes.forEach(paketIndex => {
-                    paketsNames += `${arrayOfPakets.value[paketIndex].name}</br> `
+                    paketsNames += `${arrayOfPakets.value[paketIndex].name}
+                    `
 
 
                     arrayOfPakets.value[paketIndex].including.forEach(indexOfEr => {
@@ -111,7 +158,8 @@ let paketsEr = (currentComplect, arrayOfPakets, arrayOfEr) => {
                 })
                 indexesOfIncludedErs.forEach(indexOfEr => {
 includedOfPakets += `
-${arrayOfEr.value[indexOfEr].name}</br>`
+${arrayOfEr.value[indexOfEr].name}
+`
                                         })
                
 paketsAndFilling = `
@@ -133,16 +181,15 @@ let er = (currentComplect, arrayOfEr, indexesOfIncludedErs) => {
    
 if(currentComplect.fillingEncyclopediasIndexes.length > 0){
     result = `
-
-${arrayOfEr.nameOfType} </br>`
+${arrayOfEr.nameOfType}
+`
 
         arrayOfEr.value.forEach((element, index) => {
             if(element.checked === true){
                 
     if(!indexesOfIncludedErs.includes(index)){
         result +=`
-${element.name} </br>
-
+${element.name}
 ${element.description}
 `
     }
@@ -213,7 +260,7 @@ return fillingLt
 //     }
 // }
 
-const changeField = (stateCome, action) => {
+const changeFieldOld = (stateCome, action) => {
 
     let infoblocksString = ''
     let erString = ''
@@ -245,9 +292,75 @@ const changeField = (stateCome, action) => {
     ${ltString}
     
     `
-  
+  state.description = {
+    'UF_CRM_1642058636[0]': 'Законодательство',
+    'UF_CRM_1642058636[1]': 'Opisanie'
+
+  }
     return state
 }
+
+let blockWork = (element, allBlocks, state) => {
+    element.value.forEach(block => {
+        if(block.checked){
+            allBlocks.push(block.name)
+            allBlocks.push(block.description)
+            state.descriptionObject.UF_CRM_1514543923 = block.name
+            state.descriptionObject.UF_CRM_1514543946 = block.description
+
+        }
+    })
+}
+const changeField = (stateCome, action) => {
+    let state = {
+        ...stateCome
+    }
+
+    let allBlocks = []
+
+    action.infoblocks.forEach(element => {
+        blockWork (element, allBlocks, state)
+    })
+
+    // blockWork (action.er[0], allBlocks)
+    blockWork (action.er[1], allBlocks, state)
+    blockWork (action.lt, allBlocks, state)
+
+
+
+    // allBlocks.push([...action.infoblocks.value])
+    // allBlocks.push([...action.er[0]])
+    // allBlocks.push([...action.er[1]])
+    // allBlocks.push([...action.lt])
+    // allBlocks.push([...action.infoblocks.value])
+    state.description = allBlocks
+    state.descriptionObject = {
+        'UF_CRM_1514543923' : allBlocks[0],
+        'UF_CRM_1514543946' : allBlocks[1],
+    
+        'UF_CRM_1514543902' : allBlocks[2],
+        'UF_CRM_1514470897' : allBlocks[3],
+    
+        'UF_CRM_1514543981' : allBlocks[4],
+        'UF_CRM_1514544016' : allBlocks[5],
+    
+        'UF_CRM_1514544048' : allBlocks[6],
+        'UF_CRM_1514544067' : allBlocks[7],
+    
+        'UF_CRM_1514544090' : allBlocks[8],
+        'UF_CRM_1514544106' : allBlocks[9],
+    
+        'UF_CRM_1514544145' : allBlocks[10],
+        'UF_CRM_1514544158' : allBlocks[11],
+       
+        'UF_CRM_1514544223' : allBlocks[12],
+        'UF_CRM_1514544239' : allBlocks[13],
+    
+    }
+    console.log(state)
+    return state
+}
+
 // const changeDescription = (stateCome, action) => {
 
 //     let infoblocksString = ''
@@ -289,6 +402,7 @@ const changeField = (stateCome, action) => {
 export const dealDescriptionReducer = (state = initialState, action) => {
 
     if (action.type === DEAL_FIELD) {
+        debugger
         return changeField(state, action);
     }
     return state

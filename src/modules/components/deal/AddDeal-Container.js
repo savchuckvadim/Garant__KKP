@@ -26,6 +26,7 @@ const mapStateToProps = (state) => {
 
     let dealStatus = state.dealStatus.isFetching
     let description = state.description.current
+    let descriptionObject = state.description.description
 
     // let fields = []
     // let infoblocks = []
@@ -77,6 +78,7 @@ debugger
         dealStatus: dealStatus,
         name: state.dealName.value,
         description: description,
+        descriptionObject: descriptionObject,
         freeBlocks: freeBlocks
 
 
