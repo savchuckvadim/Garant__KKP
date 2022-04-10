@@ -59,7 +59,6 @@ const createComplect = (state, action) => {
         localStorage.removeItem('currentPrice')
         state = action.obj
 let freeBlocks = [0, 1, 2, 3, 4];
-console.log(' state.filling',  state.filling)
 
 if( state.filling.includes('Практика арбитражных судов округов')){
     freeBlocks.push(5)

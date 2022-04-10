@@ -15,18 +15,12 @@ export const dealStatusActionCreator = (status) => {
 const changeDealStatus = (stateCome, action) => {
    
     let state = {...stateCome}
-   
         state.isFetching = action.status
-      
-
-    
-    
     return state
 }
 
 
 export const dealStatusReducer = (state = inittialState, action) => {
-    console.log('changeDealStatus')
     if(action.type === DEAL_STATUS){
         return changeDealStatus(state, action)
     }

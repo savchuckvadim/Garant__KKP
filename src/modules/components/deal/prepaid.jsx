@@ -2,7 +2,6 @@ import { FormControl, InputLabel, MenuItem, Select } from "@material-ui/core"
 import "./prepaid.css"
 
 const Prepaid = (props) => {
-console.log(props)
     return (
        <div className="prepaid__container">
           <FormControl  fullWidth>

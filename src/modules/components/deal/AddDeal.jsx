@@ -13,7 +13,7 @@ import { DealFieldContainer } from './included/deal-field-Container';
 
 export const AddDeal = (props) => {
 
-console.log('dealField', props.dealField)
+// console.log('dealField', props.dealField)
   let typeOfClient = props.typeOfClient
   let typeOfContract = props.typeOfContract
   // let prepaid = props.prepaid

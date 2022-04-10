@@ -155,67 +155,7 @@ p {
      /* transform: rotateZ(3600deg) !important;  */
 }
 
-.app__wrapperContent{
-    background-color: rgb(255, 255, 255) !important;
-    color: black !important;
-    
-   
-    transition-property: background-image, background-color, text-color, color, transform !important;
-    transition-duration: 2.4s !important; 
-    transition-delay: 0.5s !important; 
-     /* transform: rotateZ(3600deg) !important;  */
-}
-.app__wrapperContent_dark{
-    /* background-color: rgb(192, 218, 30) !important; */
-    background-color: rgba(37, 40, 45, 1) !important;
 
-    color: rgb(255, 255, 255);
-    
-    transition-property: background-image, background-color, text-color, color, transform !important;
-    transition-duration: 2.4s !important; 
-    transition-delay: 0.0s !important; 
-     /* transform: rotateZ(3600deg) !important;  */
-}
-/* .round__img{ 
-    margin: 0 auto;
-     padding: 0 auto;
-     border-width: 0px;
-    border-color: black;
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-   
-    
-    background-repeat: no-repeat;
-    background-position: center;
-  
-    background-image: url('.modules/components/header/theme/img/broSunMoon/moon.svg');
-     transform: rotateZ(3600deg) !important; 
-
-}
-
-.round__img2{
-    margin: 0 auto;
-     padding: 0 auto;
-     border-width: 0px;
-    border-color: black;
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-   
-    
-    background-repeat: no-repeat;
-    background-position: center;
-   
-    background-position: 49%;
-    background-color: pink;
-
-    background-image: url('.modules/components/header/theme/img/broSunMoon/sun.svg');
-   
-    transform: rotateZ(-3600deg) !important; 
-   
-
-} */
 
 .formControlOd{
     width: 100% !important;

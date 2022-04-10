@@ -61,8 +61,6 @@ const mapStateToProps = (state) => {
             }
         })
     
-   
-debugger
     return {
         typeOfContract: state.typeOfContract,
         unit: state.typeOfContract.value.units.CODE,

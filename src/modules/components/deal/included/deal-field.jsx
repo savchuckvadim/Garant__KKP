@@ -7,7 +7,7 @@ const Field = (props) => {
     // props.state.changePaketsErData()
     // props.state.changeErData()
     // props.state.changeltData()
- 
+
     let defineClassName = () => {
         if (props.state.currentComplect.name === 'Предприятие' || props.state.currentComplect.name === 'Предприятие PRO') {
             return 'texSmall';
@@ -25,7 +25,7 @@ const Field = (props) => {
                     <p key='itemOfinfoblock-6' className={className}> Правовой Консалтинг. Премиум</p>
                     <p key='itemOfinfoblock-7' className={className}> 2 Экспертных заключения в месяц</p>
                 </>`
-            
+
         } else {
             return null
         }
@@ -44,8 +44,8 @@ const Field = (props) => {
 База знаний службы Правового консалтинга
 Гарант Консалтинг: нормативные акты и судебная практика
 ${<Сonsalting />}`
-            
-        
+
+
     }
 
     if (props.state.currentComplect) {
@@ -73,8 +73,8 @@ ${<Сonsalting />}`
 
             })
             return `${result}`
-               
-            
+
+
         }
 
         let legalTech = (array) => {
@@ -91,21 +91,15 @@ ${<Сonsalting />}`
             }
             return ` ${title}
                     ${resultArray}`
-               
 
-            
-        }
-        console.log('props.state.field.current', props.state.field.current)
-props.changeCurrentField(props.state.currentComplect, props.state.infoblocks, props.state.er, props.state.lt, props.state.freeBlocks)
-console.log('props.state.field.current', props.state.field.current)
-                return `${props.state.field.current} `
 
-                
-            
 
         }
+        props.changeCurrentField(props.state.currentComplect, props.state.infoblocks, props.state.er, props.state.lt, props.state.freeBlocks)
+        return `${props.state.field.current} `
+    }
 
- 
-    
+
+
 }
-    export default Field
+export default Field

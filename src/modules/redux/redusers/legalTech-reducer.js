@@ -196,8 +196,7 @@ const changeQuantityLt = (stateCome, index) => {
     }else {
         state.priceOfLt =  state.pricesOfLt[currentIndexOfLtPrice]
     }
-    console.log('price of lt', state.priceOfLt)
-    console.log('state.previousPrice', state.previousPrice)
+
     return state
 }
 

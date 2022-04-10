@@ -357,7 +357,6 @@ const changeField = (stateCome, action) => {
         'UF_CRM_1514544239' : allBlocks[13],
     
     }
-    console.log(state)
     return state
 }
 
@@ -401,8 +400,7 @@ const changeField = (stateCome, action) => {
 // }
 export const dealDescriptionReducer = (state = initialState, action) => {
 
-    if (action.type === DEAL_FIELD) {
-        debugger
+    if (action.type === DEAL_FIELD) {  
         return changeField(state, action);
     }
     return state

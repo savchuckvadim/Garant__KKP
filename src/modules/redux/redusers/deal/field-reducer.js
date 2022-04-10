@@ -298,10 +298,7 @@ const changeDescription = (stateCome, action) => {
    
     state.description = `
     ${infoblocksString}
-    
-    
-    `
-  console.log(state.description)
+        `
     return state
 }
 const changeFieldAndDescription = (state, action) => {

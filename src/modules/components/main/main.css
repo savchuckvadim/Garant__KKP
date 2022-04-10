@@ -4,6 +4,28 @@
     transition-duration: 2.5s; 
     transition-delay: 0.2s; 
 } */
+
+.app__wrapperContent{
+    background-color: rgb(255, 255, 255) !important;
+    color: black !important;
+    
+   
+    transition-property: background-image, background-color, text-color, color, transform !important;
+    transition-duration: 2.4s !important; 
+    transition-delay: 0.5s !important; 
+     /* transform: rotateZ(3600deg) !important;  */
+}
+.app__wrapperContent_dark{
+    /* background-color: rgb(192, 218, 30) !important; */
+    background-color: rgba(37, 40, 45, 1) !important;
+
+    color: rgb(255, 255, 255);
+    
+    transition-property: background-image, background-color, text-color, color, transform !important;
+    transition-duration: 2.4s !important; 
+    transition-delay: 0.0s !important; 
+     /* transform: rotateZ(3600deg) !important;  */
+}
 .main {
 
     display: grid;
