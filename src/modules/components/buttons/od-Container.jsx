@@ -1,12 +1,10 @@
 
 import "./buttons.css"
-import * as React from 'react';
 import { odChangeActionCreator } from "../../redux/redusers/od-reducer";
 import ODButtons from "./od";
 import { connect } from "react-redux";
 import { goodsActionCreator } from "../../redux/redusers/deal/goods-reducer";
 
-//
 
 
 

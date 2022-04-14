@@ -46,7 +46,6 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
     return {
 
-
     }
 }
 const BlocksOfInfoblocksContainer = connect(mapStateToProps)(BlocksOfInfoblocks)

@@ -8,8 +8,6 @@ import ModalContainer from "../buttons/modal/modal-Container";
 
 
 
-
-
 const Complect = () => {
     let styleComplect = {
 
