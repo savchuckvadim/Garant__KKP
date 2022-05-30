@@ -127,8 +127,7 @@ const getPrice = (state, action) => {
 
     }
 
-
-    
+    state.currentPrice.value = state.currentPrice.value.toFixed(2)
     return state
 }
 // const reset = (state) => {
