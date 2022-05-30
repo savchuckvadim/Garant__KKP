@@ -131,8 +131,7 @@ export const AddDeal = (props) => {
 
     let fieldsUpdate = {            //поля для обновления сделки   
 
-      'UF_CRM_1540190412': typeOfClient,
-      // 'UF_CRM_1540190343': typeOfContract,
+      
       'UF_CRM_1540190343': props.typeOfContract.value.id,
       // 'UF_CRM_1540190412': '1925',
       "COMMENTS": `${props.dealField}`,
@@ -236,21 +235,6 @@ export const AddDeal = (props) => {
         {
           ...fieldsUpdate
 
-          // 'UF_CRM_1540190343': props.typeOfContract.value.id,
-          // "COMMENTS": `${props.dealField}`,
-          // 'UF_CRM_1642056396': ` ${props.description}`,
-          // "COMPANY_ID": `${companyId}`,
-
-          // 'UF_CRM_1516965054': `${props.freeBlocks[0]}`, //прайм
-          // 'UF_CRM_1516965226': `${props.freeBlocks[1]}`,  //архивы
-          // 'UF_CRM_1516965314': `${props.freeBlocks[2]}`, // база знаний
-          // 'UF_CRM_1516965345': `${props.freeBlocks[3]}`, // гарант-консалтинг
-          // 'UF_CRM_1516965007': `${props.freeBlocks[4]}`,  //суд практика приложение заг
-          // 'UF_CRM_1643079376': `${props.freeBlocks[5]}`, //практика арбитраж
-          // 'UF_CRM_1643079404': `${props.freeBlocks[6]}`,
-          // 'UF_CRM_1643079427': `${props.freeBlocks[7]}`,
-          // 'UF_CRM_1643079552': `${props.freeBlocks[8]}`,
-          // ...props.descriptionObject
         },
         params: { "REGISTER_SONET_EVENT": "Y" }
       },
