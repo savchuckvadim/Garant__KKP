@@ -1,4 +1,5 @@
-import { combineReducers, createStore } from 'redux';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
+import ThunkMiddleware from 'redux-thunk'
 import { currentComplect } from './redusers/currentComplect-reducer';
 import { changeErAndPaketsErFromCurrent } from './redusers/enciclopedias-reducer';
 import { infoblocks } from './redusers/infoblocks-reducer';
@@ -28,6 +29,7 @@ import { dealNameReducer } from './redusers/deal/dealName-reducer';
 import { dealDescriptionReducer } from './redusers/deal/description-reducer';
 import { freeBlocks } from './redusers/freeBlocks-reducer';
 import { consalting } from './redusers/consalting-reducer';
+import allPriceReducer from './redusers/all-price-reducer';
 // import weightReducer from './redusers/weight-reduser';
 
 
@@ -75,10 +77,11 @@ let reducers = combineReducers({
     description: dealDescriptionReducer,
     dealStatus: dealStatusReducer,
     dealName: dealNameReducer,
+    allPrices:allPriceReducer
 
     
 });
-let store = createStore(reducers)
-
+// let store = createStore(reducers)
+const store = createStore(reducers, applyMiddleware(ThunkMiddleware))
 
  export default store

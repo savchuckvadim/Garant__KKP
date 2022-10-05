@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux'
 import store from './modules/redux/redux-store';
 import App from './App'
+import AppContainer from './App-Container';
 
 export const startApp = (state, store) => {
 
@@ -11,7 +12,7 @@ export const startApp = (state, store) => {
     // <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-          <App/>
+          <AppContainer/>
       </Provider>
     </BrowserRouter >,
     // </React.StrictMode>,
@@ -19,7 +20,7 @@ export const startApp = (state, store) => {
   );
 }
 
-
+window.store = store
 let state = store.getState()
 startApp(state, store);
 store.subscribe(() => {
