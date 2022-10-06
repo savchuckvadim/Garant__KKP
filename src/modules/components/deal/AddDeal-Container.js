@@ -1,21 +1,9 @@
-import {
-    connect
-} from "react-redux"
-import {
-    resetActionCreator
-} from "../../redux/redusers/currentComplect-reducer";
-import {
-    dealNameActionCreator
-} from "../../redux/redusers/deal/dealName-reducer";
-import {
-    dealStatusActionCreator
-} from "../../redux/redusers/deal/dealStatus-reducer";
-import {
-    dealFieldActionCreator
-} from "../../redux/redusers/deal/field-reducer";
-import {
-    AddDeal
-} from "./AddDeal"
+import { connect } from "react-redux"
+import { resetActionCreator } from "../../redux/redusers/currentComplect-reducer";
+import { dealNameActionCreator } from "../../redux/redusers/deal/dealName-reducer";
+import { dealStatusActionCreator } from "../../redux/redusers/deal/dealStatus-reducer";
+import { dealFieldActionCreator } from "../../redux/redusers/deal/field-reducer";
+import { AddDeal } from "./AddDeal"
 
 
 
@@ -53,14 +41,14 @@ const mapStateToProps = (state) => {
 
     }
 
-    let freeBlocks  = state.freeBlocks.value.map(block => {
-            if (block.checked) {
-                return block.name
-            }else{
-                return ''
-            }
-        })
-    
+    let freeBlocks = state.freeBlocks.value.map(block => {
+        if (block.checked) {
+            return block.name
+        } else {
+            return ''
+        }
+    })
+
     return {
         typeOfContract: state.typeOfContract,
         unit: state.typeOfContract.value.units.CODE,
