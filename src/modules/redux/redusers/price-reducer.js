@@ -138,7 +138,7 @@ const getPrice = (state, action) => {
 export const priceReducer = (state = initialState, action) => {
 
     if (action.type === GOODS) {
-
+debugger
         return price(state, action)
     } 
         return state
