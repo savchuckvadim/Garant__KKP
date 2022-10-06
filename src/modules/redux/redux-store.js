@@ -4,7 +4,7 @@ import { currentComplect } from './redusers/currentComplect-reducer';
 import { changeErAndPaketsErFromCurrent } from './redusers/enciclopedias-reducer';
 import { infoblocks } from './redusers/infoblocks-reducer';
 import { changeColorOfButton } from './redusers/allComplects-reducer';
-import { changeLTFromCurrent  } from './redusers/legalTech-reducer';
+import { changeLTFromCurrent } from './redusers/legalTech-reducer';
 // import { changeNameOfComplect } from './redusers/nameOfComplect-reducer';
 import { oD } from './redusers/od-reducer';
 import { changeDataPhone } from './redusers/phoneNumber-reducer';
@@ -18,11 +18,11 @@ import { resultModal } from './redusers/result-modal-reducer';
 import deal from './redusers/deal-reducer';
 import { totalPriceReducer } from './redusers/totalPrice-reducer';
 import { prepaidReducer } from './redusers/prepaid-reducer';
-import {typeOfContractReducer} from './redusers/deal/typeOfContract-reducer';
-import {typeOfClientReducer} from './redusers/deal/typeOfClient-reducer';
-import {supplierReducer} from './redusers/deal/supplier-reducer';
-import {goodsReducer} from './redusers/deal/goods-reducer';
-import {dateOfContractReducer} from './redusers/deal/datesOfContract-reducer';
+import { typeOfContractReducer } from './redusers/deal/typeOfContract-reducer';
+import { typeOfClientReducer } from './redusers/deal/typeOfClient-reducer';
+import { supplierReducer } from './redusers/deal/supplier-reducer';
+import { goodsReducer } from './redusers/deal/goods-reducer';
+import { dateOfContractReducer } from './redusers/deal/datesOfContract-reducer';
 import { dealFieldReducer } from './redusers/deal/field-reducer';
 import { dealStatusReducer } from './redusers/deal/dealStatus-reducer';
 import { dealNameReducer } from './redusers/deal/dealName-reducer';
@@ -30,6 +30,7 @@ import { dealDescriptionReducer } from './redusers/deal/description-reducer';
 import { freeBlocks } from './redusers/freeBlocks-reducer';
 import { consalting } from './redusers/consalting-reducer';
 import allPriceReducer from './redusers/all-price-reducer';
+import globalParametrsReducer from './redusers/global-parameters/global-parameters-reducer';
 // import weightReducer from './redusers/weight-reduser';
 
 
@@ -44,18 +45,19 @@ import allPriceReducer from './redusers/all-price-reducer';
 //         return state
 //     }
 //   };
-  
+
 
 let reducers = combineReducers({
+    globalParametrs: globalParametrsReducer,
     allComplects: changeColorOfButton,
     currentComplect: currentComplect,
     infoblocks,
     freeBlocks: freeBlocks,
     consalting: consalting,
     encyclopedias: changeErAndPaketsErFromCurrent,
-    legalTech : changeLTFromCurrent,
+    legalTech: changeLTFromCurrent,
     // changeNameOfComplect, 
-    od : oD,
+    od: oD,
     phoneNumber: changeDataPhone,
     // changePrepaid,
     price: priceReducer,
@@ -77,11 +79,11 @@ let reducers = combineReducers({
     description: dealDescriptionReducer,
     dealStatus: dealStatusReducer,
     dealName: dealNameReducer,
-    allPrices:allPriceReducer
+    allPrices: allPriceReducer
 
-    
+
 });
 // let store = createStore(reducers)
 const store = createStore(reducers, applyMiddleware(ThunkMiddleware))
 
- export default store
+export default store

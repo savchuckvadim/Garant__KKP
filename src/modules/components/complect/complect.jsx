@@ -3,6 +3,7 @@ import ComplectButtonsContainer from "../buttons/buttons-Container";
 import ODButtonsContainer from "../buttons/od-Container";
 import ResetButtonContainer from "../buttons/reset-Container";
 import ModalContainer from "../buttons/modal/modal-Container";
+import GlobalParameters from "../global-parameters/Global-Parameters";
 
 
 
@@ -15,14 +16,8 @@ const Complect = () => {
     return (
 
         <form style={styleComplect} id="" className="form">
-            <div className="app__header">
-                <p className="complect__title" id="complect__title">Выберите подходящий комплект "Гарант"</p>
-                <div className="global__parametrs">
-                    <p className="global__parametr">Универсальная линейка</p>
-                    <p className="global__parametr">Проксима</p>
-                </div>
-            </div>
-
+           
+            <GlobalParameters />
 
             <div className={'container'}>
 
