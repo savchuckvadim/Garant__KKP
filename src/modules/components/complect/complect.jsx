@@ -3,7 +3,7 @@ import ComplectButtonsContainer from "../buttons/buttons-Container";
 import ODButtonsContainer from "../buttons/od-Container";
 import ResetButtonContainer from "../buttons/reset-Container";
 import ModalContainer from "../buttons/modal/modal-Container";
-import GlobalParameters from "../global-parameters/Global-Parameters";
+import GlobalParametersContainer from "../global-parameters/Global-Parameters-Container";
 
 
 
@@ -17,7 +17,7 @@ const Complect = () => {
 
         <form style={styleComplect} id="" className="form">
            
-            <GlobalParameters />
+            <GlobalParametersContainer />
 
             <div className={'container'}>
 

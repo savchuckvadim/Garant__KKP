@@ -15,7 +15,7 @@ const initialState = {
 // AC
 export const setSupply = (index) => ({ type: SET_SUPPLY, index }) //if index == 0 -> INTERNET, else -> PROKSIMA
 
-const globalParametrsReducer = (state = initialState, action) => {
+const globalParametersReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case SET_SUPPLY:
@@ -32,4 +32,4 @@ const globalParametrsReducer = (state = initialState, action) => {
     }
 }
 
-export default globalParametrsReducer
+export default globalParametersReducer

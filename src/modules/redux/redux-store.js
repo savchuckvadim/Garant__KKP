@@ -30,7 +30,7 @@ import { dealDescriptionReducer } from './redusers/deal/description-reducer';
 import { freeBlocks } from './redusers/freeBlocks-reducer';
 import { consalting } from './redusers/consalting-reducer';
 import allPriceReducer from './redusers/all-price-reducer';
-import globalParametrsReducer from './redusers/global-parameters/global-parameters-reducer';
+import globalParametersReducer from './redusers/global-parameters/global-parameters-reducer';
 // import weightReducer from './redusers/weight-reduser';
 
 
@@ -48,7 +48,7 @@ import globalParametrsReducer from './redusers/global-parameters/global-paramete
 
 
 let reducers = combineReducers({
-    globalParametrs: globalParametrsReducer,
+    globalParameters: globalParametersReducer,
     allComplects: changeColorOfButton,
     currentComplect: currentComplect,
     infoblocks,
