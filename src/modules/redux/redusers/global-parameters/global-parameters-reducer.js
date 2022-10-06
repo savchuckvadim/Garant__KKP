@@ -9,7 +9,7 @@ const SET_COMPLECTS_TYPE = 'SET_COMPLECTS_TYPE'
 
 
 const initialState = {
-    supply: INTERNET,
+    supply: PROKSIMA,
     compectsType: PROF
 }
 // AC
