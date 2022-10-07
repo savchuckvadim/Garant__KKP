@@ -78,6 +78,7 @@ let mapStateToProps = (state) => {
     })
 
     return {
+        currentSupplyName:state.globalParameters.supply,
         allComplects: state.allComplects,
         currentTheme: state.theme.style[state.theme.indexOfTheme],
         currentOd: state.od.currentOd,
@@ -98,12 +99,12 @@ let mapStateToProps = (state) => {
 }
 let mapDispatchToProps = (dispatch) => {
     return {
-        createComplect: (obj, index, ods, currentOd, currentTheme, numberOfOD, typeOfContract, infoblocks, er, lt, freeBlocks, consalting) => {
+        createComplect: (obj, index, ods, currentOd, currentTheme, numberOfOD, typeOfContract, infoblocks, er, lt, freeBlocks, consalting, currentSupplyName) => {
 
             let actionNewComplect = createComplectActionCreator(obj, index, ods, currentOd)
             let actionColorOfButton = changeColorOfButtonActionCreator(index, currentTheme)
             let actionBlocksFromNewComplect = changeBlocksFromNewComplectActionCreator(obj)
-            let actionGoods = goodsActionCreator(index, numberOfOD, typeOfContract)  //устанавливает текущую цену и текущий товар в price/goods - reducers
+            let actionGoods = goodsActionCreator(index, numberOfOD, typeOfContract, currentSupplyName)  //устанавливает текущую цену и текущий товар в price/goods - reducers
             let dealField = dealFieldActionCreator(obj, infoblocks, er, lt, freeBlocks, consalting)
             dispatch(actionColorOfButton)
             dispatch(actionNewComplect)

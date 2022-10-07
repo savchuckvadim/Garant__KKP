@@ -37,7 +37,8 @@ const ODButtons = (props) => {
               props.currentComplect,
               props.currentComplect.number,
               index,
-              props.typeOfContract)
+              props.typeOfContract,
+              props.currentSupplyName)
           }}
           className="btn__od"
           as="button">{name}

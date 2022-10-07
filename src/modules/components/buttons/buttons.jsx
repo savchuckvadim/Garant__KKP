@@ -26,7 +26,8 @@ const ComplectButtons = (props) => {
                         props.er, 
                         props.legalTech, 
                         props.freeBlocks, 
-                        props.consalting)
+                        props.consalting,
+                        props.currentSupplyName)
                 }}
                 className={complect.className}
                 number={index}

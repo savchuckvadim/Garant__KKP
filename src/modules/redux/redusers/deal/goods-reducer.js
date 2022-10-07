@@ -56,13 +56,14 @@ let initialState = {
 
 
 
-export const goodsActionCreator = (numberOfComplect, numberOfOD, typeOfContract) => {
+export const goodsActionCreator = (numberOfComplect, numberOfOD, typeOfContract, currentSupplyName) => {
 
     return {
         type: GOODS,
         numberOfComplect,
         numberOfOD,
-        typeOfContract
+        typeOfContract,
+        currentSupplyName
     }
 }
 
@@ -74,15 +75,19 @@ const changeGoods = (stateCome, action) => {
     let state = {
         ...stateCome
     }
+    if (action.currentSupplyName === 'Интернет') {
+        if (typeOfContract === 'abonSix') {
+            state.currentId = state.abonSix[numberOfOD][numberOfComplect]
+        } else if (typeOfContract === 'abonEleven') {
+            state.currentId = state.abonEleven[numberOfOD][numberOfComplect]
+        } else {
+            state.currentId = state.prof[numberOfOD][numberOfComplect]
 
-    if (typeOfContract === 'abonSix') {
-        state.currentId = state.abonSix[numberOfOD][numberOfComplect]
-    } else if (typeOfContract === 'abonEleven') {
-        state.currentId = state.abonEleven[numberOfOD][numberOfComplect]
-    } else {
-        state.currentId = state.prof[numberOfOD][numberOfComplect]
-
+        }
+    } else if (action.currentSupplyName === 'Проксима') {
+        state.currentId = state.proximaProf[numberOfOD][numberOfComplect]
     }
+
 
     return state
 }
