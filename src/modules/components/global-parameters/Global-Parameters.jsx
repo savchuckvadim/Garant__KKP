@@ -2,9 +2,11 @@ import './Global-Parameters.css'
 
 const GlobalParameters = (props) => {
     const changeSupply = () => {
-        if (props.supply === 'Проксима') {
+        if (props.supplyButton === 'Проксима') {
+            props.reset()
             props.setSupply(0)
         } else {
+            props.reset()
             props.setSupply(1)
         }
 
@@ -16,7 +18,7 @@ const GlobalParameters = (props) => {
             <div className="global__parametrs">
                 <p className="global__parametr">Универсальная линейка</p>
                 <p className="global__parametr"
-                    onClick={changeSupply}>{props.supply}</p>
+                    onClick={changeSupply}>{props.supplyButton}</p>
             </div>
         </div>
     )

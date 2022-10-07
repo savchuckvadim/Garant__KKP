@@ -16,6 +16,7 @@ const mapStateToProps = (state) => {
     })      
     
     return {
+        currentSupplyName:state.globalParameters.currentSupply,
         name: state.typeOfContract.name,
         id: state.typeOfContract.id,
         value: state.typeOfContract.value,
@@ -27,9 +28,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     
     return {
-        changeTypeOfContract: (index, numberOfComplect, numberOfOD, typeOfContract) => {
+        changeTypeOfContract: (index, numberOfComplect, numberOfOD, typeOfContract, currentSupply) => {
             let actionContract = typeOfContractActionCreator(index)
-            let actionGoods = goodsActionCreator(numberOfComplect, numberOfOD, typeOfContract)
+            let actionGoods = goodsActionCreator(numberOfComplect, numberOfOD, typeOfContract, currentSupply)
 
             dispatch(actionContract)
             dispatch(actionGoods)

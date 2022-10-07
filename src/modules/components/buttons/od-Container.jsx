@@ -24,7 +24,7 @@ let mapStateToProps = (state) => {
   let typeOfContract = state.typeOfContract.value.typeOfGood
 
   return {
-    currentSupplyName:state.globalParameters.supply,
+    currentSupplyName:state.globalParameters.currentSupply,
     currentComplect,
     allOds,
     odClassName,

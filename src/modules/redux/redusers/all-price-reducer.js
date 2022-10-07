@@ -9,7 +9,8 @@ const initialState = {
         localPrices: [],
 
     },
-    prof: [],
+    internetProf: [],
+    proximaProf: [],
     kmv: [],
     stv: [],
     coefficients: []
@@ -35,7 +36,9 @@ const allPriceReducer = (state = initialState, action) => {
         case SET_PRICES:
 
             return {
-                ...state, prof: action.prices.prof,
+                ...state, 
+                internetProf: action.prices.internetProf,
+                proximaProf:  action.prices.proximaProf,
                 coefficients: action.prices.coefficients,
                 kmv: action.prices.kmv,
                 stv: action.prices.stv,

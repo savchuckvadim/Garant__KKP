@@ -9,7 +9,8 @@ const SET_COMPLECTS_TYPE = 'SET_COMPLECTS_TYPE'
 
 
 const initialState = {
-    supply: PROKSIMA,
+    supplyButton: PROKSIMA,
+    currentSupply:INTERNET,
     //supply index = 0 -> current - PROXIMA
     //supply index = 1 -> current - INTERNET
     compectsType: PROF
@@ -23,9 +24,9 @@ const globalParametersReducer = (state = initialState, action) => {
         case SET_SUPPLY:
 
             if (action.index === 1) {
-                return { ...state, supply: PROKSIMA }
+                return { ...state, supplyButton: PROKSIMA, currentSupply: INTERNET }
             } else if (action.index === 0) {
-                return { ...state, supply: INTERNET }
+                return { ...state, supplyButton: INTERNET , currentSupply: PROKSIMA }
             }
             return state
 

@@ -75,6 +75,7 @@ const changeGoods = (stateCome, action) => {
     let state = {
         ...stateCome
     }
+    
     if (action.currentSupplyName === 'Интернет') {
         if (typeOfContract === 'abonSix') {
             state.currentId = state.abonSix[numberOfOD][numberOfComplect]
