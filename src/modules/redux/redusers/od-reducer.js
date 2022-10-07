@@ -62,7 +62,7 @@ export const oD = (state = initialState, action) => {
     let stateCopy = {
         ...state
     }
-    stateCopy.currentOd = state.currentOd
+    // stateCopy.currentOd = state.currentOd
     switch (action.type) {
         case 'CHANGE_CURRENT_OD':
 
@@ -74,18 +74,28 @@ export const oD = (state = initialState, action) => {
                 // state.currentComplect.od = state.currentOd;
 
             }
-
+            return stateCopy
         case SET_SUPPLY: //from global-parameters-reducer    
             if (action.index === 1) {
-                return { ...state, names: state.internetNames }
+                return {
+                    ...state,
+
+                    names: state.internetNames,
+                    currentOd: state.internetNames[0]
+
+                }
             } else if (action.index === 0) {
-                return { ...state, names: state.proximaNames  }
+                return {
+                    ...state,
+                    names: state.proximaNames,
+                    currentOd: state.proximaNames[0]
+                }
             }
             return state
         default:
             return state;
     }
-  
+
 
 
 }

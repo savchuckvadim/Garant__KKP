@@ -18,7 +18,7 @@ const mapStateToProps = (state) => {
     return {
         name: state.typeOfContract.name,
         id: state.typeOfContract.id,
-        value: state.typeOfContract.value.typeOfGood,
+        value: state.typeOfContract.value,
         typesOfContract: state.typeOfContract.typesOfContract,
         numberOfComplect,
         numberOfOD

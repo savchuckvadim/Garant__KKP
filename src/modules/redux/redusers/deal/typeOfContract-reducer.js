@@ -28,7 +28,7 @@ let initialState = {
 
 
     },
-  
+
     {
         id: '3616',
         name: 'Абонентский полгода',
@@ -84,12 +84,17 @@ let initialState = {
         }
     }],
     proximaTypesOfContract: [
-    {
-        id: '1915',
-        name: 'Договор услуг',
-        typeOfGood: 'prof'
-    },
-    
+        {
+            id: '1915',
+            name: 'Договор услуг',
+            typeOfGood: 'prof',
+            units: {
+                value: 'Месяц',
+                ID: '11',
+                CODE: '15',
+            }
+        },
+
         // {
         //     id: '3170',
         //     name: 'Лицензионный',
@@ -132,11 +137,15 @@ export const typeOfContractReducer = (state = initialState, action) => {
             if (action.index === 1) {
                 return { ...state, typesOfContract: state.internetTypesOfContract }
             } else if (action.index === 0) {
-                return { ...state, typesOfContract: state.proximaTypesOfContract }
+                return {
+                    ...state,
+                    typesOfContract: state.proximaTypesOfContract,
+                    value: state.proximaTypesOfContract[0]
+                }
             }
             return state
         default:
             return state;
     }
-   
+
 }

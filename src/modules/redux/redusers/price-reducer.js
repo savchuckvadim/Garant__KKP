@@ -102,39 +102,6 @@ const price = (stateCome, action) => {
 }
 const getPrice = (state, action) => {
 
-
-    // let prices = state.prices
-    // let ind1
-    // let ind2 = 0
-    // let currentOd = ""
-    // let ods = action.ods
-    // if(action.currentComplect){
-
-    //     if (action.type === CREATE_COMPLECT) {
-    //         ind1 = action.obj.number
-    //         currentOd = action.currentOd
-    //     } else if (action.type === CHANGE_CURRENT_OD) {
-
-    //         ind1 = action.currentComplect.number
-    //         currentOd = action.name
-
-    //     }
-
-    //     ods.forEach((element, index) => {
-    //         let el = element
-    //         let el2 = currentOd
-    //         if (el === el2) {
-    //             ind2 = index
-    //         }
-    //     })
-
-    //     if (!ind2) {
-    //         state.currentPrice.value = prices[0][ind1]
-
-    //     } else {
-    //         state.currentPrice.value = prices[ind2][ind1]
-    //     }
-    // }
     let numberOfComplect = action.numberOfComplect
     let numberOfOD = action.numberOfOD
     let typeOfContract = action.typeOfContract
