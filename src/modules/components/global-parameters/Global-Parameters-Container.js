@@ -6,6 +6,7 @@ import GlobalParameters from "./Global-Parameters"
 const mapStateToProps = (state) => {
     return {
         supplyButton: state.globalParameters.supplyButton,
+        currentSupply: state.globalParameters.currentSupply,
         compectsType: state.globalParameters.compectsType
     }
 }
