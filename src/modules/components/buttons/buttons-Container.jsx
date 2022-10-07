@@ -29,8 +29,8 @@ let mapStateToProps = (state) => {
     let infoblocks = state.infoblocks
     let legalTech = state.legalTech
     let er = state.encyclopedias
-let freeBlocks = state.freeBlocks
-let consalting = state.consalting
+    let freeBlocks = state.freeBlocks
+    let consalting = state.consalting
     let currentTheme = state.theme.style[state.theme.indexOfTheme]
     const dinamicStyleForButtons = (borderColor, textColor, complectColor) => {
 
@@ -76,7 +76,7 @@ let consalting = state.consalting
         }
 
     })
-    
+
     return {
         allComplects: state.allComplects,
         currentTheme: state.theme.style[state.theme.indexOfTheme],
@@ -103,7 +103,7 @@ let mapDispatchToProps = (dispatch) => {
             let actionNewComplect = createComplectActionCreator(obj, index, ods, currentOd)
             let actionColorOfButton = changeColorOfButtonActionCreator(index, currentTheme)
             let actionBlocksFromNewComplect = changeBlocksFromNewComplectActionCreator(obj)
-            let actionGoods = goodsActionCreator(index, numberOfOD, typeOfContract)
+            let actionGoods = goodsActionCreator(index, numberOfOD, typeOfContract)  //устанавливает текущую цену и текущий товар в price/goods - reducers
             let dealField = dealFieldActionCreator(obj, infoblocks, er, lt, freeBlocks, consalting)
             dispatch(actionColorOfButton)
             dispatch(actionNewComplect)

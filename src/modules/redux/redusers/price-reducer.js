@@ -1,3 +1,5 @@
+import { SET_SUPPLY } from "./global-parameters/global-parameters-reducer";
+
 const GET_PRICE = 'GET_PRICE';
 const INPUT_CHANGE_PRICE = 'INPUT_CHANGE_PRICE'
 const CREATE_COMPLECT = 'CREATE_COMPLECT'
@@ -25,17 +27,38 @@ let initialState = {
     //     [26520, 26520, 37980, 37980, 33270, 34440, 53220, 67200]
     // ],
 
-    pricesOld: [
-        [5000,	6000,	8100,	12100,	16200,	20200,	24300,	28300],  //бух
-        [5000,	6000,	8100,	12100,	16200,	20200,	24300,	28300],  //бух гос
-        [7200,	8700,	11600,	17400,	23200,	29000,	34800,	40600],  //гл бух
-        [7200,	8700,	11600,	17400,	23200,	29000,	34800,	40600],  //гл бух гос
-        [6300,	7600,	10100,	15200,	20200,	25400,	30400,	35500],  //юрист
-        [6400,	7700,	10300,	15400,	20600,	25800,	30900,	36100],  //офис
-        [10100,	12100,	16200,	24300,	32500,	40600,	48800,	56900],  //пр
-        [12600,	15100,	20100,	30200,	40300,	50400,	60400,	70500]   // пр pro
-    ],
+    // pricesOld: [
+    //     [5000,	6000,	8100,	12100,	16200,	20200,	24300,	28300],  //бух
+    //     [5000,	6000,	8100,	12100,	16200,	20200,	24300,	28300],  //бух гос
+    //     [7200,	8700,	11600,	17400,	23200,	29000,	34800,	40600],  //гл бух
+    //     [7200,	8700,	11600,	17400,	23200,	29000,	34800,	40600],  //гл бух гос
+    //     [6300,	7600,	10100,	15200,	20200,	25400,	30400,	35500],  //юрист
+    //     [6400,	7700,	10300,	15400,	20600,	25800,	30900,	36100],  //офис
+    //     [10100,	12100,	16200,	24300,	32500,	40600,	48800,	56900],  //пр
+    //     [12600,	15100,	20100,	30200,	40300,	50400,	60400,	70500]   // пр pro
+    // ],
     prices: [
+        [5400, 5400, 7776, 7776, 6804, 6912, 10908, 13608],
+        [6480, 6480, 9396, 9396, 8208, 8316, 13068, 16308],
+        [8748, 8748, 12528, 12528, 10908, 11124, 17496, 21708],
+        [13068, 13068, 18792, 18792, 16416, 16632, 26244, 32616],
+        [17496, 17496, 25056, 25056, 21816, 22248, 35100, 43524],
+        [21816, 21816, 31320, 31320, 27432, 27864, 43848, 54432],
+        [26244, 26244, 37584, 37584, 32832, 33372, 52704, 65232],
+        [30564, 30564, 43848, 43848, 38340, 38988, 61452, 76140]
+    ],
+    internetPrices: [
+        [5400, 5400, 7776, 7776, 6804, 6912, 10908, 13608],
+        [6480, 6480, 9396, 9396, 8208, 8316, 13068, 16308],
+        [8748, 8748, 12528, 12528, 10908, 11124, 17496, 21708],
+        [13068, 13068, 18792, 18792, 16416, 16632, 26244, 32616],
+        [17496, 17496, 25056, 25056, 21816, 22248, 35100, 43524],
+        [21816, 21816, 31320, 31320, 27432, 27864, 43848, 54432],
+        [26244, 26244, 37584, 37584, 32832, 33372, 52704, 65232],
+        [30564, 30564, 43848, 43848, 38340, 38988, 61452, 76140]
+    ],
+    proximaPrices: [
+        [5400, 5400, 7776, 7776, 6804, 6912, 10908, 13608],
         [5400, 5400, 7776, 7776, 6804, 6912, 10908, 13608],
         [6480, 6480, 9396, 9396, 8208, 8316, 13068, 16308],
         [8748, 8748, 12528, 12528, 10908, 11124, 17496, 21708],
@@ -46,7 +69,7 @@ let initialState = {
         [30564, 30564, 43848, 43848, 38340, 38988, 61452, 76140]
     ]
 
-   
+
 
 }
 
@@ -72,10 +95,10 @@ const changeCurrentPrice = (state, action) => {
     return state
 }
 const price = (stateCome, action) => {
-    let state = {...stateCome}
-    let currentPrice = {...stateCome.currentPrice}
+    let state = { ...stateCome }
+    let currentPrice = { ...stateCome.currentPrice }
     state.currentPrice = currentPrice
-    return getPrice (state, action)
+    return getPrice(state, action)
 }
 const getPrice = (state, action) => {
 
@@ -91,12 +114,12 @@ const getPrice = (state, action) => {
     //         ind1 = action.obj.number
     //         currentOd = action.currentOd
     //     } else if (action.type === CHANGE_CURRENT_OD) {
-            
+
     //         ind1 = action.currentComplect.number
     //         currentOd = action.name
-            
+
     //     }
-        
+
     //     ods.forEach((element, index) => {
     //         let el = element
     //         let el2 = currentOd
@@ -104,10 +127,10 @@ const getPrice = (state, action) => {
     //             ind2 = index
     //         }
     //     })
-    
+
     //     if (!ind2) {
     //         state.currentPrice.value = prices[0][ind1]
-    
+
     //     } else {
     //         state.currentPrice.value = prices[ind2][ind1]
     //     }
@@ -116,13 +139,13 @@ const getPrice = (state, action) => {
     let numberOfOD = action.numberOfOD
     let typeOfContract = action.typeOfContract
 
-  
-    
-    if(typeOfContract === 'abonSix'){
-        state.currentPrice.value = state.prices[numberOfOD][numberOfComplect]*6*0.9
-    }else if(typeOfContract === 'abonEleven'){
-        state.currentPrice.value = state.prices[numberOfOD][numberOfComplect]*12*0.8
-    }else{
+
+
+    if (typeOfContract === 'abonSix') {
+        state.currentPrice.value = state.prices[numberOfOD][numberOfComplect] * 6 * 0.9
+    } else if (typeOfContract === 'abonEleven') {
+        state.currentPrice.value = state.prices[numberOfOD][numberOfComplect] * 12 * 0.8
+    } else {
         state.currentPrice.value = state.prices[numberOfOD][numberOfComplect]
 
     }
@@ -137,10 +160,20 @@ const getPrice = (state, action) => {
 
 export const priceReducer = (state = initialState, action) => {
 
-    if (action.type === GOODS) {
+    switch (action.type) {
+        case GOODS:
+            return price(state, action)
 
-        return price(state, action)
-    } 
-        return state
-    
+        case SET_SUPPLY: //from global-parameters-reducer    
+            if (action.index === 1) {
+                return { ...state, prices: state.internetPrices }
+            } else if (action.index === 0) {
+                return { ...state, prices: state.proximaPrices }
+            }
+            return state
+        default:
+            return state;
+    }
+
+
 }

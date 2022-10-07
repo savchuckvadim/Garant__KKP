@@ -1,3 +1,5 @@
+import { SET_SUPPLY } from "./global-parameters/global-parameters-reducer";
+
 const CHANGE_CURRENT_OD = 'CHANGE_CURRENT_OD';
 
 
@@ -61,18 +63,29 @@ export const oD = (state = initialState, action) => {
         ...state
     }
     stateCopy.currentOd = state.currentOd
-    if (action.type === 'CHANGE_CURRENT_OD') {
-        if (!action.currentComplect) {
-            window.alert('сначала выберите комплект')
-        } else {
-            
-            stateCopy.currentOd = action.name;
-            // state.currentComplect.od = state.currentOd;
+    switch (action.type) {
+        case 'CHANGE_CURRENT_OD':
 
-        }
+            if (!action.currentComplect) {
+                window.alert('сначала выберите комплект')
+            } else {
+
+                stateCopy.currentOd = action.name;
+                // state.currentComplect.od = state.currentOd;
+
+            }
+
+        case SET_SUPPLY: //from global-parameters-reducer    
+            if (action.index === 1) {
+                return { ...state, names: state.internetNames }
+            } else if (action.index === 0) {
+                return { ...state, names: state.proximaNames  }
+            }
+            return state
+        default:
+            return state;
     }
-   
-    return stateCopy
+  
 
 
 }

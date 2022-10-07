@@ -4,7 +4,7 @@ const PROKSIMA = 'Проксима'
 const UNIVERSAL = 'Универсальные'
 const PROF = 'ПРОФ'
 
-const SET_SUPPLY = 'SET_SUPPLY'
+export const SET_SUPPLY = 'SET_SUPPLY'
 const SET_COMPLECTS_TYPE = 'SET_COMPLECTS_TYPE'
 
 

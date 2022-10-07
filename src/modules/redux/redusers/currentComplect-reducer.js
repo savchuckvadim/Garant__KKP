@@ -58,14 +58,14 @@ const createComplect = (state, action) => {
     if (action.obj) {
         localStorage.removeItem('currentPrice')
         state = action.obj
-let freeBlocks = [0, 1, 2, 3, 4];
+        let freeBlocks = [0, 1, 2, 3, 4];
 
-if( state.filling.includes('Практика арбитражных судов округов')){
-    freeBlocks.push(5)
-}
-if( state.filling.includes('Практика судов общей юрисдикции')){
-    freeBlocks.push(6)
-}
+        if (state.filling.includes('Практика арбитражных судов округов')) {
+            freeBlocks.push(5)
+        }
+        if (state.filling.includes('Практика судов общей юрисдикции')) {
+            freeBlocks.push(6)
+        }
         let complect = {
             'name': state.name,
             'number': state.number,
@@ -86,7 +86,7 @@ if( state.filling.includes('Практика судов общей юрисди�
 
         // addToStorage(complect, 'currentComplect')
     }
-   
+
     return state
 }
 
