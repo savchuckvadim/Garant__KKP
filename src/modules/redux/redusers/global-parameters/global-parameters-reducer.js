@@ -2,7 +2,7 @@
 const INTERNET = 'Интернет'
 const PROKSIMA = 'Проксима'
 export const UNIVERSAL = 'Универсальная линейка'
-const PROF = 'ПРОФ'
+export const PROF = 'ПРОФ'
 
 export const SET_SUPPLY = 'SET_SUPPLY'
 export const SET_COMPLECTS_TYPE = 'SET_COMPLECTS_TYPE'

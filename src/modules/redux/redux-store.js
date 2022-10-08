@@ -31,6 +31,7 @@ import { freeBlocks } from './redusers/freeBlocks-reducer';
 import { consalting } from './redusers/consalting-reducer';
 import allPriceReducer from './redusers/all-price-reducer';
 import globalParametersReducer from './redusers/global-parameters/global-parameters-reducer';
+import universalComplects from './redusers/universal-complects/universal-complects';
 // import weightReducer from './redusers/weight-reduser';
 
 
@@ -51,6 +52,7 @@ let reducers = combineReducers({
     globalParameters: globalParametersReducer,
     allComplects: changeColorOfButton,
     currentComplect: currentComplect,
+    universalComplects:universalComplects,
     infoblocks,
     freeBlocks: freeBlocks,
     consalting: consalting,
