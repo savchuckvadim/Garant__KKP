@@ -1,22 +1,28 @@
 
 const INTERNET = 'Интернет'
 const PROKSIMA = 'Проксима'
-const UNIVERSAL = 'Универсальные'
+export const UNIVERSAL = 'Универсальная линейка'
 const PROF = 'ПРОФ'
 
 export const SET_SUPPLY = 'SET_SUPPLY'
-const SET_COMPLECTS_TYPE = 'SET_COMPLECTS_TYPE'
+export const SET_COMPLECTS_TYPE = 'SET_COMPLECTS_TYPE'
 
 
 const initialState = {
     supplyButton: PROKSIMA,
-    currentSupply:INTERNET,
+    currentSupply: INTERNET,
     //supply index = 0 -> current - PROXIMA
     //supply index = 1 -> current - INTERNET
-    compectsType: PROF
+    complectsTypeButton: UNIVERSAL,
+    currentComplectsType: PROF
+    //compectsType index = 0 -> current - UNIVERSAL
+    //compectsType index = 1 -> current - PROF
 }
+
+
 // AC
 export const setSupply = (index) => ({ type: SET_SUPPLY, index }) //if index == 0 -> INTERNET, else -> PROKSIMA
+export const setCompectsType = (index) => ({ type: SET_COMPLECTS_TYPE, index }) //if index == 0 -> INTERNET, else -> PROKSIMA
 
 const globalParametersReducer = (state = initialState, action) => {
 
@@ -26,10 +32,26 @@ const globalParametersReducer = (state = initialState, action) => {
             if (action.index === 1) {
                 return { ...state, supplyButton: PROKSIMA, currentSupply: INTERNET }
             } else if (action.index === 0) {
-                return { ...state, supplyButton: INTERNET , currentSupply: PROKSIMA }
+                return { ...state, supplyButton: INTERNET, currentSupply: PROKSIMA }
             }
             return state
 
+        case SET_COMPLECTS_TYPE:
+
+            if (action.index === 1) {
+                return {
+                    ...state,
+                    complectsTypeButton: UNIVERSAL,
+                    currentComplectsType: PROF
+                }
+            } else if (action.index === 0) {
+                return {
+                    ...state,
+                    complectsTypeButton: PROF,
+                    currentComplectsType: "Универсальный"
+                }
+            }
+            return state
         default:
             return state;
     }

@@ -78,6 +78,7 @@ let mapStateToProps = (state) => {
     })
 
     return {
+        currentComplectsType: state.globalParameters.currentComplectsType,
         currentSupplyName:state.globalParameters.currentSupply,
         allComplects: state.allComplects,
         currentTheme: state.theme.style[state.theme.indexOfTheme],
