@@ -24,7 +24,7 @@ let mapStateToProps = (state) => {
   let typeOfContract = state.typeOfContract.value.typeOfGood
 
   return {
-    currentSupplyName:state.globalParameters.currentSupply,
+    currentSupplyName: state.globalParameters.currentSupply,
     currentComplect,
     allOds,
     odClassName,
@@ -36,11 +36,18 @@ let mapStateToProps = (state) => {
 }
 let mapDispatchToProps = (dispatch) => {
   return {
-    odChange : (name, names, currentComplect, numberOfComplect, index, typeOfContract, currentSupplyName) => { 
-      const actionOd = odChangeActionCreator(name, names, currentComplect)
-      const actionGoods = goodsActionCreator(numberOfComplect, index, typeOfContract, currentSupplyName)
-      dispatch(actionOd)
-      dispatch(actionGoods)
+    odChange: (name, names, currentComplect, numberOfComplect, index, typeOfContract, currentSupplyName) => {
+      if (!currentComplect || currentComplect.name === 'Универсальный комплект') {
+        window.alert('сначала выберите комплект')
+      } else {
+
+        const actionOd = odChangeActionCreator(name, names, currentComplect)
+        const actionGoods = goodsActionCreator(numberOfComplect, index, typeOfContract, currentSupplyName)
+        dispatch(actionOd)
+        dispatch(actionGoods)
+
+      }
+
     }
   }
 }

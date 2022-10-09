@@ -6,61 +6,108 @@ const initialState = {
         {
             name: 'Классик',
             weight: 1,
-            'className' : 'btn__accountant',
+            'className': 'btn__accountant',
+            number: 8
         },
         {
             name: 'Классик+',
             weight: 1.5,
-            'className' : 'btn__accountant',
+            'className': 'btn__accountant',
+            number: 9
         },
         {
             name: 'Универсал',
             weight: 2,
-            'className' : 'btn__accountant',
+            'className': 'btn__accountant',
+            number: 10
         },
         {
             name: 'Универсал+',
             weight: 3,
-            className : 'btn__accountant',
+            className: 'btn__accountant',
+            number: 11
         },
         {
             name: 'Профессионал',
             weight: 4,
-            className : 'btn__accountant',
+            className: 'btn__accountant',
+            number: 12
         },
         {
             name: 'Мастер',
             weight: 6,
-            className : 'btn__accountant',
+            className: 'btn__accountant',
+            number: 13
         },
         {
             name: 'Аналитик',
             weight: 9,
-            className : 'btn__accountant',
+            className: 'btn__accountant',
+            number: 14
         },
         {
             name: 'Аналитик+',
             weight: 12,
-            className : 'btn__accountant',
+            className: 'btn__accountant',
+            number: 15
         },
         {
             name: 'Максимум',
             weight: 24,
-            className : 'btn__accountant',
+            className: 'btn__accountant',
+            number: 16
         },
 
-    ]
+    ],
+    universalComplectObj:{
+        'name': 'Универсальный комплект',
+        'tag': 'universalComplect',
+        'className': 'btn__universalComplect',
+
+        'number': 8,
+        'color': 'rgb(104, 54, 153)',
+        'backgroundColor': 'white',
+        // 'weight': 15.5,
+        'filling': [ ],
+        'currentFilling': '',
+        'fillingInfoblocksIndexes': [{
+                'regulations': [0, 1]
+            },
+            {
+                'court': []
+            },
+            {
+                'libraries': []
+            },
+            {
+                'specials': [2]
+            },
+            {
+                'newBlocks': []
+            },
+        ],
+        'fillingEncyclopediasIndexes': [],
+        'fillingPaketsERIndexes': [],
+        'fillingLTIndexes': [],
+
+        'fillingPaketsER': '',
+        'fillingER': [],
+        'fillingPaketLT': [],
+        'fillingLTblocks': '',
+        'freeBlocks':[0,1,2,3,4,5,6,7,8],
+        'consalting':[]
+    },
 }
 //AC
 export const setCurrentUniversalComplect = (currentComplectIndex) => ({ type: SET_CURRENT_UNIVERSAL_COMPLECT, currentComplectIndex })
 
-//REDUCER
 
+//REDUCER
 const universalComplects = (state = initialState, action) => {
 
     switch (action.type) {
-        case SET_CURRENT_UNIVERSAL_COMPLECT:
 
+        case SET_CURRENT_UNIVERSAL_COMPLECT:
             return { ...state, currentComplect: state.complects[action.currentComplectIndex] };
 
         default:

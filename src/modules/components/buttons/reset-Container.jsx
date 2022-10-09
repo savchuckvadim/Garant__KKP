@@ -35,6 +35,7 @@ let mapStateToProps = (state) => {
         deleteIcon = DeleteWhite;
     }
     return {
+        currentComplectsType:state.globalParameters.currentComplectsType,
         style: resetStyle,
         deleteIcon
     }

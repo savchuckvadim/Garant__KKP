@@ -43,7 +43,7 @@ const ComplectButtons = (props) => {
         buttons = props.universalComplects.complects.map((complect, index) => (
             <Button
                 key={`btn-${index}`}
-                style={props.style[index]}
+                style={props.stylesForUniversal[index]}
 
                 className={complect.className}
                 number={index}

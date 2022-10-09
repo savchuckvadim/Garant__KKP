@@ -87,7 +87,7 @@ const getPrice = (state, action) => {
     let numberOfOD = action.numberOfOD
     let typeOfContract = action.typeOfContract
 
-
+debugger
 
     if (typeOfContract === 'abonSix') {
         state.currentPrice.value = state.prices[numberOfOD][numberOfComplect] * 6 * 0.9

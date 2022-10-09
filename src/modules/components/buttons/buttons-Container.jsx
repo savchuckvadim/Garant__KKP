@@ -76,6 +76,42 @@ let mapStateToProps = (state) => {
         }
 
     })
+    const getWeight = (state) => {  //weight for universal complect
+        let info = 0;
+        let er = 0;
+        let totalweight = 0;
+
+        state.infoblocks.forEach(element => {
+            element.value.forEach(elem => {
+                if (elem.checked === true) {
+                    info += elem.weight
+                }
+            })
+        })
+
+        state.encyclopedias.forEach(element => {
+            element.value.forEach(elem => {
+
+                if (elem.checked === true) {
+                    er += elem.weight
+                }
+            })
+        })
+
+        totalweight = info + er
+
+        return totalweight
+    };
+    let weight = getWeight(state);
+    let stylesForUniversal = state.universalComplects.complects.map(complect => {
+        if (complect.weight === weight) {
+            return dinamicStyleForButtons('black', 'black', 'pink')
+        }else{
+            return dinamicStyleForButtons('black', 'black', 'grey')
+        }
+
+    })
+
 
     return {
         currentComplectsType: state.globalParameters.currentComplectsType,
@@ -96,7 +132,10 @@ let mapStateToProps = (state) => {
         legalTech,
         er,
         freeBlocks,
-        consalting
+        consalting,
+        weight,
+        stylesForUniversal
+
     }
 }
 let mapDispatchToProps = (dispatch) => {

@@ -16,6 +16,7 @@ const GlobalParameters = (props) => {
         if (props.complectsTypeButton === UNIVERSAL) {
             props.reset()
             props.setCompectsType(0)
+            props.createComplect(props.universalComplectObj, 8, props.od.names, props.od.currentOd) //(obj, index, ods, currentOd)
         } else {
             props.reset()
             props.setCompectsType(1)

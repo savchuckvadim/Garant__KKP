@@ -66,14 +66,14 @@ export const oD = (state = initialState, action) => {
     switch (action.type) {
         case 'CHANGE_CURRENT_OD':
 
-            if (!action.currentComplect) {
-                window.alert('сначала выберите комплект')
-            } else {
+            // if (!action.currentComplect || action.currentComplect.name === 'Универсальный комплект') {
+            //     window.alert('сначала выберите комплект')
+            // } else {
 
-                stateCopy.currentOd = action.name;
-                // state.currentComplect.od = state.currentOd;
+            stateCopy.currentOd = action.name;
+            // state.currentComplect.od = state.currentOd;
 
-            }
+            // }
             return stateCopy
         case SET_SUPPLY: //from global-parameters-reducer    
             if (action.index === 1) {
