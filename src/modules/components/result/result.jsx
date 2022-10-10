@@ -1,7 +1,9 @@
 
 import { Button} from "@material-ui/core"
-import React from "react"
+import React, { useEffect } from "react"
+import { useDispatch } from "react-redux"
 import { Link, NavLink } from "react-router-dom"
+import { weight } from "../../redux/redusers/weight-reducer"
 import ResultModalButtonContainer from "../buttons/modal/result-modal-Container"
 import ItemResult from "./items-result"
 import "./result.css"
@@ -9,7 +11,13 @@ import "./result.css"
 
 const Result = (props) => {
 
- 
+    const dispatchWeight = useDispatch()
+   
+    useEffect(() => {
+        dispatchWeight(weight(props.values.weight));
+    }, [props.values.weight])
+    
+
     let containerStyle = {
         borderColor: 'rgb(160, 179, 179)',        
     }

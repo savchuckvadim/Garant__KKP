@@ -31,7 +31,7 @@ export const createComplectActionCreator = (obj, index, ods, currentOd) => {
 }
 
 const changeCurrentInfoblocks = (state, action) => { //меняет текущее наполнение в currentComplect
-    
+    debugger
     if (state) {
         
         if (state.name !== 'Бухгалтер' && state.name !== 'Бухгалтер госсектора') {
@@ -53,7 +53,7 @@ const changeCurrentInfoblocks = (state, action) => { //меняет текуще
             if (action.state.globalParameters.currentComplectsType === 'Универсальный') {
                 
                 action.state.universalComplects.complects.forEach(complect => {
-                    debugger
+                    
                     if (action.state.weight.currentWeight === complect.weight) {
                         
                         state.name = complect.name
