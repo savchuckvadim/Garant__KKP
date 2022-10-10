@@ -5,7 +5,7 @@ export const CHANGE_CURRENT_INFOBLOCKS = 'CHANGE_CURRENT_INFOBLOCKS'
 export const CHANGE_CURRENT_ER = 'CHANGE_CURRENT_ER'
 const CHANGE_CURRENT_LT = 'CHANGE_CURRENT_LT'
 export const CHANGE_CURRENT_PAKETS_ER = 'CHANGE_CURRENT_PAKETS_ER'
-const CHANGE_WEIGHT_AND_NAME_OF_UNIVERSAL_COMPLECT = CHANGE_WEIGHT_AND_NAME_OF_UNIVERSAL_COMPLECT
+const CHANGE_WEIGHT_AND_NAME_OF_UNIVERSAL_COMPLECT = 'CHANGE_WEIGHT_AND_NAME_OF_UNIVERSAL_COMPLECT'
 const INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT = 'INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT'
 const RESET = 'RESET'
 
@@ -317,9 +317,10 @@ export const currentComplect = (state = initialState, action) => {
 
                 action.universalComplects.complects.forEach(complect => {
 
-                    if (action.weight.currentWeight === complect.weight) {
-
+                    if (action.weight === complect.weight) {
+                        state.number = complect.number
                         state.name = complect.name
+                        state.weight = complect.weight
                     }
                 })
                 return {...state}

@@ -7,7 +7,7 @@ import Result from "./result"
 import "./result.css"
 
 let mapStateToProps = (state) => {
-   
+   //weight, globalParameters, universalComplects for dispatch weight in universal complect reducer
     const weight = getWeight(state.infoblocks, state.encyclopedias);
     let weightLt = state.legalTech.weightLt;
     let price = state.price.currentPrice.value;
@@ -73,6 +73,8 @@ let mapStateToProps = (state) => {
      values: resultValues,
      currentComplect: state.currentComplect,
      state: state,
+     globalParameters:state.globalParameters,
+     universalComplects:state.universalComplects
     }
 }
 let mapDispatchToProps = (dispatch) => {
