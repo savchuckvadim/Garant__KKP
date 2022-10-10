@@ -59,7 +59,7 @@ const ComplectButtons = (props) => {
                                     props.currentOd,
                                     props.currentTheme,
                                     props.numberOfOD,
-                                    props.typeOfContract,
+                                    props.typeOfContract,//TODO: сделать тип контракта Универсальные->Интернет/Проксима
                                     props.infoblocks,
                                     props.er,
                                     props.legalTech,

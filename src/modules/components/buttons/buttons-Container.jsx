@@ -133,6 +133,7 @@ let mapDispatchToProps = (dispatch) => {
 
         },
         createMaximum: (obj, index, ods, currentOd, currentTheme, numberOfOD, typeOfContract, infoblocks, er, lt, freeBlocks, consalting, currentSupplyName) => {
+            debugger
             let actionCeateMaximum = maximum(obj, index, ods, currentOd)
             let actionBlocksFromNewComplect = changeBlocksFromNewComplectActionCreator(obj)
             let actionGoods = goodsActionCreator(index, numberOfOD, typeOfContract, currentSupplyName)  //устанавливает текущую цену и текущий товар в price/goods - reducers

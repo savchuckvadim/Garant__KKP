@@ -1,4 +1,4 @@
-import { SET_SUPPLY } from "./global-parameters/global-parameters-reducer";
+import { SET_COMPLECTS_TYPE, SET_SUPPLY } from "./global-parameters/global-parameters-reducer";
 
 const GET_PRICE = 'GET_PRICE';
 const SET_PRICES = 'SET_PRICES'
@@ -47,6 +47,9 @@ let initialState = {
         [21816, 21816, 31320, 31320, 27432, 27864, 43848, 54432],
         [26244, 26244, 37584, 37584, 32832, 33372, 52704, 65232],
         [30564, 30564, 43848, 43848, 38340, 38988, 61452, 76140]
+    ],
+    universalPrices: [
+
     ]
 
 
@@ -82,7 +85,7 @@ const price = (stateCome, action) => {
     return getPrice(state, action)
 }
 const getPrice = (state, action) => {
-
+    debugger
     let numberOfComplect = action.numberOfComplect
     let numberOfOD = action.numberOfOD
     let typeOfContract = action.typeOfContract
@@ -110,12 +113,24 @@ export const priceReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case SET_PRICES:
+            let universalPrices = []
 
+            action.prices.coefficients[0].forEach((coefficient, index) => {
+
+                universalPrices[index] = []
+                action.prices.kmv.forEach(product => {
+
+                    universalPrices[index].push(Number((product.price * coefficient).toFixed(2)))
+
+                });
+
+            });
             return {
-                ...state, 
+                ...state,
                 prices: action.prices.internetProf,
                 internetPrices: action.prices.internetProf,
-                proximaPrices:  action.prices.proximaProf,
+                proximaPrices: action.prices.proximaProf,
+                universalPrices: universalPrices
             };
 
         case GOODS:
@@ -126,6 +141,22 @@ export const priceReducer = (state = initialState, action) => {
                 return { ...state, prices: state.internetPrices }
             } else if (action.index === 0) {
                 return { ...state, prices: state.proximaPrices }
+            }
+            return state
+        case SET_COMPLECTS_TYPE: //from global-parameters-reducer  
+
+            if (action.index === 1) {
+                return {
+                    ...state,
+                    complectsTypeButton: UNIVERSAL,
+                    currentComplectsType: PROF
+                }
+            } else if (action.index === 0) {
+                return {
+                    ...state,
+                    complectsTypeButton: PROF,
+                    currentComplectsType: "Универсальный"
+                }
             }
             return state
         default:
