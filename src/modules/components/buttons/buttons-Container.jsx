@@ -3,7 +3,7 @@ import Ellipse from "./img/uncheckedWhite.svg"
 import EllipseCheck from "./img/checkedWhite.svg"
 import "./buttons.css"
 import React from 'react';
-import { createComplectActionCreator } from "../../redux/redusers/currentComplect-reducer.js"
+import { createComplectActionCreator, createMaximum, maximum } from "../../redux/redusers/currentComplect-reducer.js"
 import { changeColorOfButtonActionCreator } from "../../redux/redusers/allComplects-reducer"
 import { changeBlocksFromNewComplectActionCreator } from "../../redux/redusers/checkBoxes-action";
 import ComplectButtons from "./buttons";
@@ -132,6 +132,17 @@ let mapDispatchToProps = (dispatch) => {
             dispatch(dealField)
 
         },
+        createMaximum: (obj, index, ods, currentOd, currentTheme, numberOfOD, typeOfContract, infoblocks, er, lt, freeBlocks, consalting, currentSupplyName) => {
+            let actionCeateMaximum = maximum(obj, index, ods, currentOd)
+            let actionBlocksFromNewComplect = changeBlocksFromNewComplectActionCreator(obj)
+            let actionGoods = goodsActionCreator(index, numberOfOD, typeOfContract, currentSupplyName)  //устанавливает текущую цену и текущий товар в price/goods - reducers
+            let dealField = dealFieldActionCreator(obj, infoblocks, er, lt, freeBlocks, consalting)
+
+            dispatch(actionCeateMaximum)
+            dispatch(actionBlocksFromNewComplect)
+            dispatch(actionGoods)
+            dispatch(dealField)
+        }
         // changeWeight:(infoblocks, encyclopedias) => {
         //     dispatch( weight(infoblocks, encyclopedias))
         // }

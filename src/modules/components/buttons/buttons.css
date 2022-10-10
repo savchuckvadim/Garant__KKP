@@ -263,14 +263,17 @@
 
 }
 .btn__universal{
+    display: flex;
+    justify-content: center;
+    
     /* color: rgb(48, 42, 42) !important; */
-    background-color: rgb(227, 227, 227) !important;
+    background-color: rgb(242, 242, 242) !important;
     /* border: 1px solid !important; */
 }
 
 .btn__universal--active{
 
-    background: rgb(227, 115, 212);
+    background: rgb(231, 53, 74);
     background: linear-gradient(45deg, rgba(198,176,200,1) 0%, rgba(138,90,162,1) 50%, rgb(255, 34, 196) 100%);
     font-size: large;
     animation: gradient 7s ease infinite;

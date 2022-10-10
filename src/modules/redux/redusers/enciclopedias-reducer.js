@@ -1,3 +1,5 @@
+import { MAXIMUM } from "./currentComplect-reducer"
+
 const CHANGE_CURRENT_PAKETS_ER = 'CHANGE_CURRENT_PAKETS_ER'
 const CHANGE_CURRENT_ER = 'CHANGE_CURRENT_ER'
 
@@ -127,7 +129,7 @@ export const changePaketsErFromCurrent = (state, currentComplect) => {      //м
   //////////TODO условие переделать на currentComplect - если undefined
 
   if (currentComplect) {
-
+debugger
 
     if (currentComplect.fillingPaketsERIndexes.length < 1) {
       state[0].value[0].checked = false;
@@ -221,6 +223,7 @@ export const changePaketsErFromCurrent = (state, currentComplect) => {      //м
 /////////////////////////////////
 
 const changeEr = (stateCome, action) => {
+  debugger
   let state = [...stateCome]
   state[0] = [...stateCome][0]
   state[1] = [...stateCome][1]
@@ -273,7 +276,7 @@ export const changeErFromCurrent = (state, currentComplect) => {
 
 export const changeErAndPaketsErFromCurrent = (state = initialState, action) => {
 
-  if (action.type === 'CREATE_COMPLECT' || action.type === CHANGE_CURRENT_PAKETS_ER || action.type === CHANGE_CURRENT_ER || action.type === 'RESET'){
+  if (action.type === 'CREATE_COMPLECT' || action.type === MAXIMUM || action.type === CHANGE_CURRENT_PAKETS_ER || action.type === CHANGE_CURRENT_ER || action.type === 'RESET'){
     // changePaketsErFromCurrent(state, action.currentComplect)
     // changeErFromCurrent(state, action.currentComplect)
 

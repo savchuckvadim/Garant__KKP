@@ -7,11 +7,13 @@ const CHANGE_CURRENT_LT = 'CHANGE_CURRENT_LT'
 export const CHANGE_CURRENT_PAKETS_ER = 'CHANGE_CURRENT_PAKETS_ER'
 const CHANGE_WEIGHT_AND_NAME_OF_UNIVERSAL_COMPLECT = 'CHANGE_WEIGHT_AND_NAME_OF_UNIVERSAL_COMPLECT'
 const INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT = 'INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT'
+export const MAXIMUM = 'MAXIMUM'
 const RESET = 'RESET'
 
 
 let initialState = null
 
+export const maximum = (obj, index, ods, currentOd) => ({ type: MAXIMUM, obj })
 export const resetActionCreator = () => ({ type: RESET })
 export const changeUniversalComplect = (weight, globalParameters, universalComplects) => ({ type: CHANGE_WEIGHT_AND_NAME_OF_UNIVERSAL_COMPLECT, weight, globalParameters, universalComplects })
 export const createComplectActionCreator = (obj, index, ods, currentOd) => {
@@ -61,6 +63,42 @@ const createComplect = (state, action) => {
 
     if (action.obj) {
         localStorage.removeItem('currentPrice')
+        state = action.obj
+        let freeBlocks = [0, 1, 2, 3, 4];
+
+        if (state.filling.includes('Практика арбитражных судов округов')) {
+            freeBlocks.push(5)
+        }
+        if (state.filling.includes('Практика судов общей юрисдикции')) {
+            freeBlocks.push(6)
+        }
+        let complect = {
+            'name': state.name,
+            'number': state.number,
+            'weight': state.weight,
+            // 'defaultFilling': state.currentComplect.defaultFilling,
+            'currentFilling': state.filling, //в текущее наполнение вставляет наполнение по-умолчанию из allComplects[idx]
+            'fillingInfoblocksIndexes': state.fillingInfoblocksIndexes,
+            'fillingPaketsERIndexes': state.fillingPaketsERIndexes,
+            'fillingEncyclopediasIndexes': state.fillingEncyclopediasIndexes,
+            'fillingLTIndexes': state.fillingLTIndexes,
+            'fillingPaketLT': state.fillingPaketLT,
+            'currentStatusInputComplectName': false,
+            'freeBlocks': freeBlocks,
+            'consalting': state.consalting
+
+        }
+        state = complect
+
+        // addToStorage(complect, 'currentComplect')
+    }
+
+    return state
+}
+const createMaximum = (state, action) => {
+
+    if (action.obj) {
+
         state = action.obj
         let freeBlocks = [0, 1, 2, 3, 4];
 
@@ -297,7 +335,8 @@ export const currentComplect = (state = initialState, action) => {
     switch (action.type) {
         case CREATE_COMPLECT:
             return createComplect(state, action)
-
+        case MAXIMUM:
+            return createMaximum(state, action)
         case CHANGE_WEIGHT_AND_NAME_OF_UNIVERSAL_COMPLECT:
             if (state) {
                 if (action.globalParameters.currentComplectsType === 'Универсальный') {

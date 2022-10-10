@@ -43,19 +43,54 @@ const ComplectButtons = (props) => {
                 </Button >)
         })
     } else {
-        buttons = props.universalComplects.complects.map((complect, index) => (
+        buttons = props.universalComplects.complects.map((complect, index) => {
+            if (index === props.universalComplects.complects.length - 1 || props.currentComplect.name === complect.name) {
+                return (
+                    <Button
+                        key={`btn-${index}`}
+                        className={props.universalClassNames[index]}
+                        number={index}
+                        onClick={()=> {
+                            if(complect.name ==='Максимум'){
+                                props.createMaximum(
+                                    complect,
+                                    index,
+                                    props.ods,
+                                    props.currentOd,
+                                    props.currentTheme,
+                                    props.numberOfOD,
+                                    props.typeOfContract,
+                                    props.infoblocks,
+                                    props.er,
+                                    props.legalTech,
+                                    props.freeBlocks,
+                                    props.consalting,
+                                    props.currentSupplyName)
+                            }
+                        }}
+                        type="button" >{complect.name}
+                        
+                        <div className="ellipseWrapper">
+                            {/* {index === props.universalComplects.complects.length - 1 && */}
+                                <img className="ellipse" src={props.ellipse[1]} alt=""></img>
+                        </div>
+                    </Button>
+                )
+            } else {
 
-            <Button
-                key={`btn-${index}`}
-                className={props.universalClassNames[index]}
-                number={index}
-                type="button" >{complect.name}
-                <div className="ellipseWrapper">
-                    {index === props.universalComplects.complects.length - 1 &&
-                        <img className="ellipse" src={props.ellipse[1]} alt=""></img>}
-                </div>
-            </Button>)
-        )
+                return (
+                    <Button
+                        key={`btn-${index}`}
+                        className={props.universalClassNames[index]}
+                        number={index}
+                        type="button" >{complect.name}
+
+                    </Button>
+                )
+            }
+
+
+        })
     }
 
 
