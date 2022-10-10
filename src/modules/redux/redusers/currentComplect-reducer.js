@@ -48,7 +48,7 @@ const changeCurrentInfoblocks = (state, action) => { //меняет текуще
             } else {
                 state.currentFilling.push(action.value)
             }
-            
+
         }
 
     }
@@ -294,45 +294,47 @@ const reset = (state) => {
 }
 
 export const currentComplect = (state = initialState, action) => {
+    switch (action.type) {
+        case CREATE_COMPLECT:
+            return createComplect(state, action)
 
-    if (action.type === CHANGE_CURRENT_INFOBLOCKS) {
+        case CHANGE_WEIGHT_AND_NAME_OF_UNIVERSAL_COMPLECT:
+            if (state) {
+                if (action.globalParameters.currentComplectsType === 'Универсальный') {
 
-        return changeCurrentInfoblocks(state, action)
+                    action.universalComplects.complects.forEach(complect => {
 
-    } else if (action.type === CREATE_COMPLECT) {
-        return createComplect(state, action)
-    } else if (action.type === CHANGE_CURRENT_ER) {
-        return changeCurrentEr(state, action)
-    } else if (action.type === CHANGE_CURRENT_PAKETS_ER) {
-        return changeCurrentPketsEr(state, action)
-    } else if (action.type === CHANGE_CURRENT_LT) {
-        return changeLt(state, action)
-    } else if (action.type === INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT) {
-        return changeNameOfComplect(state, action)
-        //TODO: change weight of universal complect from Result component
-
-    } else if (action.type === CHANGE_WEIGHT_AND_NAME_OF_UNIVERSAL_COMPLECT) {
-        if (state) {
-            if (action.globalParameters.currentComplectsType === 'Универсальный') {
-
-                action.universalComplects.complects.forEach(complect => {
-
-                    if (action.weight === complect.weight) {
-                        state.number = complect.number
-                        state.name = complect.name
-                        state.weight = complect.weight
-                    }
-                })
-                return {...state}
+                        if (action.weight === complect.weight) {
+                            state.number = complect.number
+                            state.name = complect.name
+                            state.weight = complect.weight
+                        }
+                    })
+                    return { ...state }
+                }
+                return state
             }
             return state
-        }
-        return state
-    }
-    else if (action.type === RESET) {
-        return reset(state)
-    } else {
-        return state
+
+        case CHANGE_CURRENT_INFOBLOCKS:
+            return changeCurrentInfoblocks(state, action)
+
+        case CHANGE_CURRENT_ER:
+            return changeCurrentEr(state, action)
+
+        case CHANGE_CURRENT_PAKETS_ER:
+            return changeCurrentPketsEr(state, action)
+
+        case CHANGE_CURRENT_LT:
+            return changeLt(state, action)
+
+        case INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT:
+            return changeNameOfComplect(state, action)
+
+        case RESET:
+            return reset(state)
+        default:
+            return state
     }
 
 
