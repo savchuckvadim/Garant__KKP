@@ -1,8 +1,5 @@
-
-import { Button} from "@material-ui/core"
 import React, { useEffect } from "react"
 import { useDispatch } from "react-redux"
-import { Link, NavLink } from "react-router-dom"
 import { changeUniversalComplect } from "../../redux/redusers/currentComplect-reducer"
 import { weight } from "../../redux/redusers/weight-reducer"
 import ResultModalButtonContainer from "../buttons/modal/result-modal-Container"

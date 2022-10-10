@@ -10,7 +10,7 @@ import ComplectButtons from "./buttons";
 import { connect } from "react-redux";
 import { goodsActionCreator } from "../../redux/redusers/deal/goods-reducer";
 import { dealFieldActionCreator } from "../../redux/redusers/deal/field-reducer";
-import { weight } from "../../redux/redusers/weight-reducer";
+
 
 
 
@@ -19,6 +19,7 @@ let mapStateToProps = (state) => {
 
     let currentOd = state.od.currentOd
     let numberOfOD
+    const weight = state.weight.currentWeight
     state.od.names.forEach((od, index) => {
         if (od === currentOd) {
             numberOfOD = index
@@ -77,39 +78,18 @@ let mapStateToProps = (state) => {
         }
 
     })
-    const getWeight = (state) => {  //weight for universal complect
-        let info = 0;
-        let er = 0;
-        let totalweight = 0;
 
-        state.infoblocks.forEach(element => {
-            element.value.forEach(elem => {
-                if (elem.checked === true) {
-                    info += elem.weight
-                }
-            })
-        })
-
-        state.encyclopedias.forEach(element => {
-            element.value.forEach(elem => {
-
-                if (elem.checked === true) {
-                    er += elem.weight
-                }
-            })
-        })
-
-        totalweight = info + er
-
-        return totalweight
-    };
     // let weight = getWeight(state);
     let stylesForUniversal = state.universalComplects.complects.map(complect => {
-        if (complect.weight === weight) {
-            return dinamicStyleForButtons('black', 'black', 'pink')
-        } else {
-            return dinamicStyleForButtons('black', 'black', 'grey')
+        if (currentComplect) {
+            
+            if (complect.weight === weight) {
+                return dinamicStyleForButtons('black', 'black', 'pink')
+            } else {
+                return dinamicStyleForButtons('black', 'black', 'grey')
+            }
         }
+
 
     })
 
@@ -151,7 +131,7 @@ let mapDispatchToProps = (dispatch) => {
             dispatch(actionColorOfButton)
             dispatch(actionNewComplect)
             dispatch(actionBlocksFromNewComplect)
-           
+
             dispatch(actionGoods)
             dispatch(dealField)
 
