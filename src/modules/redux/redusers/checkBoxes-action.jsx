@@ -7,7 +7,7 @@ export const changeCheckBoxActionCreator = (type, value, checked, index, current
         checked: checked,
         index: index,
         currentComplect : currentComplect,
-        state: state
+        state: state,
     }
 }
 

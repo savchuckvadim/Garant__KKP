@@ -17,7 +17,8 @@ let mapStateToProps = (state, ownProps) => {
     styleCheckbox: styleCheckbox,
     type: ownProps.type,
     state: state,
-    currentComplect: state.currentComplect
+    currentComplect: state.currentComplect,
+   
 
   }
 }

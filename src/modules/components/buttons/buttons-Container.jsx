@@ -103,7 +103,7 @@ let mapStateToProps = (state) => {
 
         return totalweight
     };
-    let weight = getWeight(state);
+    // let weight = getWeight(state);
     let stylesForUniversal = state.universalComplects.complects.map(complect => {
         if (complect.weight === weight) {
             return dinamicStyleForButtons('black', 'black', 'pink')
@@ -135,7 +135,6 @@ let mapStateToProps = (state) => {
         er,
         freeBlocks,
         consalting,
-        weight,
         stylesForUniversal
 
     }
@@ -147,7 +146,6 @@ let mapDispatchToProps = (dispatch) => {
             let actionNewComplect = createComplectActionCreator(obj, index, ods, currentOd)
             let actionColorOfButton = changeColorOfButtonActionCreator(index, currentTheme)
             let actionBlocksFromNewComplect = changeBlocksFromNewComplectActionCreator(obj)
-            // let actionWeight = weight(infoblocks, encyclopedias)
             let actionGoods = goodsActionCreator(index, numberOfOD, typeOfContract, currentSupplyName)  //устанавливает текущую цену и текущий товар в price/goods - reducers
             let dealField = dealFieldActionCreator(obj, infoblocks, er, lt, freeBlocks, consalting)
             dispatch(actionColorOfButton)

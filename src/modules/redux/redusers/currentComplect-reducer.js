@@ -5,17 +5,15 @@ export const CHANGE_CURRENT_INFOBLOCKS = 'CHANGE_CURRENT_INFOBLOCKS'
 export const CHANGE_CURRENT_ER = 'CHANGE_CURRENT_ER'
 const CHANGE_CURRENT_LT = 'CHANGE_CURRENT_LT'
 export const CHANGE_CURRENT_PAKETS_ER = 'CHANGE_CURRENT_PAKETS_ER'
+const CHANGE_WEIGHT_AND_NAME_OF_UNIVERSAL_COMPLECT = CHANGE_WEIGHT_AND_NAME_OF_UNIVERSAL_COMPLECT
 const INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT = 'INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT'
 const RESET = 'RESET'
 
 
 let initialState = null
-export const resetActionCreator = () => {
 
-    return {
-        type: RESET
-    }
-}
+export const resetActionCreator = () => ({ type: RESET })
+export const changeUniversalComplect = (weight, globalParameters, universalComplects) => ({ type: CHANGE_WEIGHT_AND_NAME_OF_UNIVERSAL_COMPLECT, weight, globalParameters, universalComplects })
 export const createComplectActionCreator = (obj, index, ods, currentOd) => {
 
 
@@ -31,9 +29,9 @@ export const createComplectActionCreator = (obj, index, ods, currentOd) => {
 }
 
 const changeCurrentInfoblocks = (state, action) => { //меняет текущее наполнение в currentComplect
-    debugger
+
     if (state) {
-        
+
         if (state.name !== 'Бухгалтер' && state.name !== 'Бухгалтер госсектора') {
 
             if (action.checked) {
@@ -50,16 +48,7 @@ const changeCurrentInfoblocks = (state, action) => { //меняет текуще
             } else {
                 state.currentFilling.push(action.value)
             }
-            if (action.state.globalParameters.currentComplectsType === 'Универсальный') {
-                
-                action.state.universalComplects.complects.forEach(complect => {
-                    
-                    if (action.state.weight.currentWeight === complect.weight) {
-                        
-                        state.name = complect.name
-                    }
-                })
-            }
+            
         }
 
     }
@@ -320,7 +309,26 @@ export const currentComplect = (state = initialState, action) => {
         return changeLt(state, action)
     } else if (action.type === INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT) {
         return changeNameOfComplect(state, action)
-    } else if (action.type === RESET) {
+        //TODO: change weight of universal complect from Result component
+
+    } else if (action.type === CHANGE_WEIGHT_AND_NAME_OF_UNIVERSAL_COMPLECT) {
+        if (state) {
+            if (action.globalParameters.currentComplectsType === 'Универсальный') {
+
+                action.universalComplects.complects.forEach(complect => {
+
+                    if (action.weight.currentWeight === complect.weight) {
+
+                        state.name = complect.name
+                    }
+                })
+                return {...state}
+            }
+            return state
+        }
+        return state
+    }
+    else if (action.type === RESET) {
         return reset(state)
     } else {
         return state

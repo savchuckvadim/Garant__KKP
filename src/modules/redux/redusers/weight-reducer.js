@@ -1,5 +1,3 @@
-import { CHANGE_CURRENT_ER, CHANGE_CURRENT_INFOBLOCKS, CHANGE_CURRENT_PAKETS_ER, CREATE_COMPLECT } from "./currentComplect-reducer";
-
 const WEIGHT = 'WEIGHT'
 
 export const weight = (currentWeight) => ({ type: WEIGHT, currentWeight})
