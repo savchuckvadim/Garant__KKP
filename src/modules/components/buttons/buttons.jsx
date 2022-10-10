@@ -30,7 +30,7 @@ const ComplectButtons = (props) => {
                             props.freeBlocks,
                             props.consalting,
                             props.currentSupplyName)
-                        
+
                     }
 
                     }
@@ -44,15 +44,15 @@ const ComplectButtons = (props) => {
         })
     } else {
         buttons = props.universalComplects.complects.map((complect, index) => (
+
             <Button
                 key={`btn-${index}`}
-                style={props.stylesForUniversal[index]}
-
-                className={complect.className}
+                className={props.universalClassNames[index]}
                 number={index}
                 type="button" >{complect.name}
                 <div className="ellipseWrapper">
-                    <img className="ellipse" src={props.ellipse[index]} alt=""></img>
+                    {index === props.universalComplects.complects.length - 1 &&
+                        <img className="ellipse" src={props.ellipse[1]} alt=""></img>}
                 </div>
             </Button>)
         )

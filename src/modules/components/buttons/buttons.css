@@ -28,7 +28,9 @@
 .btn__company,
 .btn__companyPro,
 .btn__od,
-.btn__reset
+.btn__reset,
+.btn__universal,
+.btn__universal--active
 
  {
     
@@ -259,4 +261,32 @@
     justify-content: flex-end !important;
     align-items: flex-end !important;
 
+}
+.btn__universal{
+    /* color: rgb(48, 42, 42) !important; */
+    background-color: rgb(227, 227, 227) !important;
+    /* border: 1px solid !important; */
+}
+
+.btn__universal--active{
+
+    background: rgb(227, 115, 212);
+    background: linear-gradient(45deg, rgba(198,176,200,1) 0%, rgba(138,90,162,1) 50%, rgb(255, 34, 196) 100%);
+    font-size: large;
+    animation: gradient 7s ease infinite;
+    background-size: 1500% 1500%;
+    color: rgb(255, 255, 255) !important;
+}
+
+@keyframes gradient{
+ 
+    0%{
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
+    }
 }

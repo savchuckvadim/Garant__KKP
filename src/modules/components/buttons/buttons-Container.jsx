@@ -79,18 +79,14 @@ let mapStateToProps = (state) => {
 
     })
 
-    // let weight = getWeight(state);
-    let stylesForUniversal = state.universalComplects.complects.map(complect => {
-        if (currentComplect) {
-            
-            if (complect.weight === weight) {
-                return dinamicStyleForButtons('black', 'black', 'pink')
-            } else {
-                return dinamicStyleForButtons('black', 'black', 'grey')
-            }
+
+    let universalClassNames = state.universalComplects.complects.map(complect => {
+
+        if (complect.weight === weight) {
+            return `${complect.className}--active`
+        } else {
+            return complect.className
         }
-
-
     })
 
 
@@ -115,7 +111,7 @@ let mapStateToProps = (state) => {
         er,
         freeBlocks,
         consalting,
-        stylesForUniversal
+        universalClassNames
 
     }
 }

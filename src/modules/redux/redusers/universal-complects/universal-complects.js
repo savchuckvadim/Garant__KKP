@@ -6,55 +6,55 @@ const initialState = {
         {
             name: 'Классик',
             weight: 1,
-            'className': 'btn__accountant',
+            'className': 'btn__universal',
             number: 8
         },
         {
             name: 'Классик+',
             weight: 1.5,
-            'className': 'btn__accountant',
+            'className': 'btn__universal',
             number: 9
         },
         {
             name: 'Универсал',
             weight: 2,
-            'className': 'btn__accountant',
+            'className': 'btn__universal',
             number: 10
         },
         {
             name: 'Универсал+',
             weight: 3,
-            className: 'btn__accountant',
+            className: 'btn__universal',
             number: 11
         },
         {
             name: 'Профессионал',
             weight: 4,
-            className: 'btn__accountant',
+            className: 'btn__universal',
             number: 12
         },
         {
             name: 'Мастер',
             weight: 6,
-            className: 'btn__accountant',
+            className: 'btn__universal',
             number: 13
         },
         {
             name: 'Аналитик',
             weight: 9,
-            className: 'btn__accountant',
+            className: 'btn__universal',
             number: 14
         },
         {
             name: 'Аналитик+',
             weight: 12,
-            className: 'btn__accountant',
+            className: 'btn__universal',
             number: 15
         },
         {
             name: 'Максимум',
             weight: 24,
-            className: 'btn__accountant',
+            className: 'btn__universal',
             number: 16
         },
 
@@ -62,7 +62,7 @@ const initialState = {
     universalComplectObj:{
         'name': 'Универсальный комплект',
         'tag': 'universalComplect',
-        'className': 'btn__universalComplect',
+        'className': 'btn__universal',
 
         'number': 8,
         'color': 'rgb(104, 54, 153)',
