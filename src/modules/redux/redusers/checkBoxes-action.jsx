@@ -1,5 +1,5 @@
 const CHANGE_BLOCKS_FROM_NEW_COMPLECT = 'CHANGE_BLOCKS_FROM_NEW_COMPLECT'
-export const changeCheckBoxActionCreator = (type, value, checked, index, currentComplect, state) => {
+export const changeCheckBoxActionCreator = (type, value, checked, index, currentComplect, state ) => {
    
     return {
         type: type,

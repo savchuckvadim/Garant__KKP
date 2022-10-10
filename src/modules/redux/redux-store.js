@@ -32,7 +32,7 @@ import { consalting } from './redusers/consalting-reducer';
 import allPriceReducer from './redusers/all-price-reducer';
 import globalParametersReducer from './redusers/global-parameters/global-parameters-reducer';
 import universalComplects from './redusers/universal-complects/universal-complects';
-// import weightReducer from './redusers/weight-reduser';
+import weightReducer from './redusers/weight-reducer';
 
 
 
@@ -50,6 +50,7 @@ import universalComplects from './redusers/universal-complects/universal-complec
 
 let reducers = combineReducers({
     globalParameters: globalParametersReducer,
+    weight: weightReducer,
     allComplects: changeColorOfButton,
     currentComplect: currentComplect,
     universalComplects:universalComplects,
@@ -64,7 +65,7 @@ let reducers = combineReducers({
     // changePrepaid,
     price: priceReducer,
     totalPrice: totalPriceReducer,
-    // weight: weightReducer,
+    
     // reset,
     prepaid: prepaidReducer,
     theme: theme,

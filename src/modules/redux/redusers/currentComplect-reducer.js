@@ -1,8 +1,10 @@
-const CHANGE_CURRENT_INFOBLOCKS = 'CHANGE_CURRENT_INFOBLOCKS'
-const CREATE_COMPLECT = 'CREATE_COMPLECT'
-const CHANGE_CURRENT_ER = 'CHANGE_CURRENT_ER'
+import { CURRENT_UNIVERSAL } from "./global-parameters/global-parameters-reducer"
+
+export const CREATE_COMPLECT = 'CREATE_COMPLECT'
+export const CHANGE_CURRENT_INFOBLOCKS = 'CHANGE_CURRENT_INFOBLOCKS'
+export const CHANGE_CURRENT_ER = 'CHANGE_CURRENT_ER'
 const CHANGE_CURRENT_LT = 'CHANGE_CURRENT_LT'
-const CHANGE_CURRENT_PAKETS_ER = 'CHANGE_CURRENT_PAKETS_ER'
+export const CHANGE_CURRENT_PAKETS_ER = 'CHANGE_CURRENT_PAKETS_ER'
 const INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT = 'INPUT_CHANGE_NAME_OF_CURRENT_COMPLECT'
 const RESET = 'RESET'
 
@@ -29,8 +31,9 @@ export const createComplectActionCreator = (obj, index, ods, currentOd) => {
 }
 
 const changeCurrentInfoblocks = (state, action) => { //меняет текущее наполнение в currentComplect
-
+    
     if (state) {
+        
         if (state.name !== 'Бухгалтер' && state.name !== 'Бухгалтер госсектора') {
 
             if (action.checked) {
@@ -42,14 +45,26 @@ const changeCurrentInfoblocks = (state, action) => { //меняет текуще
                         state.currentFilling.splice(idx, 1)
                     }
                 })
+
+
             } else {
                 state.currentFilling.push(action.value)
+            }
+            if (action.state.globalParameters.currentComplectsType === 'Универсальный') {
+                
+                action.state.universalComplects.complects.forEach(complect => {
+                    debugger
+                    if (action.state.weight.currentWeight === complect.weight) {
+                        
+                        state.name = complect.name
+                    }
+                })
             }
         }
 
     }
 
-    return state
+    return { ...state }
 
 }
 

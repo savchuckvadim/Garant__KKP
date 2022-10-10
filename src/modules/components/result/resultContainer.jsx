@@ -1,39 +1,14 @@
 
 import React from "react"
 import { connect } from "react-redux"
+import { getWeight } from "../../utils/weight"
 import InputTextContainer from "../main/textInput-Container"
 import Result from "./result"
 import "./result.css"
 
 let mapStateToProps = (state) => {
    
-    const getWeight = (state) => {
-        let info = 0;
-        let er = 0;
-        let totalweight = 0;
-    
-        state.infoblocks.forEach(element => {
-            element.value.forEach(elem => {
-                if (elem.checked === true) {
-                    info += elem.weight
-                }
-            })
-        })
-    
-        state.encyclopedias.forEach(element => {
-            element.value.forEach(elem => {
-    
-                if (elem.checked === true) {
-                    er += elem.weight
-                }
-            })
-        })
-    
-        totalweight = info + er
-        
-        return totalweight
-    };
-    let weight = getWeight(state);
+    const weight = getWeight(state.infoblocks, state.encyclopedias);
     let weightLt = state.legalTech.weightLt;
     let price = state.price.currentPrice.value;
     let priceOfLt = state.legalTech.priceOfLt;

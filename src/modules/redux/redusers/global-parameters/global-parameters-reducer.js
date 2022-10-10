@@ -1,7 +1,9 @@
 
 const INTERNET = 'Интернет'
 const PROKSIMA = 'Проксима'
+
 export const UNIVERSAL = 'Универсальная линейка'
+export const CURRENT_UNIVERSAL = 'Универсальный'
 export const PROF = 'ПРОФ'
 
 export const SET_SUPPLY = 'SET_SUPPLY'

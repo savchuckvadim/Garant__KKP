@@ -1,7 +1,6 @@
 import { connect } from "react-redux"
 import { changeCheckBoxActionCreator } from "../../redux/redusers/checkBoxes-action"
 import { dealFieldActionCreator } from "../../redux/redusers/deal/field-reducer"
-
 import CheckBox from "./checkbox"
 
 let mapStateToProps = (state, ownProps) => {

@@ -23,9 +23,18 @@ const setPrices = (prices) => ({ type: SET_PRICES, prices })
 //THUNK
 
 export const getPrices = () => async (dispatch) => {
-    const prices = await pricesAPI.getPrices()
-    // await dispatch(getCoefficients())
-    dispatch(setPrices(prices))
+    try {
+        const prices = await pricesAPI.getPrices()
+        // await dispatch(getCoefficients())
+        
+        if (prices) {
+            dispatch(setPrices(prices))
+        }
+
+    } catch (error) {
+        console.log(error)
+    }
+
 }
 
 
@@ -36,9 +45,9 @@ const allPriceReducer = (state = initialState, action) => {
         case SET_PRICES:
 
             return {
-                ...state, 
+                ...state,
                 internetProf: action.prices.internetProf,
-                proximaProf:  action.prices.proximaProf,
+                proximaProf: action.prices.proximaProf,
                 coefficients: action.prices.coefficients,
                 kmv: action.prices.kmv,
                 stv: action.prices.stv,

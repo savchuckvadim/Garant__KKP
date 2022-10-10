@@ -16,7 +16,7 @@ const ComplectButtons = (props) => {
                     key={`btn-${index}`}
                     style={props.style[index]}
                     onClick={() => {
-                        return props.createComplect(
+                        props.createComplect(
                             complect,
                             index,
                             props.ods,
@@ -30,14 +30,17 @@ const ComplectButtons = (props) => {
                             props.freeBlocks,
                             props.consalting,
                             props.currentSupplyName)
-                    }}
+                        
+                    }
+
+                    }
                     className={complect.className}
                     number={index}
-                    type="button" >{complect.name}
-                    <div className="ellipseWrapper">
+                    type="button" > {complect.name}
+                    < div className="ellipseWrapper" >
                         <img className="ellipse" src={props.ellipse[index]} alt=""></img>
-                    </div>
-                </Button>)
+                    </div >
+                </Button >)
         })
     } else {
         buttons = props.universalComplects.complects.map((complect, index) => (

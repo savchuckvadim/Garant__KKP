@@ -67,7 +67,7 @@ const initialState = {
         'number': 8,
         'color': 'rgb(104, 54, 153)',
         'backgroundColor': 'white',
-        // 'weight': 15.5,
+        'weight': 0,
         'filling': [ ],
         'currentFilling': '',
         'fillingInfoblocksIndexes': [{

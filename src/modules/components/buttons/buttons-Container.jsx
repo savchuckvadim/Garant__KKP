@@ -10,6 +10,7 @@ import ComplectButtons from "./buttons";
 import { connect } from "react-redux";
 import { goodsActionCreator } from "../../redux/redusers/deal/goods-reducer";
 import { dealFieldActionCreator } from "../../redux/redusers/deal/field-reducer";
+import { weight } from "../../redux/redusers/weight-reducer";
 
 
 
@@ -106,7 +107,7 @@ let mapStateToProps = (state) => {
     let stylesForUniversal = state.universalComplects.complects.map(complect => {
         if (complect.weight === weight) {
             return dinamicStyleForButtons('black', 'black', 'pink')
-        }else{
+        } else {
             return dinamicStyleForButtons('black', 'black', 'grey')
         }
 
@@ -129,6 +130,7 @@ let mapStateToProps = (state) => {
 
         currentComplect,
         infoblocks,
+        encyclopedias: state.encyclopedias,
         legalTech,
         er,
         freeBlocks,
@@ -145,15 +147,20 @@ let mapDispatchToProps = (dispatch) => {
             let actionNewComplect = createComplectActionCreator(obj, index, ods, currentOd)
             let actionColorOfButton = changeColorOfButtonActionCreator(index, currentTheme)
             let actionBlocksFromNewComplect = changeBlocksFromNewComplectActionCreator(obj)
+            // let actionWeight = weight(infoblocks, encyclopedias)
             let actionGoods = goodsActionCreator(index, numberOfOD, typeOfContract, currentSupplyName)  //устанавливает текущую цену и текущий товар в price/goods - reducers
             let dealField = dealFieldActionCreator(obj, infoblocks, er, lt, freeBlocks, consalting)
             dispatch(actionColorOfButton)
             dispatch(actionNewComplect)
             dispatch(actionBlocksFromNewComplect)
+           
             dispatch(actionGoods)
             dispatch(dealField)
 
-        }
+        },
+        // changeWeight:(infoblocks, encyclopedias) => {
+        //     dispatch( weight(infoblocks, encyclopedias))
+        // }
     }
 }
 const ComplectButtonsContainer = connect(mapStateToProps, mapDispatchToProps)(ComplectButtons)

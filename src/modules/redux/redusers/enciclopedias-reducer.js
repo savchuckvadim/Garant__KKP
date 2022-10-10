@@ -278,8 +278,8 @@ export const changeErAndPaketsErFromCurrent = (state = initialState, action) => 
     // changeErFromCurrent(state, action.currentComplect)
 
    return changeEr(state, action)
-  }else{
+  }
     return state
 
-  }
+  
 }
