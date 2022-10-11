@@ -1,3 +1,4 @@
+import { RESET } from "./currentComplect-reducer";
 import { SET_SUPPLY } from "./global-parameters/global-parameters-reducer";
 
 const CHANGE_CURRENT_OD = 'CHANGE_CURRENT_OD';
@@ -64,17 +65,11 @@ export const oD = (state = initialState, action) => {
     }
     // stateCopy.currentOd = state.currentOd
     switch (action.type) {
-        case 'CHANGE_CURRENT_OD':
-
-            // if (!action.currentComplect || action.currentComplect.name === 'Универсальный комплект') {
-            //     window.alert('сначала выберите комплект')
-            // } else {
+        case CHANGE_CURRENT_OD:
 
             stateCopy.currentOd = action.name;
-            // state.currentComplect.od = state.currentOd;
-
-            // }
             return stateCopy
+
         case SET_SUPPLY: //from global-parameters-reducer    
             if (action.index === 1) {
                 return {
@@ -92,6 +87,8 @@ export const oD = (state = initialState, action) => {
                 }
             }
             return state
+
+        case RESET: return {...initialState}
         default:
             return state;
     }

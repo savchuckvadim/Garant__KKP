@@ -35,10 +35,13 @@ const ODButtons = (props) => {
               name,
               props.allOds,
               props.currentComplect,
-              props.currentComplect.number,
+              props.numberOfComplect,
               index,
               props.typeOfContract,
-              props.currentSupplyName)
+              props.currentSupplyName,
+              props.currentComplectsType,
+              props.currentRegion
+            )
           }}
           className="btn__od"
           as="button">{name}

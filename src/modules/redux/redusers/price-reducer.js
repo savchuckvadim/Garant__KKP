@@ -109,7 +109,7 @@ const getPrice = (state, action) => {
         state.currentPrice.value = state.currentPrice.value.toFixed(2)
     } else if (action.currentComplectsType === CURRENT_UNIVERSAL) {
         let regionIndex = 0
-        debugger
+
         if (action.currentRegion === STV) {
             regionIndex = 1
         }
@@ -164,7 +164,7 @@ export const priceReducer = (state = initialState, action) => {
 
         case SET_COMPLECTS_TYPE: //from global-parameters-reducer  
 
-        
+
             if (action.index === 0) { //Тип комплекта = Универсалльный
                 if (action.currentSupply === INTERNET) {
                     return { ...state, prices: state.universalPricesInternet }
@@ -173,7 +173,7 @@ export const priceReducer = (state = initialState, action) => {
                 }
             } else if (action.index === 1) { //Тип комплекта = ПРОФ
                 if (action.currentSupply === INTERNET) {
-                    
+
                     return { ...state, prices: state.internetPrices }
                 } else if (action.currentSupply === PROKSIMA) {
                     return { ...state, prices: state.proximaPrices }
@@ -181,6 +181,14 @@ export const priceReducer = (state = initialState, action) => {
             }
             return state
 
+        case RESET:
+            const resultCurrentPrice = {
+                value: 0,
+                status: false,
+                width: 0
+
+            }
+            return { ...state, currentPrice: resultCurrentPrice }
 
         default:
             return state;
