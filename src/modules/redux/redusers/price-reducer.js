@@ -1,5 +1,5 @@
 import { setUniversalPrices } from "../../utils/prices";
-import { PROF, SET_COMPLECTS_TYPE, SET_SUPPLY, UNIVERSAL } from "./global-parameters/global-parameters-reducer";
+import { CURRENT_UNIVERSAL, INTERNET, PROF, PROKSIMA, SET_COMPLECTS_TYPE, SET_SUPPLY, UNIVERSAL } from "./global-parameters/global-parameters-reducer";
 
 const GET_PRICE = 'GET_PRICE';
 const SET_PRICES = 'SET_PRICES'
@@ -131,26 +131,36 @@ export const priceReducer = (state = initialState, action) => {
             return price(state, action)
 
         case SET_SUPPLY: //from global-parameters-reducer    
-            if (action.index === 1) {
-                return { ...state, prices: state.internetPrices }
-            } else if (action.index === 0) {
-                return { ...state, prices: state.proximaPrices }
+            if (action.index === 1) { //supply = Интернет-Версия
+                if(action.currentComplectsType === PROF){
+                    return { ...state, prices: state.internetPrices }
+                }else if(action.currentComplectsType === CURRENT_UNIVERSAL){
+                    return { ...state, prices: state.universalPricesInternet }
+                }
+                
+            } else if (action.index === 0) {  //supply = Проксима
+                if(action.currentComplectsType === PROF){
+                    return { ...state, prices: state.proximaPrices }
+                }else if(action.currentComplectsType === CURRENT_UNIVERSAL){
+                    return { ...state, prices: state.universalPricesProxima }
+                }
+               
             }
             return state
 
         case SET_COMPLECTS_TYPE: //from global-parameters-reducer  
-
-            if (action.index === 1) {
-                return {
-                    ...state,
-                    complectsTypeButton: UNIVERSAL,
-                    currentComplectsType: PROF
+debugger
+            if (action.index === 1) { //Тип комплекта = Универсалльный
+                if(action.currentSupply === INTERNET){
+                    return { ...state, prices: state.universalPricesInternet }
+                }else if(action.currentSupply === PROKSIMA){
+                    return { ...state, prices: state.universalPricesProxima }
                 }
-            } else if (action.index === 0) {
-                return {
-                    ...state,
-                    complectsTypeButton: PROF,
-                    currentComplectsType: "Универсальный"
+            } else if (action.index === 0) { //Тип комплекта = ПРОФ
+                if(action.currentSupply === INTERNET){
+                    return { ...state, prices: state.internetPrices }
+                }else if(action.currentSupply === PROKSIMA){
+                    return { ...state, prices: state.proximaPrices }
                 }
             }
             return state

@@ -3,7 +3,6 @@ export const setUniversalPrices = (typeOfComplect, dataPricesKMV, dataPricesSTV,
 
     const rangeDataPrices = (dataPrices) => {
         let resultPricesOfRegion = [[]]
-        let proximaFlash
 
         coefficients.forEach((coefficient, index) => { //Цены универсальных комплектов
 

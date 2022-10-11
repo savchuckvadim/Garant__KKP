@@ -4,8 +4,8 @@ const SET_REGION = 'SET_REGION'
 const SET_REGION_STATUS = 'SET_REGION_STATUS'
 
 //consts
-const INTERNET = 'Интернет'
-const PROKSIMA = 'Проксима'
+export const INTERNET = 'Интернет'
+export const PROKSIMA = 'Проксима'
 export const UNIVERSAL = 'Универсальная линейка'
 export const CURRENT_UNIVERSAL = 'Универсальный'
 export const PROF = 'ПРОФ'
@@ -28,8 +28,8 @@ const initialState = {
 
 
 // AC
-export const setSupply = (index) => ({ type: SET_SUPPLY, index }) //if index == 0 -> INTERNET, else -> PROKSIMA
-export const setCompectsType = (index) => ({ type: SET_COMPLECTS_TYPE, index }) //if index == 0 -> INTERNET, else -> PROKSIMA
+export const setSupply = (index, currentComplectsType) => ({ type: SET_SUPPLY, index, currentComplectsType }) //if index == 0 -> INTERNET, else -> PROKSIMA
+export const setComplectsType = (index, currentSupply) => ({ type: SET_COMPLECTS_TYPE, index, currentSupply }) //if index == 0 -> INTERNET, else -> PROKSIMA
 export const setRegion = (currentRegion) => ({ type: SET_REGION, currentRegion })
 export const setRegionStatus = (bool) => ({ type: SET_REGION_STATUS, bool })
 

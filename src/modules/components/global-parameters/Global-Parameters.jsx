@@ -10,7 +10,7 @@ const GlobalParameters = (props) => {
 
             } else {
                 props.reset()
-                props.setSupply(0)
+                props.setSupply(0, props.currentComplectsType)
                 props.createComplect(props.universalComplectObj, 8, props.od.names, props.od.currentOd) //(obj, index, ods, currentOd)
             }
 
@@ -21,7 +21,7 @@ const GlobalParameters = (props) => {
 
             } else {
                 props.reset()
-                props.setSupply(1)
+                props.setSupply(1, props.currentComplectsType)
                 props.createComplect(props.universalComplectObj, 8, props.od.names, props.od.currentOd) //(obj, index, ods, currentOd)
             }
         }
@@ -30,14 +30,14 @@ const GlobalParameters = (props) => {
     const changeComplectsType = () => {
         if (props.complectsTypeButton === UNIVERSAL) {
             props.reset()
-            props.setCompectsType(0)
+            props.setComplectsType(0, props.currentSupply)
             props.createComplect(props.universalComplectObj, 8, props.od.names, props.od.currentOd) //(obj, index, ods, currentOd)
             props.setRegionStatus(true)
         } else {
             props.reset()
-            props.setCompectsType(1)
+            props.setComplectsType(1, props.currentSupply)
         }
-       
+
     }
     return (
         <div className="app__header">

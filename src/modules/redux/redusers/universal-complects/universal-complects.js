@@ -7,31 +7,31 @@ const initialState = {
             name: 'Классик',
             weight: 1,
             'className': 'btn__universal',
-            number: 8
+            number: 0
         },
         {
             name: 'Классик+',
             weight: 1.5,
             'className': 'btn__universal',
-            number: 9
+            number: 1
         },
         {
             name: 'Универсал',
             weight: 2,
             'className': 'btn__universal',
-            number: 10
+            number: 2
         },
         {
             name: 'Универсал+',
             weight: 3,
             className: 'btn__universal',
-            number: 11
+            number: 3
         },
         {
             name: 'Профессионал',
             weight: 4,
             className: 'btn__universal',
-            number: 12
+            number: 4
         },
         {
             name: 'Мастер',
@@ -43,19 +43,19 @@ const initialState = {
             name: 'Аналитик',
             weight: 9,
             className: 'btn__universal',
-            number: 14
+            number: 5
         },
         {
             name: 'Аналитик+',
             weight: 12,
             className: 'btn__universal',
-            number: 15
+            number: 6
         },
         {
             name: 'Максимум',
             weight: 24,
             className: 'btn__universal',
-            number: 16,
+            number: 7,
             currentFilling: '', //в текущее наполнение вставляет наполнение по-умолчанию из allComplects[idx]
             filling: [
                 'Законодательство России',
@@ -128,7 +128,7 @@ const initialState = {
         'tag': 'universalComplect',
         'className': 'btn__universal',
 
-        'number': 8,
+        'number': 0,
         'color': 'rgb(104, 54, 153)',
         'backgroundColor': 'white',
         'weight': 0,
