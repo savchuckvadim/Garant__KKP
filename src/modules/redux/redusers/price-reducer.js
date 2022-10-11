@@ -130,6 +130,8 @@ const getPrice = (state, action) => {
 export const priceReducer = (state = initialState, action) => {
 
     switch (action.type) {
+
+        //TODO price from weight!
         case SET_PRICES:
 
             return {
