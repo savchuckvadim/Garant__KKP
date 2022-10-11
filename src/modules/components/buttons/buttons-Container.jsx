@@ -93,6 +93,7 @@ let mapStateToProps = (state) => {
     return {
         currentComplectsType: state.globalParameters.currentComplectsType,
         currentSupplyName: state.globalParameters.currentSupply,
+        currentRegion: state.globalParameters.currentRegion,
         allComplects: state.allComplects,
         universalComplects: state.universalComplects, //state with universal complects and universal currentComplect
         currentTheme: state.theme.style[state.theme.indexOfTheme],
@@ -117,12 +118,12 @@ let mapStateToProps = (state) => {
 }
 let mapDispatchToProps = (dispatch) => {
     return {
-        createComplect: (obj, index, ods, currentOd, currentTheme, numberOfOD, typeOfContract, infoblocks, er, lt, freeBlocks, consalting, currentSupplyName) => {
+        createComplect: (obj, index, ods, currentOd, currentTheme, numberOfOD, typeOfContract, infoblocks, er, lt, freeBlocks, consalting, currentSupplyName, currentComplectsType, currentRegion) => {
 
             let actionNewComplect = createComplectActionCreator(obj, index, ods, currentOd)
             let actionColorOfButton = changeColorOfButtonActionCreator(index, currentTheme)
             let actionBlocksFromNewComplect = changeBlocksFromNewComplectActionCreator(obj)
-            let actionGoods = goodsActionCreator(index, numberOfOD, typeOfContract, currentSupplyName)  //устанавливает текущую цену и текущий товар в price/goods - reducers
+            let actionGoods = goodsActionCreator(index, numberOfOD, typeOfContract, currentSupplyName, currentComplectsType, currentRegion)  //устанавливает текущую цену и текущий товар в price/goods - reducers
             let dealField = dealFieldActionCreator(obj, infoblocks, er, lt, freeBlocks, consalting)
             dispatch(actionColorOfButton)
             dispatch(actionNewComplect)
@@ -132,11 +133,11 @@ let mapDispatchToProps = (dispatch) => {
             dispatch(dealField)
 
         },
-        createMaximum: (obj, index, ods, currentOd, currentTheme, numberOfOD, typeOfContract, infoblocks, er, lt, freeBlocks, consalting, currentSupplyName) => {
+        createMaximum: (obj, index, ods, currentOd, currentTheme, numberOfOD, typeOfContract, infoblocks, er, lt, freeBlocks, consalting, currentSupplyName, currentComplectsType, currentRegion) => {
             
             let actionCeateMaximum = maximum(obj, index, ods, currentOd)
             let actionBlocksFromNewComplect = changeBlocksFromNewComplectActionCreator(obj)
-            let actionGoods = goodsActionCreator(index, numberOfOD, typeOfContract, currentSupplyName)  //устанавливает текущую цену и текущий товар в price/goods - reducers
+            let actionGoods = goodsActionCreator(index, numberOfOD, typeOfContract, currentSupplyName, currentComplectsType, currentRegion)  //устанавливает текущую цену и текущий товар в price/goods - reducers
             let dealField = dealFieldActionCreator(obj, infoblocks, er, lt, freeBlocks, consalting)
 
             dispatch(actionCeateMaximum)

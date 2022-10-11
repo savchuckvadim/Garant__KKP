@@ -30,7 +30,10 @@ const ComplectButtons = (props) => {
                             props.legalTech,
                             props.freeBlocks,
                             props.consalting,
-                            props.currentSupplyName)
+                            props.currentSupplyName,
+                            props.currentComplectsType,
+                            props.currentRegion
+                        )
 
                     }
 
@@ -67,7 +70,10 @@ const ComplectButtons = (props) => {
                                         props.legalTech,
                                         props.freeBlocks,
                                         props.consalting,
-                                        props.currentSupplyName)
+                                        props.currentSupplyName,
+                                        props.currentComplectsType,
+                                        props.currentRegion
+                                    )
                                 }
                             }}
                             type="button" >{complect.name}

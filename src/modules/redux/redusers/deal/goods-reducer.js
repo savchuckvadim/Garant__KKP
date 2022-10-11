@@ -56,14 +56,16 @@ let initialState = {
 
 
 
-export const goodsActionCreator = (numberOfComplect, numberOfOD, typeOfContract, currentSupplyName) => {
+export const goodsActionCreator = (numberOfComplect, numberOfOD, typeOfContract, currentSupplyName, currentComplectsType, currentRegion) => {
 
     return {
         type: GOODS,
         numberOfComplect,
         numberOfOD,
         typeOfContract,
-        currentSupplyName
+        currentSupplyName,
+        currentComplectsType,
+        currentRegion
     }
 }
 

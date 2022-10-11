@@ -1,5 +1,5 @@
 import { setUniversalPrices } from "../../utils/prices";
-import { CURRENT_UNIVERSAL, INTERNET, PROF, PROKSIMA, SET_COMPLECTS_TYPE, SET_SUPPLY, UNIVERSAL } from "./global-parameters/global-parameters-reducer";
+import { CURRENT_UNIVERSAL, INTERNET, PROF, PROKSIMA, SET_COMPLECTS_TYPE, SET_SUPPLY, STV, UNIVERSAL } from "./global-parameters/global-parameters-reducer";
 
 const GET_PRICE = 'GET_PRICE';
 const SET_PRICES = 'SET_PRICES'
@@ -86,27 +86,41 @@ const price = (stateCome, action) => {
     let state = { ...stateCome }
     let currentPrice = { ...stateCome.currentPrice }
     state.currentPrice = currentPrice
+
     return getPrice(state, action)
 }
 const getPrice = (state, action) => {
-    
+
     let numberOfComplect = action.numberOfComplect
     let numberOfOD = action.numberOfOD
     let typeOfContract = action.typeOfContract
 
 
+    if (action.currentComplectsType === PROF) {
 
-    if (typeOfContract === 'abonSix') {
-        state.currentPrice.value = state.prices[numberOfOD][numberOfComplect] * 6 * 0.9
-    } else if (typeOfContract === 'abonEleven') {
-        state.currentPrice.value = state.prices[numberOfOD][numberOfComplect] * 12 * 0.8
-    } else {
-        state.currentPrice.value = state.prices[numberOfOD][numberOfComplect]
+        if (typeOfContract === 'abonSix') {
+            state.currentPrice.value = state.prices[numberOfOD][numberOfComplect] * 6 * 0.9
+        } else if (typeOfContract === 'abonEleven') {
+            state.currentPrice.value = state.prices[numberOfOD][numberOfComplect] * 12 * 0.8
+        } else {
+            state.currentPrice.value = state.prices[numberOfOD][numberOfComplect]
+        }
 
+        state.currentPrice.value = state.currentPrice.value.toFixed(2)
+    } else if (action.currentComplectsType === CURRENT_UNIVERSAL) {
+        let regionIndex = 0
+        debugger
+        if (action.currentRegion === STV) {
+            regionIndex = 1
+        }
+
+        state.currentPrice.value = state.prices[regionIndex][numberOfOD][numberOfComplect]
     }
 
-    state.currentPrice.value = state.currentPrice.value.toFixed(2)
-    return state
+
+
+    let currentPriceResult = { ...state.currentPrice }
+    return { ...state, currentPrice: currentPriceResult }
 }
 // const reset = (state) => {
 //     state.currentPrice.width = 0
@@ -117,7 +131,7 @@ export const priceReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case SET_PRICES:
-           
+
             return {
                 ...state,
                 prices: action.prices.internetProf,
@@ -132,38 +146,42 @@ export const priceReducer = (state = initialState, action) => {
 
         case SET_SUPPLY: //from global-parameters-reducer    
             if (action.index === 1) { //supply = Интернет-Версия
-                if(action.currentComplectsType === PROF){
+                if (action.currentComplectsType === PROF) {
                     return { ...state, prices: state.internetPrices }
-                }else if(action.currentComplectsType === CURRENT_UNIVERSAL){
+                } else if (action.currentComplectsType === CURRENT_UNIVERSAL) {
                     return { ...state, prices: state.universalPricesInternet }
                 }
-                
+
             } else if (action.index === 0) {  //supply = Проксима
-                if(action.currentComplectsType === PROF){
+                if (action.currentComplectsType === PROF) {
                     return { ...state, prices: state.proximaPrices }
-                }else if(action.currentComplectsType === CURRENT_UNIVERSAL){
+                } else if (action.currentComplectsType === CURRENT_UNIVERSAL) {
                     return { ...state, prices: state.universalPricesProxima }
                 }
-               
+
             }
             return state
 
         case SET_COMPLECTS_TYPE: //from global-parameters-reducer  
-debugger
-            if (action.index === 1) { //Тип комплекта = Универсалльный
-                if(action.currentSupply === INTERNET){
+
+        
+            if (action.index === 0) { //Тип комплекта = Универсалльный
+                if (action.currentSupply === INTERNET) {
                     return { ...state, prices: state.universalPricesInternet }
-                }else if(action.currentSupply === PROKSIMA){
+                } else if (action.currentSupply === PROKSIMA) {
                     return { ...state, prices: state.universalPricesProxima }
                 }
-            } else if (action.index === 0) { //Тип комплекта = ПРОФ
-                if(action.currentSupply === INTERNET){
+            } else if (action.index === 1) { //Тип комплекта = ПРОФ
+                if (action.currentSupply === INTERNET) {
+                    
                     return { ...state, prices: state.internetPrices }
-                }else if(action.currentSupply === PROKSIMA){
+                } else if (action.currentSupply === PROKSIMA) {
                     return { ...state, prices: state.proximaPrices }
                 }
             }
             return state
+
+
         default:
             return state;
     }
