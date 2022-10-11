@@ -23,7 +23,7 @@ const initialState = {
     //compectsType index = 0 -> current - UNIVERSAL
     //compectsType index = 1 -> current - PROF
     currentRegion: KMV,
-    regionInProgress: false
+    regionInProgress: true
 }
 
 
@@ -65,7 +65,7 @@ const globalParametersReducer = (state = initialState, action) => {
 
         case SET_REGION:
             return { ...state, currentRegion: action.currentRegion }
-            
+
         case SET_REGION_STATUS:
             return { ...state, regionInProgress: action.bool }
         default:
