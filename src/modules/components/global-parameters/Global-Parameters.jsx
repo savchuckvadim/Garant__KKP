@@ -32,10 +32,12 @@ const GlobalParameters = (props) => {
             props.reset()
             props.setCompectsType(0)
             props.createComplect(props.universalComplectObj, 8, props.od.names, props.od.currentOd) //(obj, index, ods, currentOd)
+            props.setRegionStatus(true)
         } else {
             props.reset()
             props.setCompectsType(1)
         }
+       
     }
     return (
         <div className="app__header">

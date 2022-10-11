@@ -1,6 +1,6 @@
 import { connect } from "react-redux"
 import { createComplectActionCreator, resetActionCreator } from "../../redux/redusers/currentComplect-reducer"
-import { setCompectsType, setSupply } from "../../redux/redusers/global-parameters/global-parameters-reducer"
+import { setCompectsType, setRegionStatus, setSupply } from "../../redux/redusers/global-parameters/global-parameters-reducer"
 import GlobalParameters from "./Global-Parameters"
 
 const mapStateToProps = (state) => {
@@ -16,6 +16,7 @@ const mapStateToProps = (state) => {
 const GlobalParametersContainer = connect(mapStateToProps, {
     setSupply,
     setCompectsType,
+    setRegionStatus,
     reset:resetActionCreator,
     createComplect:createComplectActionCreator
 })(GlobalParameters)

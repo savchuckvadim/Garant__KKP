@@ -1,3 +1,4 @@
+import { setUniversalPrices } from "../../utils/prices";
 import { PROF, SET_COMPLECTS_TYPE, SET_SUPPLY, UNIVERSAL } from "./global-parameters/global-parameters-reducer";
 
 const GET_PRICE = 'GET_PRICE';
@@ -48,7 +49,10 @@ let initialState = {
         [26244, 26244, 37584, 37584, 32832, 33372, 52704, 65232],
         [30564, 30564, 43848, 43848, 38340, 38988, 61452, 76140]
     ],
-    universalPrices: [
+    universalPricesInternet: [
+
+    ],
+    universalPricesProxima: [
 
     ]
 
@@ -113,24 +117,14 @@ export const priceReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case SET_PRICES:
-            let universalPrices = []
-
-            action.prices.coefficients[0].forEach((coefficient, index) => {
-
-                universalPrices[index] = []
-                action.prices.kmv.forEach(product => {
-
-                    universalPrices[index].push(Number((product.price * coefficient).toFixed(2)))
-
-                });
-
-            });
+           
             return {
                 ...state,
                 prices: action.prices.internetProf,
                 internetPrices: action.prices.internetProf,
                 proximaPrices: action.prices.proximaProf,
-                universalPrices: universalPrices
+                universalPricesInternet: setUniversalPrices('internet', action.prices.kmv, action.prices.stv, action.prices.coefficients[0]),
+                universalPricesProxima: setUniversalPrices('proxima', action.prices.kmv, action.prices.stv, action.prices.coefficients[0])
             };
 
         case GOODS:
@@ -143,6 +137,7 @@ export const priceReducer = (state = initialState, action) => {
                 return { ...state, prices: state.proximaPrices }
             }
             return state
+
         case SET_COMPLECTS_TYPE: //from global-parameters-reducer  
 
             if (action.index === 1) {

@@ -9,8 +9,8 @@ const PROKSIMA = 'Проксима'
 export const UNIVERSAL = 'Универсальная линейка'
 export const CURRENT_UNIVERSAL = 'Универсальный'
 export const PROF = 'ПРОФ'
-const KMV = 'КМВ'
-const STV = 'Ставрополь'
+export const KMV = 'КМВ'
+export const STV = 'Ставрополь'
 
 
 const initialState = {
@@ -23,7 +23,7 @@ const initialState = {
     //compectsType index = 0 -> current - UNIVERSAL
     //compectsType index = 1 -> current - PROF
     currentRegion: KMV,
-    regionInProgress: true
+    regionInProgress: false
 }
 
 
