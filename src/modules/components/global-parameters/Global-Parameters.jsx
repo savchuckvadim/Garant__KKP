@@ -4,11 +4,26 @@ import './Global-Parameters.css'
 const GlobalParameters = (props) => {
     const changeSupply = () => {
         if (props.supplyButton === 'Проксима') {
-            props.reset()
-            props.setSupply(0)
+            if (props.complectsTypeButton === UNIVERSAL) {
+                props.reset()
+
+
+            } else {
+                props.reset()
+                props.setSupply(0)
+                props.createComplect(props.universalComplectObj, 8, props.od.names, props.od.currentOd) //(obj, index, ods, currentOd)
+            }
+
         } else {
-            props.reset()
-            props.setSupply(1)
+            if (props.complectsTypeButton === UNIVERSAL) {
+                props.reset()
+
+
+            } else {
+                props.reset()
+                props.setSupply(1)
+                props.createComplect(props.universalComplectObj, 8, props.od.names, props.od.currentOd) //(obj, index, ods, currentOd)
+            }
         }
 
     }

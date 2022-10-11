@@ -1,4 +1,4 @@
-import { SET_COMPLECTS_TYPE, SET_SUPPLY } from "./global-parameters/global-parameters-reducer";
+import { PROF, SET_COMPLECTS_TYPE, SET_SUPPLY, UNIVERSAL } from "./global-parameters/global-parameters-reducer";
 
 const GET_PRICE = 'GET_PRICE';
 const SET_PRICES = 'SET_PRICES'
@@ -85,7 +85,7 @@ const price = (stateCome, action) => {
     return getPrice(state, action)
 }
 const getPrice = (state, action) => {
-    debugger
+    
     let numberOfComplect = action.numberOfComplect
     let numberOfOD = action.numberOfOD
     let typeOfContract = action.typeOfContract

@@ -33,6 +33,7 @@ import allPriceReducer from './redusers/all-price-reducer';
 import globalParametersReducer from './redusers/global-parameters/global-parameters-reducer';
 import universalComplects from './redusers/universal-complects/universal-complects';
 import weightReducer from './redusers/weight-reducer';
+import preloaderReducer from './redusers/preloader-reducer';
 
 
 
@@ -82,7 +83,8 @@ let reducers = combineReducers({
     description: dealDescriptionReducer,
     dealStatus: dealStatusReducer,
     dealName: dealNameReducer,
-    allPrices: allPriceReducer
+    allPrices: allPriceReducer,
+    preloader:preloaderReducer
 
 
 });

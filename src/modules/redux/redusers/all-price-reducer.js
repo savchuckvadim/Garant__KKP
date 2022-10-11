@@ -1,4 +1,5 @@
 import { pricesAPI } from "../../services/api"
+import { preloader } from "./preloader-reducer"
 
 const SET_PRICES = 'SET_PRICES'
 
@@ -24,15 +25,18 @@ const setPrices = (prices) => ({ type: SET_PRICES, prices })
 
 export const getPrices = () => async (dispatch) => {
     try {
+      
         const prices = await pricesAPI.getPrices()
         // await dispatch(getCoefficients())
-        
+       
         if (prices) {
             dispatch(setPrices(prices))
+            dispatch(preloader(false))
         }
 
     } catch (error) {
-        console.log(error)
+        dispatch(preloader(false))
+       alert(error)
     }
 
 }

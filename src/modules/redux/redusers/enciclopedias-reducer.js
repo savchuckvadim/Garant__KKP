@@ -129,7 +129,7 @@ export const changePaketsErFromCurrent = (state, currentComplect) => {      //м
   //////////TODO условие переделать на currentComplect - если undefined
 
   if (currentComplect) {
-debugger
+
 
     if (currentComplect.fillingPaketsERIndexes.length < 1) {
       state[0].value[0].checked = false;
@@ -223,7 +223,7 @@ debugger
 /////////////////////////////////
 
 const changeEr = (stateCome, action) => {
-  debugger
+  
   let state = [...stateCome]
   state[0] = [...stateCome][0]
   state[1] = [...stateCome][1]

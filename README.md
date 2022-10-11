@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-![logo](./public/assets/icons/logo.png)
+![logo](./public/assets/icons/logo.svg)
 
 ### :zap: `Webpack 5 Boilerplate for JS/React/TS apps.`
 

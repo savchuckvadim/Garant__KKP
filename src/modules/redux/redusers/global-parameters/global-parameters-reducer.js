@@ -1,13 +1,16 @@
+export const SET_SUPPLY = 'SET_SUPPLY'
+export const SET_COMPLECTS_TYPE = 'SET_COMPLECTS_TYPE'
+const SET_REGION = 'SET_REGION'
+const SET_REGION_STATUS = 'SET_REGION_STATUS'
 
+//consts
 const INTERNET = 'Интернет'
 const PROKSIMA = 'Проксима'
-
 export const UNIVERSAL = 'Универсальная линейка'
 export const CURRENT_UNIVERSAL = 'Универсальный'
 export const PROF = 'ПРОФ'
-
-export const SET_SUPPLY = 'SET_SUPPLY'
-export const SET_COMPLECTS_TYPE = 'SET_COMPLECTS_TYPE'
+const KMV = 'КМВ'
+const STV = 'Ставрополь'
 
 
 const initialState = {
@@ -16,15 +19,20 @@ const initialState = {
     //supply index = 0 -> current - PROXIMA
     //supply index = 1 -> current - INTERNET
     complectsTypeButton: UNIVERSAL,
-    currentComplectsType: PROF
+    currentComplectsType: PROF,
     //compectsType index = 0 -> current - UNIVERSAL
     //compectsType index = 1 -> current - PROF
+    currentRegion: KMV,
+    regionInProgress: false
 }
 
 
 // AC
 export const setSupply = (index) => ({ type: SET_SUPPLY, index }) //if index == 0 -> INTERNET, else -> PROKSIMA
 export const setCompectsType = (index) => ({ type: SET_COMPLECTS_TYPE, index }) //if index == 0 -> INTERNET, else -> PROKSIMA
+export const setRegion = (currentRegion) => ({ type: SET_REGION, currentRegion })
+export const setRegionStatus = (bool) => ({ type: SET_REGION_STATUS, bool })
+
 
 const globalParametersReducer = (state = initialState, action) => {
 
@@ -54,6 +62,12 @@ const globalParametersReducer = (state = initialState, action) => {
                 }
             }
             return state
+
+        case SET_REGION:
+            return { ...state, currentRegion: action.currentRegion }
+            
+        case SET_REGION_STATUS:
+            return { ...state, regionInProgress: action.bool }
         default:
             return state;
     }

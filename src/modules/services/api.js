@@ -10,12 +10,12 @@ const instance = axios.create({
 //идентификатор приложения развертывания AKfycby4mo1ga2FHPuJ1aulWASyW0NGuHlVUpWf85lDNiLXc9ZQwO0unDciUMXipmeNzALesog
 export const pricesAPI = {
     async getPrices() {
-        try {
+        // try {
             const response = await instance.get(`/exec`);
             console.log(response.data);
             return response.data;
-        } catch (error) {
-            console.log(error)
-        }
+        // } catch (error) {
+        //     console.log(error)
+        // }
     }
 }

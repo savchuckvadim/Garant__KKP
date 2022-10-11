@@ -1,16 +1,17 @@
 import { useEffect } from 'react';
 import './App.css'
 import MainContainer from './modules/components/main/main-Container';
+import Preloader from './modules/components/Preloader/Preloader';
 
 
 const App = (props) => {
-  useEffect(() => {
-    props.getPrices()
+  useEffect(async () => {
+    await props.getPrices()
+   
   }, [])
-  
-  return (
-    <MainContainer />
-  )
+
+  if (props.preloader === true ) {return <Preloader/> } else {return <MainContainer />  }
+
 }
 
 

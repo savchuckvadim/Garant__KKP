@@ -56,14 +56,14 @@ const initialState = {
             weight: 24,
             className: 'btn__universal',
             number: 16,
-            currentFilling: '' , //в текущее наполнение вставляет наполнение по-умолчанию из allComplects[idx]
-            filling:[
+            currentFilling: '', //в текущее наполнение вставляет наполнение по-умолчанию из allComplects[idx]
+            filling: [
                 'Законодательство России',
                 'Региональное законодательство',
                 'Отраслевое законодательство',
                 'Проекты законов',
                 'Международное право',
-                
+
                 'Решения Федеральной антимонопольной службы',
                 'Справочник промышленника',
                 'Практика высших судебных органов',
@@ -73,7 +73,12 @@ const initialState = {
                 'Энциклопедия судебной практики. Правовые позиции судов',
                 'Большая библиотека юриста',
                 'Большая библиотека бухгалтера и кадрового работника',
+                'Толковый словарь «Бизнес и право»',
+                
+                'Энциклопедия. Законодательство в схемах',
                 'Энциклопедия. Формы правовых документов',
+                'ГАРАНТ-Инфарм',
+                'Справочник нормативно-технической документации по строительству',
                 'Энциклопедия решений.Проверки организаций и предпринимателей',
                 'Энциклопедия решений.Хозяйственные ситуации',
                 'Энциклопедия решений.Госзакупки',
@@ -89,7 +94,7 @@ const initialState = {
                 'Архивы ГАРАНТа. Россия',
                 'Правовой консалтинг. Премиум: База знаний службы Правового консалтинга',
                 'ГАРАНТ Консалтинг: нормативные акты и судебная практика',
-                
+
             ],
             fillingInfoblocksIndexes: [
                 {
@@ -113,12 +118,12 @@ const initialState = {
             fillingLTIndexes: [],
             fillingPaketLT: [],
             currentStatusInputComplectName: true,
-            freeBlocks: [0,1,2,3,4,5,6,7,8],
+            freeBlocks: [0, 1, 2, 3, 4, 5, 6, 7, 8],
             consalting: []
         },
 
     ],
-    universalComplectObj:{
+    universalComplectObj: {
         'name': 'Универсальный комплект',
         'tag': 'universalComplect',
         'className': 'btn__universal',
@@ -127,23 +132,26 @@ const initialState = {
         'color': 'rgb(104, 54, 153)',
         'backgroundColor': 'white',
         'weight': 0,
-        'filling': [ ],
+        'filling': [
+            'Законодательство России',
+            'Региональное законодательство',
+        ],
         'currentFilling': '',
         'fillingInfoblocksIndexes': [{
-                'regulations': [0, 1]
-            },
-            {
-                'court': []
-            },
-            {
-                'libraries': []
-            },
-            {
-                'specials': [2]
-            },
-            {
-                'newBlocks': []
-            },
+            'regulations': [0, 1]
+        },
+        {
+            'court': []
+        },
+        {
+            'libraries': []
+        },
+        {
+            'specials': []
+        },
+        {
+            'newBlocks': []
+        },
         ],
         'fillingEncyclopediasIndexes': [],
         'fillingPaketsERIndexes': [],
@@ -153,8 +161,8 @@ const initialState = {
         'fillingER': [],
         'fillingPaketLT': [],
         'fillingLTblocks': '',
-        'freeBlocks':[0,1,2,3,4,5,6,7,8],
-        'consalting':[]
+        'freeBlocks': [0, 1, 2, 3, 4, 5, 6, 7, 8],
+        'consalting': []
     },
 }
 //AC
