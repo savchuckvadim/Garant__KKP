@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { changeUniversalComplect } from "../../redux/redusers/currentComplect-reducer"
+import { changePriceFromWeight } from "../../redux/redusers/price-reducer"
 import { weight } from "../../redux/redusers/weight-reducer"
 import ResultModalButtonContainer from "../buttons/modal/result-modal-Container"
 import ItemResult from "./items-result"
@@ -14,8 +15,22 @@ const Result = (props) => {
     useEffect(() => {
         dispatch(weight(props.values.weight));
         dispatch(changeUniversalComplect(props.values.weight, props.globalParameters, props.universalComplects))
+        dispatch(changePriceFromWeight(
+            props.values.weight, props.currentComplect, 
+            props.numberOfOd, props.globalParameters.currentRegion, 
+            props.globalParameters.currentSupply, props.globalParameters.currentComplectsType, 
+            props.typeOfContract))
     }, [props.values.weight])
-    
+
+    // useEffect(()=> {
+    //     console.log(props.values.weight)
+    //     console.log(props.currentComplect.weight)
+    //     console.log(props.universalComplects)
+    //     console.log(props.globalParameters.currentRegion)
+    //     console.log(props.globalParameters.currentSupply)
+    //     console.log(props.globalParameters.currentComplectsType)
+    //     console.log(props.typeOfContract)
+    // },[props.currentComplect])
 
     let containerStyle = {
         borderColor: 'rgb(160, 179, 179)',        

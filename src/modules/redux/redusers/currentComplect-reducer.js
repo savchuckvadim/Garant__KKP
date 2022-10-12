@@ -340,15 +340,19 @@ export const currentComplect = (state = initialState, action) => {
         case CHANGE_WEIGHT_AND_NAME_OF_UNIVERSAL_COMPLECT:
             if (state) {
                 if (action.globalParameters.currentComplectsType === 'Универсальный') {
-
+                    let indexOfRightComplect = 0
                     action.universalComplects.complects.forEach(complect => {
 
                         if (action.weight === complect.weight) {
+                            indexOfRightComplect++
                             state.number = complect.number
                             state.name = complect.name
                             state.weight = complect.weight
                         }
                     })
+                    if (!indexOfRightComplect && action.weight) {
+                        state.name = 'СОБРАН НЕВЕРНО!'
+                    }
                     return { ...state }
                 }
                 return state

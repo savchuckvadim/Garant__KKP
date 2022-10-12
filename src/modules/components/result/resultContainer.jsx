@@ -42,11 +42,17 @@ let mapStateToProps = (state) => {
 
     // />
 
-
+let numberOfOd = 0
+ state.od.names.forEach((name, index) => {
+    if(name === state.od.currentOd){
+        numberOfOd = index
+    }
+});
 
     let resultValues = {
         name: state.currentComplect.name,
         od: state.od.currentOd,
+
         ltIncluded: state.legalTech.ltIncluded,
         nameOflt: state.legalTech.nameOflt,
 
@@ -71,10 +77,12 @@ let mapStateToProps = (state) => {
     }
     return {
      values: resultValues,
+     numberOfOd,
      currentComplect: state.currentComplect,
      state: state,
      globalParameters:state.globalParameters,
-     universalComplects:state.universalComplects
+     universalComplects:state.universalComplects,
+     typeOfContract : state.typeOfContract.value.typeOfGood
     }
 }
 let mapDispatchToProps = (dispatch) => {

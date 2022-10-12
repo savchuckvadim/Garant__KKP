@@ -1,8 +1,11 @@
 import { setUniversalPrices } from "../../utils/prices";
+import { goodsActionCreator } from "./deal/goods-reducer";
 import { CURRENT_UNIVERSAL, INTERNET, PROF, PROKSIMA, SET_COMPLECTS_TYPE, SET_SUPPLY, STV, UNIVERSAL } from "./global-parameters/global-parameters-reducer";
 
 const GET_PRICE = 'GET_PRICE';
 const SET_PRICES = 'SET_PRICES'
+const CHANGE_PRICE_FROM_WEIGHT = 'CHANGE_PRICE_FROM_WEIGHT'
+
 const INPUT_CHANGE_PRICE = 'INPUT_CHANGE_PRICE'
 const CREATE_COMPLECT = 'CREATE_COMPLECT'
 const CHANGE_CURRENT_OD = 'CHANGE_CURRENT_OD'
@@ -61,12 +64,19 @@ let initialState = {
 }
 
 
-export const getPriceActionCreator = () => {
+export const getPriceActionCreator = () => ({ type: GET_PRICE })
+//THUNK
+export const changePriceFromWeight = (currentWeight, currentComplect, numberOfOd, currentRegion, currentSupply, currentComplectsType, typeOfContract) => (dispatch) => {
+    if (currentComplectsType === 'Универсальный') {
+debugger
+        if (currentWeight === currentComplect.weight) {
+            dispatch(goodsActionCreator(currentComplect.number, numberOfOd, typeOfContract, currentSupply, currentComplectsType, currentRegion))
+        }
 
-    return {
-        type: GET_PRICE
+
     }
 }
+
 const setPrices = (prices) => ({ type: SET_PRICES, prices })
 const changeCurrentPrice = (state, action) => {
 
