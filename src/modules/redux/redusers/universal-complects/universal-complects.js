@@ -37,25 +37,25 @@ const initialState = {
             name: 'Мастер',
             weight: 6,
             className: 'btn__universal',
-            number: 13
+            number: 5
         },
         {
             name: 'Аналитик',
             weight: 9,
             className: 'btn__universal',
-            number: 5
+            number: 6
         },
         {
             name: 'Аналитик+',
             weight: 12,
             className: 'btn__universal',
-            number: 6
+            number: 7
         },
         {
             name: 'Максимум',
             weight: 24,
             className: 'btn__universal',
-            number: 7,
+            number: 8,
             currentFilling: '', //в текущее наполнение вставляет наполнение по-умолчанию из allComplects[idx]
             filling: [
                 'Законодательство России',

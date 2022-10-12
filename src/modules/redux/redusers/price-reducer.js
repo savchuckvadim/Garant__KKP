@@ -68,7 +68,7 @@ export const getPriceActionCreator = () => ({ type: GET_PRICE })
 //THUNK
 export const changePriceFromWeight = (currentWeight, currentComplect, numberOfOd, currentRegion, currentSupply, currentComplectsType, typeOfContract) => (dispatch) => {
     if (currentComplectsType === 'Универсальный') {
-debugger
+
         if (currentWeight === currentComplect.weight) {
             dispatch(goodsActionCreator(currentComplect.number, numberOfOd, typeOfContract, currentSupply, currentComplectsType, currentRegion))
         }
