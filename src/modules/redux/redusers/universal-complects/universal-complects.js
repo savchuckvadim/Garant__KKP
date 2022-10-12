@@ -1,3 +1,5 @@
+import { RESET } from "../currentComplect-reducer";
+
 const SET_CURRENT_UNIVERSAL_COMPLECT = 'SET_CURRENT_UNIVERSAL_COMPLECT'
 
 const initialState = {
@@ -74,7 +76,7 @@ const initialState = {
                 'Большая библиотека юриста',
                 'Большая библиотека бухгалтера и кадрового работника',
                 'Толковый словарь «Бизнес и право»',
-                
+
                 'Энциклопедия. Законодательство в схемах',
                 'Энциклопедия. Формы правовых документов',
                 'ГАРАНТ-Инфарм',
@@ -177,6 +179,13 @@ const universalComplects = (state = initialState, action) => {
         case SET_CURRENT_UNIVERSAL_COMPLECT:
             return { ...state, currentComplect: state.complects[action.currentComplectIndex] };
 
+        case RESET:
+            let universalComplectObjResult = { ...state.universalComplectObj }
+            universalComplectObjResult.filling = [
+                'Законодательство России',
+                'Региональное законодательство',
+            ]
+            return { ...state, universalComplectObj: universalComplectObjResult }
         default:
             return state;
     }
