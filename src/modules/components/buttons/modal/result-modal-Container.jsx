@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
     //currentComplect
     //currentTheme
     let show = state.resultModal.show
-   
+
     let currentComplect = state.currentComplect
     let currentTheme = state.theme.style[state.theme.indexOfTheme]
 
@@ -28,6 +28,7 @@ const mapStateToProps = (state) => {
                     color = element.color
                 }
             })
+
         }
         return color
     }
@@ -36,7 +37,7 @@ const mapStateToProps = (state) => {
         color: "white",
         border: '0px solid',
         borderColor: currentTheme.color,
-      
+
     }
     let title = 'Выбрать комплект'
     return {
@@ -48,7 +49,8 @@ const mapStateToProps = (state) => {
         allComplects: state.allComplects,
         styleBtnModal,
         show,
-        
+        currentComplectsType: state.globalParameters.currentComplectsType
+
 
 
     }
@@ -56,13 +58,13 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 
     return {
-        handleClose : (element) => {
+        handleClose: (element) => {
             let actionClose = resultModalActionCreator(false, element.current)
 
-            
-           return dispatch(actionClose)
+
+            return dispatch(actionClose)
         },
-        handleShow : (element) => {
+        handleShow: (element) => {
             let actionShow = resultModalActionCreator(true, element.current)
 
 

@@ -22,15 +22,7 @@ const Result = (props) => {
             props.typeOfContract))
     }, [props.values.weight])
 
-    // useEffect(()=> {
-    //     console.log(props.values.weight)
-    //     console.log(props.currentComplect.weight)
-    //     console.log(props.universalComplects)
-    //     console.log(props.globalParameters.currentRegion)
-    //     console.log(props.globalParameters.currentSupply)
-    //     console.log(props.globalParameters.currentComplectsType)
-    //     console.log(props.typeOfContract)
-    // },[props.currentComplect])
+ 
 
     let containerStyle = {
         borderColor: 'rgb(160, 179, 179)',        

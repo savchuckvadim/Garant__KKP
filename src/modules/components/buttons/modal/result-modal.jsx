@@ -8,6 +8,7 @@ import * as React from 'react';
 import { AppBar, Button, Dialog, IconButton, Toolbar, Slide, Typography, List, ListItem, ListItemText, Divider } from "@material-ui/core"
 import Header from "../../header/header"
 import DealContainer from "../../deal/deal-Container"
+import { CURRENT_UNIVERSAL } from "../../../redux/redusers/global-parameters/global-parameters-reducer";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -24,10 +25,24 @@ const ResultModalButton = (props) => {
     props.handleClose(ref)
   };
   let ref = React.createRef()
+  let buttonStyle = props.styleBtnModal
+  let buttonClassname = 'btn__result__modal'
+  let disabled = false
+  let title = props.title
+  if (props.currentComplectsType === CURRENT_UNIVERSAL) {
+    buttonStyle = null
+    buttonClassname = 'btn__result__universal--active'
+    if(props.currentComplect.name === 'СОБРАН НЕВЕРНО!'){
+      buttonClassname = 'btn__result__universal'
+      disabled = true
+      title = props.currentComplect.name
+    }
+    
+  }
   return (
     <div>
-      <Button ref={ref} style={props.styleBtnModal}  onClick={handleClickOpen} className={'btn__result__modal'}>
-        {props.title}
+      <Button ref={ref} disabled={disabled} style={buttonStyle} onClick={handleClickOpen} className={buttonClassname}>
+        {title}
 
       </Button>
       <Dialog
@@ -55,8 +70,8 @@ const ResultModalButton = (props) => {
           </Toolbar>
         </AppBar> */}
         <List>
-         
-          <DealContainer/>
+
+          <DealContainer />
         </List>
       </Dialog>
     </div>

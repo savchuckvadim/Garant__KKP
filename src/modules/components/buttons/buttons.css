@@ -103,7 +103,7 @@
 
 
 }
-.btn__result__modal {
+.btn__result__modal, .btn__result__universal--active, .btn__result__universal {
     height: 45px;
 
     display: flex !important;
@@ -271,7 +271,7 @@
     /* border: 1px solid !important; */
 }
 
-.btn__universal--active{
+.btn__universal--active, .btn__result__universal--active{
 
     background: rgb(231, 53, 74);
     background: linear-gradient(45deg, rgba(198,176,200,1) 0%, rgba(138,90,162,1) 50%, rgb(255, 34, 196) 100%);
@@ -292,4 +292,12 @@
     100%{
         background-position: 0 50%;
     }
+}
+.btn__result__universal{
+    background: rgb(226, 223, 223);
+    background: linear-gradient(45deg, rgba(198,176,200,1) 0%, rgb(153, 150, 155) 50%, rgb(131, 128, 130) 100%);
+    font-size: large;
+    animation: gradient 7s ease infinite;
+    background-size: 1500% 1500%;
+    color: rgb(255, 255, 255) !important;
 }

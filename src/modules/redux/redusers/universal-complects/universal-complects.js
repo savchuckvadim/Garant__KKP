@@ -9,7 +9,8 @@ const initialState = {
             name: 'Классик',
             weight: 1,
             'className': 'btn__universal',
-            number: 0
+            number: 0,
+            'color' : 'black'
         },
         {
             name: 'Классик+',

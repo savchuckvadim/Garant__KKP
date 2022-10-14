@@ -1,4 +1,4 @@
-import { SET_SUPPLY } from "../global-parameters/global-parameters-reducer";
+import { INTERNET, PROKSIMA, SET_COMPLECTS_TYPE, SET_SUPPLY } from "../global-parameters/global-parameters-reducer";
 
 let TYPE_OF_CONTRACT = 'TYPE_OF_CONTRACT';
 
@@ -101,20 +101,25 @@ let initialState = {
         //     typeOfGood: 'prof'
         // },
 
-    ]
+    ],
+    internetUniversalTypesOfContract: [{
+        id: '1913',
+        name: 'Internet',
+        typeOfGood: 'prof',
+        units: {
+            value: 'Месяц',
+            ID: '11',
+            CODE: '15',
+        }
+    }],
 
 }
 
 
 
 
-export const typeOfContractActionCreator = (index) => {
+export const typeOfContractActionCreator = (index) => ({ type: TYPE_OF_CONTRACT, index })
 
-    return {
-        type: TYPE_OF_CONTRACT,
-        index: index
-    }
-}
 
 const changeTypeOfContract = (stateCome, action) => {
 
@@ -134,16 +139,56 @@ export const typeOfContractReducer = (state = initialState, action) => {
             return changeTypeOfContract(state, action)
 
         case SET_SUPPLY: //from global-parameters-reducer    
-            if (action.index === 1) {
-                return { ...state, typesOfContract: state.internetTypesOfContract }
-            } else if (action.index === 0) {
+            if (action.index === 1) { //supply = Интернет-Версия
+                if (action.currentComplectsType === PROF) {
+                    return { ...state, typesOfContract: state.internetTypesOfContract }
+                } else if (action.currentComplectsType === CURRENT_UNIVERSAL) {
+                    return {
+                        ...state, typesOfContract: state.internetUniversalTypesOfContract,
+                        value: state.internetUniversalTypesOfContract[0]
+                    }
+                }
+
+            } else if (action.index === 0) {  //supply = Проксима
+
                 return {
                     ...state,
                     typesOfContract: state.proximaTypesOfContract,
                     value: state.proximaTypesOfContract[0]
                 }
+
             }
             return state
+
+        case SET_COMPLECTS_TYPE: //from global-parameters-reducer  
+
+            if (action.currentSupply === PROKSIMA) {
+                return {
+                    ...state,
+                    typesOfContract: state.proximaTypesOfContract,
+                    value: state.proximaTypesOfContract[0]
+                }
+            } else {
+                if (action.index === 0) { //Тип комплекта = Универсалльный
+                    if (action.currentSupply === INTERNET) {
+
+                        return {
+                            ...state, typesOfContract: state.internetUniversalTypesOfContract,
+                            value: state.internetUniversalTypesOfContract[0]
+                        }
+                    }
+                } else if (action.index === 1) { //Тип комплекта = ПРОФ
+                    if (action.currentSupply === INTERNET) {
+
+                        return { ...state, typesOfContract: state.internetTypesOfContract }
+                    }
+                }
+            }
+
+
+            return state
+
+
         default:
             return state;
     }
