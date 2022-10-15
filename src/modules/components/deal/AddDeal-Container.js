@@ -1,5 +1,6 @@
 import { connect } from "react-redux"
 import { resetActionCreator } from "../../redux/redusers/currentComplect-reducer";
+import { sendDeal } from "../../redux/redusers/deal/deal-reducer";
 import { dealNameActionCreator } from "../../redux/redusers/deal/dealName-reducer";
 import { dealStatusActionCreator } from "../../redux/redusers/deal/dealStatus-reducer";
 import { dealFieldActionCreator } from "../../redux/redusers/deal/field-reducer";
@@ -27,19 +28,19 @@ const mapStateToProps = (state) => {
     let goods = state.goods.currentId
     let ltGoods = state.legalTech.currentId
     let priceOfLt = state.legalTech.priceOfLt
-    let backgroundColor = state.allComplects[state.currentComplect.number].color
-    let color = state.allComplects[state.currentComplect.number].backgroundColor
+    // let backgroundColor = state.allComplects[state.currentComplect.number].color
+    // let color = state.allComplects[state.currentComplect.number].backgroundColor
 
-    let styleOfPush = {
-        backgroundColor: backgroundColor,
-        color: color,
+    // let styleOfPush = {
+    //     backgroundColor: backgroundColor,
+    //     color: color,
 
-    }
-    let styleOfCancel = {
-        backgroundColor: 'red',
-        color: 'white',
+    // }
+    // let styleOfCancel = {
+    //     backgroundColor: 'red',
+    //     color: 'white',
 
-    }
+    // }
 
     let freeBlocks = state.freeBlocks.value.map(block => {
         if (block.checked) {
@@ -50,6 +51,7 @@ const mapStateToProps = (state) => {
     })
 
     return {
+        currentComplectsType: state.globalParameters.currentComplectsType,
         typeOfContract: state.typeOfContract,
         unit: state.typeOfContract.value.units.CODE,
         typeOfClient: state.typeOfClient,
@@ -58,8 +60,8 @@ const mapStateToProps = (state) => {
         goods: goods,
         ltGoods: ltGoods,
         priceOfLt: priceOfLt,
-        styleOfPush,
-        styleOfCancel,
+        // styleOfPush,
+        // styleOfCancel,
         dealField,
         dealStatus: dealStatus,
         name: state.dealName.value,
@@ -88,6 +90,9 @@ const mapDispatchToProps = (dispatch) => {
 
             let nameAction = dealNameActionCreator(value);
             dispatch(nameAction)
+        },
+        sendDeal: (dealName, ltId, goodsId, price, priceOfLt, unit, typeOfContractId, dealField, description) => {
+            dispatch(sendDeal(dealName, ltId, goodsId, price, priceOfLt, unit, typeOfContractId, dealField, description))
         }
 
     }

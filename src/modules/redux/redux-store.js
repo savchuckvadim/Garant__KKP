@@ -34,6 +34,7 @@ import globalParametersReducer from './redusers/global-parameters/global-paramet
 import universalComplects from './redusers/universal-complects/universal-complects';
 import weightReducer from './redusers/weight-reducer';
 import preloaderReducer from './redusers/preloader-reducer';
+import dealReducer from './redusers/deal/deal-reducer';
 
 
 
@@ -79,6 +80,7 @@ let reducers = combineReducers({
     supplier: supplierReducer,
     dateOfContract: dateOfContractReducer,
     goods: goodsReducer,
+    deal:dealReducer,
     field: dealFieldReducer,
     description: dealDescriptionReducer,
     dealStatus: dealStatusReducer,
