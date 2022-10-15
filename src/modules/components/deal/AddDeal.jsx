@@ -9,13 +9,9 @@ import { DealFieldContainer } from './included/deal-field-Container';
 export const AddDeal = (props) => {
 
   console.log('dealField', props.dealField)
-  let typeOfClient = props.typeOfClient
-  let typeOfContract = props.typeOfContract
-  // let prepaid = props.prepaid
-
-  let idTypeOfClient = props.typeOfClient.id
-  let typeOfContractId = props.typeOfContract.id
-  // let idPrepaid = props.prepaid.id
+ 
+ 
+  let typeOfContractId = props.typeOfContract.value.id
 
   let price = props.priceOfComplect
   let goodsId = props.goods
@@ -24,11 +20,7 @@ export const AddDeal = (props) => {
   let dealField = `${<DealFieldContainer />}`
   let dealName = props.name
   let description = props.description
-  // console.log(allBlocks)
-
-  // console.log(dealField)
-
-  // console.log(`addDealJSX ${goodsId}`)
+  
 
 
   console.log('🚀 ~ file: AddTask.jsx ~ line 6 ~ AddTask ~ taskData', props.name);
@@ -41,13 +33,14 @@ export const AddDeal = (props) => {
   const onSubmit = async (event) => {
 
     event.preventDefault();
-    props.changeDealStatus(true)
-    
+    // props.changeDealStatus(true)
+    const fields = await BX24API.callMethod('crm.deal.fields')
     console.log('Начал думать');
-    await props.sendDeal(dealName, ltId, goodsId, price, priceOfLt, props.unit, typeOfContractId, dealField, description)
-    // props.reset()
+  
+    await props.sendDeal(dealName, ltId, goodsId, price, priceOfLt, props.unit, typeOfContractId, props.dealField, description)
+    props.reset()
 
-    // document.location.replace(`https://april-garant.bitrix24.ru/crm/deal/details/${idOfCurrentDeal}/`);
+    document.location.replace(`https://april-garant.bitrix24.ru/crm/deal/details/${idOfCurrentDeal}/`);
 
 
   }

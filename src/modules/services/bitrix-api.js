@@ -34,28 +34,31 @@ export const bitrixAPI = {
         return newDeal.answer.result
     },
 
-    setProducts: async(ltId, idOfCurrentDeal, goodsId, price, priceOfLt = null, unit)=> {
+    setProducts: async (ltId, idOfCurrentDeal, goodsId, price, priceOfLt = null, unit) => {
+        console.log((ltId, idOfCurrentDeal, goodsId, price, priceOfLt, unit))
+
+        let products = null
         if (ltId) {
             products = await BX24API.callMethod('crm.deal.productrows.set', {
-              id: idOfCurrentDeal,
-              rows:
-                [
-                  { "PRODUCT_ID": goodsId, "PRICE": price, 'MEASURE_CODE': unit, "QUANTITY": 1 },
-                  { "PRODUCT_ID": ltId, "PRICE": priceOfLt, 'MEASURE_CODE': unit, "QUANTITY": 1 }
-      
-                ]
+                id: idOfCurrentDeal,
+                rows:
+                    [
+                        { "PRODUCT_ID": goodsId, "PRICE": price, 'MEASURE_CODE': unit, "QUANTITY": 1 },
+                        { "PRODUCT_ID": ltId, "PRICE": priceOfLt, 'MEASURE_CODE': unit, "QUANTITY": 1 }
+
+                    ]
             })
-          } else {
+        } else {
             products = await BX24API.callMethod('crm.deal.productrows.set', {
-              id: idOfCurrentDeal,
-              rows:
-                [
-                  { "PRODUCT_ID": goodsId, "PRICE": price, 'MEASURE_CODE': unit, "QUANTITY": 1 },
-      
-                ]
+                id: idOfCurrentDeal,
+                rows:
+                    [
+                        { "PRODUCT_ID": goodsId, "PRICE": price, 'MEASURE_CODE': unit, "QUANTITY": 1 },
+
+                    ]
             })
-          }
-          return products
+        }
+        return products
     },
     getCompanyId: async (dealName) => {
         const company = await BX24API.callMethod('crm.company.list', {
@@ -73,17 +76,24 @@ export const bitrixAPI = {
         return companyId
     },
     updateDeal: async (idOfCurrentDeal, typeOfContractId, dealField, description, companyId) => {
-
+        console.log('idOfCurrentDeal ' + idOfCurrentDeal, 'typeOfContractId ' + typeOfContractId, 'dealField ' + dealField, 'description ' + description, 'companyId ' + companyId)
+        let fieldsUpdate = {            //поля для обновления сделки   
+            'UF_CRM_1540190343': typeOfContractId,
+            "COMMENTS": `${dealField}`,
+            'UF_CRM_1642056396': ` ${description}`,
+            "COMPANY_ID": `${companyId}`
+        }
         const updatedDeal = await BX24API.callMethod(
             "crm.deal.update",
             {
                 id: idOfCurrentDeal,
                 fields:
                 {
-                    'UF_CRM_1540190343': typeOfContractId,  //type of contract id
-                    "COMMENTS": dealField,           //field infoblocks
-                    'UF_CRM_1642056396': description,  //? description
-                    "COMPANY_ID": companyId          //company id
+                    ...fieldsUpdate
+                    // 'UF_CRM_1540190343': typeOfContractId,  //type of contract id
+                    // "COMMENTS": dealField,           //field infoblocks
+                    // 'UF_CRM_1642056396': description,  //? description
+                    // "COMPANY_ID": companyId          //company id
 
                 },
                 params: { "REGISTER_SONET_EVENT": "Y" }

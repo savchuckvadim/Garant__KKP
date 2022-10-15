@@ -19,7 +19,7 @@ export const sendDeal = (dealName, ltId, goodsId, price, priceOfLt = null, unit,
         await bitrixAPI.setProducts(ltId, newDealId, goodsId, price, priceOfLt, unit)
 
         const companyId = await bitrixAPI.getCompanyId(dealName)
-        const updatingDeal = await bitrix.updateDeal(newDealId, typeOfContractId, dealField, description, companyId)
+        const updatingDeal = await bitrixAPI.updateDeal(newDealId, typeOfContractId, dealField, description, companyId)
         dispatch(setNewDeal(updatingDeal))
         dispatch(preloader(false))
     } catch (error) {
