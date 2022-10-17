@@ -10,7 +10,7 @@ const initialState = {
             weight: 1,
             'className': 'btn__universal',
             number: 0,
-            'color' : 'black'
+            'color': 'black'
         },
         {
             name: 'Классик+',
@@ -66,9 +66,11 @@ const initialState = {
                 'Отраслевое законодательство',
                 'Проекты законов',
                 'Международное право',
-
+                'ГОСТы России',
                 'Решения Федеральной антимонопольной службы',
                 'Справочник промышленника',
+                'Справочник по охране труда',
+                'Справочник по техническому регулированию и стандартизации',
                 'Практика высших судебных органов',
                 'Практика арбитражных судов округов',
                 'Практика арбитражных апелляционных судов округов',
@@ -113,16 +115,16 @@ const initialState = {
                     'specials': [2]
                 },
                 {
-                    'newBlocks': [0]
+                    'newBlocks': [0, 1, 2]
                 },
             ],
             fillingPaketsERIndexes: [],
-            fillingEncyclopediasIndexes: [0, 2, 3, 4, 5, 6, 7],
+            fillingEncyclopediasIndexes: [0, 1, 2, 3, 4, 5, 6, 7],
             fillingLTIndexes: [],
             fillingPaketLT: [],
             currentStatusInputComplectName: true,
             freeBlocks: [0, 1, 2, 3, 4, 5, 6, 7, 8],
-            consalting: []
+            consalting: [0]
         },
 
     ],

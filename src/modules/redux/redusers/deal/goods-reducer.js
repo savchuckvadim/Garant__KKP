@@ -1,3 +1,5 @@
+import { CURRENT_UNIVERSAL, INTERNET, PROF, PROKSIMA } from "../global-parameters/global-parameters-reducer";
+
 let GOODS = 'GOODS';
 
 let initialState = {
@@ -62,7 +64,7 @@ let initialState = {
 
     ],
     internetUniversal: [
-        [7592, 7594, 7596, 7598, 7600, 7602, 7604, 7606, 7608], //internet standart
+        // [7592, 7594, 7596, 7598, 7600, 7602, 7604, 7606, 7608], //internet standart
         [7610, 7612, 7614, 7616, 7618, 7620, 7622, 7624, 7626], //1OD
         [7628, 7630, 7632, 7634, 7636, 7638, 7640, 7642, 7644], //2OD
         [7646, 7648, 7650, 7652, 7654, 7656, 7658, 7660, 7662], //3OD
@@ -70,7 +72,7 @@ let initialState = {
         [7682, 7684, 7686, 7688, 7690, 7692, 7694, 7696, 7698], //10 OD
         [7700, 7702, 7704, 7706, 7708, 7710, 7712, 7714, 7716], //20 OD
         [7718, 7720, 7722, 7724, 7726, 7728, 7730, 7732, 7734], //30 OD
-        [7752, 7736, 7738, 7740, 7742, 7744, 7746, 7748, 7450], //50 OD
+        [7752, 7736, 7738, 7740, 7742, 7744, 7746, 7748, 7750], //50 OD
 
     ],
 
@@ -101,18 +103,30 @@ const changeGoods = (stateCome, action) => {
     let state = {
         ...stateCome
     }
+    debugger
+    if (action.currentSupplyName === INTERNET) {
+        if(action.currentComplectsType == PROF){
+            
+            if (typeOfContract === 'abonSix') {
+                state.currentId = state.abonSix[numberOfOD][numberOfComplect]
+            } else if (typeOfContract === 'abonEleven') {
+                state.currentId = state.abonEleven[numberOfOD][numberOfComplect]
+            } else {
+                state.currentId = state.prof[numberOfOD][numberOfComplect]
     
-    if (action.currentSupplyName === 'Интернет') {
-        if (typeOfContract === 'abonSix') {
-            state.currentId = state.abonSix[numberOfOD][numberOfComplect]
-        } else if (typeOfContract === 'abonEleven') {
-            state.currentId = state.abonEleven[numberOfOD][numberOfComplect]
-        } else {
-            state.currentId = state.prof[numberOfOD][numberOfComplect]
+            }
 
+        }else if(action.currentComplectsType == CURRENT_UNIVERSAL){
+            state.currentId = state.internetUniversal[numberOfOD][numberOfComplect]
         }
-    } else if (action.currentSupplyName === 'Проксима') {
-        state.currentId = state.proximaProf[numberOfOD][numberOfComplect]
+       
+    } else if (action.currentSupplyName === PROKSIMA) {
+        if(action.currentComplectsType == PROF){
+            state.currentId = state.proximaProf[numberOfOD][numberOfComplect]
+        }else if(action.currentComplectsType == CURRENT_UNIVERSAL){
+            state.currentId = state.proximaUniversal[numberOfOD][numberOfComplect]
+        }
+        
     }
 
 

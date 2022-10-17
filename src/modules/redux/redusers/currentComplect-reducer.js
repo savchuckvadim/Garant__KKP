@@ -13,7 +13,13 @@ export const RESET = 'RESET'
 
 let initialState = null
 
-export const maximum = (obj, index, ods, currentOd) => ({ type: MAXIMUM, obj })
+export const maximum = (obj, index, ods, currentOd) => ({
+    type: MAXIMUM, obj: obj,
+    index: index,
+    currentComplect: obj,
+    ods: ods,
+    currentOd: currentOd
+})
 export const resetActionCreator = () => ({ type: RESET })
 export const changeUniversalComplect = (weight, globalParameters, universalComplects) => ({ type: CHANGE_WEIGHT_AND_NAME_OF_UNIVERSAL_COMPLECT, weight, globalParameters, universalComplects })
 export const createComplectActionCreator = (obj, index, ods, currentOd) => {
