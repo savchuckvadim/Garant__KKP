@@ -103,7 +103,7 @@ const changeGoods = (stateCome, action) => {
     let state = {
         ...stateCome
     }
-    debugger
+    
     if (action.currentSupplyName === INTERNET) {
         if(action.currentComplectsType == PROF){
             

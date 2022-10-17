@@ -223,7 +223,7 @@ export const changePaketsErFromCurrent = (state, currentComplect) => {      //м
 /////////////////////////////////
 
 const changeEr = (stateCome, action) => {
-  debugger
+  
   let state = [...stateCome]
   state[0] = [...stateCome][0]
   state[1] = [...stateCome][1]
