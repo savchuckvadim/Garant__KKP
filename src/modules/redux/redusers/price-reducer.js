@@ -143,7 +143,8 @@ export const priceReducer = (state = initialState, action) => {
 
         //TODO price from weight!
         case SET_PRICES:
-
+            action.prices.coefficients[0].splice(0, 1)
+            
             return {
                 ...state,
                 prices: action.prices.internetProf,

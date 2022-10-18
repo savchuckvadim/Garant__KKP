@@ -1,4 +1,4 @@
-import { INTERNET, PROKSIMA, SET_COMPLECTS_TYPE, SET_SUPPLY } from "../global-parameters/global-parameters-reducer";
+import { CURRENT_UNIVERSAL, INTERNET, PROF, PROKSIMA, SET_COMPLECTS_TYPE, SET_SUPPLY } from "../global-parameters/global-parameters-reducer";
 
 let TYPE_OF_CONTRACT = 'TYPE_OF_CONTRACT';
 

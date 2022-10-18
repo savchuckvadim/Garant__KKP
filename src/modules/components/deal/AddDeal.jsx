@@ -9,8 +9,8 @@ import { DealFieldContainer } from './included/deal-field-Container';
 export const AddDeal = (props) => {
 
   console.log('dealField', props.dealField)
- 
- 
+
+
   let typeOfContractId = props.typeOfContract.value.id
 
   let price = props.priceOfComplect
@@ -20,7 +20,7 @@ export const AddDeal = (props) => {
   let dealField = `${<DealFieldContainer />}`
   let dealName = props.name
   let description = props.description
-  
+
 
 
   console.log('🚀 ~ file: AddTask.jsx ~ line 6 ~ AddTask ~ taskData', props.name);
@@ -34,13 +34,15 @@ export const AddDeal = (props) => {
 
     event.preventDefault();
     // props.changeDealStatus(true)
-    const fields = await BX24API.callMethod('crm.deal.fields')
+
+
+    const fields = await BX24API.callMethod('crm.deal.fields')  //look at all fields parameters
     console.log('Начал думать');
-  
+
     await props.sendDeal(dealName, ltId, goodsId, price, priceOfLt, props.unit, typeOfContractId, props.dealField, description)
     props.reset()
 
-    document.location.replace(`https://april-garant.bitrix24.ru/crm/deal/details/${idOfCurrentDeal}/`);
+    // document.location.replace(`https://april-garant.bitrix24.ru/crm/deal/details/${idOfCurrentDeal}/`);
 
 
   }
@@ -53,8 +55,8 @@ export const AddDeal = (props) => {
 
 
     <div className='dealButtons__container'>
-      <Button  className='addDeal__btn' onClick={onSubmit} variant="outlined">Создать Сделку</Button>
-      <Button  className='cancelDeal__btn' onClick={onCancel} variant="outlined">Отменить</Button>
+      <Button className='addDeal__btn' onClick={onSubmit} variant="outlined">Создать Сделку</Button>
+      <Button className='cancelDeal__btn' onClick={onCancel} variant="outlined">Отменить</Button>
 
     </div>
 

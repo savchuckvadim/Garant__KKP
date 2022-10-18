@@ -47,7 +47,7 @@ const ComplectButtons = (props) => {
                 </Button >)
         })
     } else {
-        if (props.currentComplect) {
+        // if (props.currentComplect) {
             buttons = props.universalComplects.complects.map((complect, index) => {
                 if (index === props.universalComplects.complects.length - 1 || props.currentComplect.name === complect.name) {
                     return (
@@ -99,7 +99,7 @@ const ComplectButtons = (props) => {
 
 
             })
-        }
+        // }
     }
 
 
