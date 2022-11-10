@@ -185,9 +185,9 @@ const changeCurrentPketsEr = (state, action) => { //меняет currentComplect
     if (state.name !== 'Бухгалтер' && state.name !== 'Бухгалтер госсектора') {
 
         if (state.name !== 'Офис') {
-
-            changePaketsInState(action.checked, action.index) // изменяет индекс входящих в комплект пакетов
-
+            changePaketsInState(action.checked, action.index)
+             // изменяет индекс входящих в комплект пакетов
+//TODO: if universal complect
         } else {
 
             window.alert('в комплекте Гарант-Офис должны содержаться два любых Пакета ЭР')

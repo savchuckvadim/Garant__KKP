@@ -53,6 +53,7 @@ let initialState = {
         [30564, 30564, 43848, 43848, 38340, 38988, 61452, 76140]
     ],
     universalPricesInternet: [
+        
 
     ],
     universalPricesProxima: [

@@ -13,6 +13,7 @@ const Result = (props) => {
     const dispatch = useDispatch()
    
     useEffect(() => {
+        
         dispatch(weight(props.values.weight));
         dispatch(changeUniversalComplect(props.values.weight, props.globalParameters, props.universalComplects))
         dispatch(changePriceFromWeight(
