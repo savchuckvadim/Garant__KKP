@@ -15,7 +15,8 @@ export const setUniversalPrices = (typeOfComplect, dataPricesKMV, dataPricesSTV,
                 
                 if (typeOfComplect === 'proxima') {
                     if (index === 0) {
-                        resultPricesOfRegion[0].push(Number((product.price * coefficient).toFixed(2)))
+
+                        resultPricesOfRegion[0].push(Number.parseFloat((product.price * coefficient).toFixed(2)))
                         resultPricesOfRegion[index + 1].push(Number((product.price * coefficient).toFixed(2)))
                     } else {
                         resultPricesOfRegion[index + 1].push(Number((product.price * coefficient).toFixed(2)))

@@ -53,7 +53,7 @@ let initialState = {
         [30564, 30564, 43848, 43848, 38340, 38988, 61452, 76140]
     ],
     universalPricesInternet: [
-        
+
 
     ],
     universalPricesProxima: [
@@ -116,8 +116,9 @@ const getPrice = (state, action) => {
         } else {
             state.currentPrice.value = state.prices[numberOfOD][numberOfComplect]
         }
-
-        state.currentPrice.value = state.currentPrice.value.toFixed(2)
+        let currentPriceNumberValue = Number.parseFloat(state.currentPrice.value.toFixed(2))
+        state.currentPrice.value = currentPriceNumberValue
+        
     } else if (action.currentComplectsType === CURRENT_UNIVERSAL) {
         let regionIndex = 0
 
@@ -145,7 +146,7 @@ export const priceReducer = (state = initialState, action) => {
         //TODO price from weight!
         case SET_PRICES:
             action.prices.coefficients[0].splice(0, 1)
-            
+
             return {
                 ...state,
                 prices: action.prices.internetProf,
