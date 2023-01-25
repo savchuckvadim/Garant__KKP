@@ -35,6 +35,7 @@ import universalComplects from './redusers/universal-complects/universal-complec
 import weightReducer from './redusers/weight-reducer';
 import preloaderReducer from './redusers/preloader-reducer';
 import dealReducer from './redusers/deal/deal-reducer';
+import app from './redusers/app-reducer';
 
 
 
@@ -51,6 +52,7 @@ import dealReducer from './redusers/deal/deal-reducer';
 
 
 let reducers = combineReducers({
+    app,
     globalParameters: globalParametersReducer,
     weight: weightReducer,
     allComplects: changeColorOfButton,
