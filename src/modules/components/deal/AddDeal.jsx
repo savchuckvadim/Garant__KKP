@@ -47,7 +47,7 @@ export const AddDeal = (props) => {
 
   }
   const onCancel = () => {
-    document.location.replace(`https://april-garant.bitrix24.ru/marketplace/app/98/`);
+    document.location.replace(`https://april-garant.bitrix24.ru/marketplace/app/102/`);
   }
 
   return (

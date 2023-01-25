@@ -101,6 +101,9 @@ export const bitrixAPI = {
 
         )
         return updatedDeal
+    },
+    info: async () => {
+       const info =  await BX24API.callMethod('placement.info')
+       console.log(info)
     }
-
 }
