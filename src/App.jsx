@@ -8,6 +8,11 @@ import SelectRegionContainer from './modules/components/Select-Region/Select-Reg
 const App = (props) => {
   useEffect(() => {
     props.getPrices()
+   
+
+  }, [])
+  useEffect(() => {
+   
     props.initial()
 
   }, [])

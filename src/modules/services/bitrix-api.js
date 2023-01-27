@@ -3,6 +3,7 @@ import BX24API from 'bx24-api';
 export const bitrixAPI = {
     getCurrentUserId: async () => {
         const currentUserIdExtend = await BX24API.callMethod('user.current')
+        console.log(currentUserIdExtend.answer)
         const currentUserId = currentUserIdExtend.answer.result.ID
         return currentUserId
     },
@@ -103,7 +104,9 @@ export const bitrixAPI = {
         return updatedDeal
     },
     info: async () => {
-       const info =  await BX24API.callMethod('placement.info')
-       console.log(info)
+       
+        // await BX24API.callMethod('init')
+        const info = await BX24API.callMethod('placement.info')
+        console.log(info)
     }
 }

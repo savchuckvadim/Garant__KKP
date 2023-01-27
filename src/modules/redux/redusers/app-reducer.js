@@ -1,23 +1,25 @@
-import bitrixAPI from '../../services/bitrix-api'
+import {bitrixAPI} from '../../services/bitrix-api'
 const initialState = {
     company: '',
-    user:
+    user: ''
 
 }
 
 export const initial = () => async (dispatch) => {
+    bitrixAPI.getCurrentUserId()
     bitrixAPI.info()
 }
 
 const app = (state = initialState, action) => {
-    switch (key) {
-        case value:
+    // switch (key) {
+    //     case value:
 
-            break;
+    //         break;
 
-        default:
-            break;
-    }
+    //     default:
+    //         break;
+    // }
+    return state
 }
 
 export default app

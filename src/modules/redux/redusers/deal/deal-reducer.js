@@ -17,8 +17,12 @@ export const sendDeal = (dealName, ltId, goodsId, price, priceOfLt = null, unit,
         const newDealId = await bitrixAPI.addDeal(dealName, currentUserId)
 
         await bitrixAPI.setProducts(ltId, newDealId, goodsId, price, priceOfLt, unit)
+//new company id !
+        const companyIdFromDealName = await bitrixAPI.getCompanyId(dealName)
+        const companyIdFromLocalStorage = localStorage.getItem('company_id')
+        let companyId = companyIdFromLocalStorage || companyIdFromDealName
 
-        const companyId = await bitrixAPI.getCompanyId(dealName)
+
         const updatingDeal = await bitrixAPI.updateDeal(newDealId, typeOfContractId, dealField, description, companyId)
         dispatch(setNewDeal(updatingDeal))
         dispatch(preloader(false))
